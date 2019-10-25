@@ -1,0 +1,71 @@
+body {
+	background-color: white;
+	margin: 0;
+}
+
+#welcome-header {
+	background-color: white;
+}
+
+.welcome-image {
+	float: bottom;
+	width: 100%;
+}
+
+.welcome-basic-info {
+	background: rgba(255,255, 255, 0.75);
+	position: absolute;
+	float: top;
+	top: 10%;
+	left: 15%;
+	min-height: 90%;
+	width: 35%;
+	border-radius: 5%;
+	border-style: outset;
+}
+
+.message {
+	font-size: 35px;
+	font-weight: bolder;
+	text-align: center;
+	font-family: Helvetica, sans-serif;
+	letter-spacing: 0.1mm;
+}
+
+.gender-choice {
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	font-family: Helvetica, sans-serif;
+}
+
+.title-pic {
+	width: 100%;
+	border-radius: 5%;
+	margin-top: 1px;
+}
+
+.gender-icons {
+}
+
+.gender-icon {
+	height: 15%;
+	width: 9%;
+	border-radius: 25%;
+}
+
+.welcome-button {
+	height: 40px;
+	width: 50%;
+	color: white;
+	background: rgba(110, 60, 128, 1);
+}
+
+.intro-container {
+	margin-left: 22%;
+}
+
+.copyright {
+	text-align: center;
+	font-size: 10px;
+}
