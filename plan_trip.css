@@ -1,0 +1,41 @@
+
+body {
+    background-color: #e6ecf0;
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+.background_img{
+    padding: 5px;
+    background-color: white;
+    height:  800px;
+    width: 1500px;
+}
+
+
+#PlaceInfoForm  {
+    position: absolute;
+
+    left: 800px;
+    top: 230px;
+    width: 220px;
+
+}
+#InputPlace{
+    position: absolute;
+    height: 50px;
+    left: -175px;
+}
+#InputPlaceSubmit{
+    position: absolute;
+    height: 55px;
+    left: 0px;
+}
+#HotProject{
+    position: absolute;
+    top: 400px;
+    color: darkblue;
+}
+
+.HotButton{
+    height: 100px;
+}

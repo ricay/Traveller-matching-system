@@ -1,0 +1,14 @@
+.backgroundImage {
+	min-width: 100%;
+	min-height: 100%;
+	float: bottom;
+}
+
+.article {
+	position: absolute;
+	float: top;
+	top: 10%;
+	left: 40%;
+	height: 100%;
+	width: 100%;
+}
