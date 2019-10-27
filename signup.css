@@ -12,3 +12,11 @@
 	height: 100%;
 	width: 100%;
 }
+
+.bg {
+	background-image: url('signUpBack.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+
