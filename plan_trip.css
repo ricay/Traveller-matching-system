@@ -4,10 +4,10 @@ body {
     margin: 0;
     font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
-.background_img{
-    padding: 5px;
+#background_img{
+    /*padding: 5px;*/
     background-color: white;
-    height:  800px;
+    height:  700px;
     width: 1500px;
 }
 
@@ -29,13 +29,23 @@ body {
     position: absolute;
     height: 55px;
     left: 0px;
+    background: black;/*rgba(110, 60, 128, 1);*/
+    justify-content: center;
 }
 #HotProject{
     position: absolute;
     top: 400px;
-    color: darkblue;
+    color: black;
+
+    justify-content: center;
 }
 
 .HotButton{
+    position: relative;
     height: 100px;
+    background: rgba(110, 60, 128, 1);
+    display: flex;
+    float: left;
+    width: 100px;
+    justify-content: center;
 }
