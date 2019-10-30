@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Friends On The Way</title>
-    <link rel="stylesheet" type="text/css" href="Welcome.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
-    <script src="Welcome.js"></script>
+    <script src="index.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand navbar-dark bg-primary">
@@ -17,7 +17,10 @@
         <div class="navbar navbar-expand" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="Welcome.html">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#">Admin Login <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -31,10 +34,10 @@
         <img src="Traveling-With-Friends-1.jpg" class="welcome-image" alt="Welcome"/>
     </div>
 
-    <div class="welcome-container">
-        <div class="welcome-basic-info">
-            <img src="IMG_1369.PNG" class="title-pic" alt="gender-pic">
-            <div class="message">
+    <div id="welcome-basic-info">
+        <img src="IMG_1369.PNG" class="title-pic" alt="gender-pic">
+        <div id="new_user">
+            <div id="message">
                 <p>
                     Introduce yourself?
                 </p>
@@ -49,11 +52,11 @@
                     <img src="girl.png" class="gender-icon" alt="girl">
                 </p>
             </div>
-            <div class="buttons-container">
-                <button type="submit" class="login-button">Log in</button>
-                <br>
-                <button type="submit" class="signup-button" onclick="jumpTo('signup.html')">Don't have an account?</button>
-            </div>
+        </div>
+        <div id="buttons-container">
+            <button type="submit" id="signup-button" onclick="jumpTo('signup.html')">New traveller? Find new friend!</button>
+            <br>
+            <button type="submit" id="login-button" onclick="logIn()">Log in</button>
         </div>
     </div>
 

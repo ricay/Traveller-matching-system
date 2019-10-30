@@ -12,7 +12,7 @@ body {
 	width: 100%;
 }
 
-.welcome-basic-info {
+#welcome-basic-info {
 	background: rgba(255, 255, 255, 0.75);
 	position: absolute;
 	top: 15%;
@@ -30,7 +30,7 @@ body {
 	margin-top: 1px;
 }
 
-.message {
+#message {
 	margin-top: 5%;
 	font-size: 150%;
 	font-weight: bolder;
@@ -51,27 +51,36 @@ body {
 	border-radius: 25%;
 }
 
-.buttons-container {
+#buttons-container {
 	text-align: center;
 	margin-bottom: 10%;
 }
 
-.login-button  {
+#login-button  {
 	height: 4vh;
 	width: 20vw;
-	font-size: 1.5vh;
+	font-size: 110%;
 	margin-bottom: 1%;
 	color: white;
 	background: rgba(110, 60, 128, 1);
 }
 
-.signup-button {
+
+#signup-button {
 	height: 4vh;
 	width: 20vw;
-	font-size: 1.5vh;
+	font-size: 110%;
 	margin-bottom: 1%;
 	color: white;
 	background: rgba(110, 60, 128, 1);
+}
+
+.authorization-container {
+	height: 10vh;
+	width: 20vw;
+	margin-top: 2vh;
+	margin-left: 5vw;
+	margin-right: 5vw;
 }
 
 .intro-container {
