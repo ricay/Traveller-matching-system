@@ -9,18 +9,15 @@
 </head>
 <body>
     <nav class="navbar navbar-expand navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Friends On The Way</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <p class="nav">Friends On The Way</p>
 
-        <div class="navbar navbar-expand" id="navbarSupportedContent">
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li>
-                    <a class="nav-link" href="#">Admin Login <span class="sr-only">(current)</span></a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="admin_main.html">Admin Login <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -46,17 +43,22 @@
             <div class="gender-choice">
                 <p>
                     I am a
-                    <input type="radio" name="gender" value="mal">
+                    <label>
+                        <input type="radio" name="gender" value="mal">
+                    </label>
                     <img src="boy.png" class="gender-icon" alt="male">
-                    <input type="radio" name="gender" value="mal">
+                    <label>
+                        <input type="radio" name="gender" value="mal">
+                    </label>
                     <img src="girl.png" class="gender-icon" alt="girl">
                 </p>
             </div>
         </div>
         <div id="buttons-container">
-            <button type="submit" id="signup-button" onclick="jumpTo('signup.html')">New traveller? Find new friend!</button>
+            <button type="submit" id="signup-button" class="welcome-button" onclick="jumpTo('signup.html')">New traveller? Find new friend!</button>
             <br>
-            <button type="submit" id="login-button" onclick="logIn()">Log in</button>
+            <button type="submit" id="login-button" class="welcome-button" onclick="logIn()">Log in</button>
+            <p id="incorrect_message"></p>
         </div>
     </div>
 

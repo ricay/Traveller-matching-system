@@ -26,6 +26,7 @@ function logIn() {
     userName_i.className = "fa fa-user";
     const userName = document.createElement("input");
     userName.name = "";
+    userName.id = "userName";
     userName.className = "form-control";
     userName.placeholder = "Username";
     userName.type = "text";
@@ -44,6 +45,7 @@ function logIn() {
     passWord_i.className = "fa fa-user";
     const passWord = document.createElement("input");
     passWord.name = "";
+    passWord.id = "passWord";
     passWord.className = "form-control";
     passWord.placeholder = "Password";
     passWord.type = "text";
@@ -60,9 +62,25 @@ function logIn() {
     const logInButton = document.getElementById("login-button");
     buttonContainer.replaceChild(authorization_container, signUpButton);
     logInButton.textContent = "Enter";
-    logInButton.onclick = checkLogIn();
+    logInButton.setAttribute('onclick', "checkLogIn()");
+    document.addEventListener('keyup', function(event) {
+        if (event.code === 'Enter') {
+            logInButton.click()
+        }
+    });
 }
 
 function checkLogIn() {
+    let userNameInput = document.querySelector("#userName").value;
+    let passWordInput = document.querySelector("#passWord").value;
+    const incorrectMessage = document.getElementById("incorrect_message");
 
+    if ((userNameInput !== "user" || passWordInput !== "user") && (userNameInput !== "admin" || passWordInput !== "admin")) {
+        incorrectMessage.textContent = "Incorrect Username/Password! Please enter again.";
+    } else if (userNameInput === "admin" && passWordInput === "admin"){
+        incorrectMessage.textContent = "Please go to admin page to log in as admin.";
+    } else {
+        incorrectMessage.hidden = true;
+        jumpTo("planing_trip.html")
+    }
 }

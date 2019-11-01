@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin main</title>
+    <link rel="stylesheet" type="text/css" href="admin_user.css">
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <script src="admin_main.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand bg-sandy">
+        <p class="nav">Friends On The Way</p>
+
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <p class="nav">Admin</p>
+                <input type="image" src="profile_photo.png" class="profile-img" alt="profile">
+            </form>
+        </div>
+    </nav>
+
+    <div id="main-background">
+        <img src="main_background.jpg" class="backgroundImage" alt="MainBackground"/>
+    </div>
+
+    <div id="buttons-container">
+        <form id="authorization-container" hidden="hidden">
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                </div>
+                <input name="" id="userName" class="form-control" placeholder="Username" type="text">
+            </div>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                </div>
+                <input name="" id="passWord" class="form-control" placeholder="Password" type="text">
+            </div>
+        </form>
+        <br>
+        <button type="submit" id="login-button" class="welcome-button" onclick="logIn()">Log in</button>
+        <p id="incorrect-message"></p>
+    </div>
+
+    <div id="function-container" hidden="hidden">
+        <button class="insertPlan" onclick="">
+            <p class="button-message">Insert new recommendation</p>
+        </button>
+
+        <button type="button" class="validateUser" onclick="">
+            <p class="button-message">Validate users</p>
+        </button>
+
+        <button type="button" class="delete" onclick="">
+            <p class="button-message"> Delete plan </p>
+        </button>
+    </div>
+</body>
+</html>
