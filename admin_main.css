@@ -38,7 +38,7 @@
 }
 
 .welcome-button {
-	box-shadow: 0 0 50px 0 #1c1b18;
+	box-shadow: 0 0 10px 0 #1c1b18;
 	height: 6vh;
 	width: 10vw;
 	background: #eae0c2 linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
