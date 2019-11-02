@@ -4,46 +4,57 @@ body {
     margin: 0;
     font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
+
 #background_img{
     /*padding: 5px;*/
     background-color: white;
-    height:  700px;
-    width: 1500px;
+    width: 100%;
 }
 
-
-#PlaceInfoForm  {
+.pt-button {
     position: absolute;
-
-    left: 800px;
-    top: 230px;
-    width: 220px;
-
+    width: 20vw;
+    height: 6vh;
+    border-radius: 10%;
 }
-#InputPlace{
-    position: absolute;
-    height: 50px;
-    left: -175px;
+
+#searchInterestedPlaces {
+    left: 5%;
+    text-indent: 20px;
+    height: 8vh;
+    width: 21vw;
+    top: 20vh;
 }
+
+#PlanInfoSubmit{
+    left: 5.67%;
+    top: 40vh;
+    font-family: cursive;
+    font-weight: bold;
+}
+
 #InputPlaceSubmit{
-    position: absolute;
-    height: 55px;
-    left: 0px;
-    background: black;/*rgba(110, 60, 128, 1);*/
-    justify-content: center;
+    left: 5.67%;
+    margin-top: 1%;
+    top: 30vh;
+    font-family: cursive;
+    font-weight: bold;
 }
+
 #HotProject{
     position: absolute;
-    top: 400px;
+    top: 100px;
     color: black;
-
+    left: 500px;
     justify-content: center;
 }
 
 .HotButton{
     position: relative;
+    padding: 50px;
+    left:50px;
     height: 100px;
-    background: rgba(110, 60, 128, 1);
+    background-color: white;
     display: flex;
     float: left;
     width: 100px;
