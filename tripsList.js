@@ -62,7 +62,7 @@ function addNewPlanToView(Plan){
     Author.innerHTML = author;
     const NumPeople = document.createElement('pnum');
 
-    const numPeople = 'Current people ready for this trip is:  ' + Plan.numPeople;
+    const numPeople = 'Currently ' + Plan.numPeople + ' user(s) interested      ';
     NumPeople.innerHTML = numPeople;
     NumPeople.id = Plan.PlanID + 'people';
 
@@ -100,7 +100,7 @@ function changeNumPeople(ID,PlanList){
             const Num = document.getElementById(numID);
             console.log(PlanList[i].numPeople)
             PlanList[i].numPeople+=1;
-            Num.innerHTML = 'Current people ready for this trip is:  ' + PlanList[i].numPeople;
+            Num.innerHTML = 'Currently ' + PlanList[i].numPeople + ' user(s) interested     ';
 
         }
     }
@@ -112,7 +112,7 @@ function displayTrip(planList) {
     for (let i=0; i<planList.length; i++){
         for (let j= 0; j < planList[i].length; j++){
             if (planList[i].SpotList[j] == spot){
-                console.log(planList[i].SpotList[j])
+                console.log(planList[i].SpotList[j]);
                 addNewPlanToView(planList[i])
             }
         }
