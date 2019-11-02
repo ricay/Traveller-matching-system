@@ -64,8 +64,8 @@
 
             </div>
             <div class="col-md-2">
-                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-                <input type="submit" class="profile-privacy" name="btnAddMore" value="Privacy setting"/>
+                <a class="edit_button" href="my_profile.html">Edit Profile <span class="sr-only">(current)</span></a><br>
+                <a class="edit_button" href="my_profile.html">Privacy setting <span class="sr-only">(current)</span></a>
             </div>
         </div>
         <div class="row">
@@ -143,33 +143,25 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <button type="submit" id="login-button" class="welcome-button" onclick="logIn()">Save</button>
+                                <a class="welcome-button" id="login-button" href="user_profile.html">Save</a>
                             </div>
                     </div>
 
 
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab" hidden="hidden">
+                        <section id="pinBoot">
 
+                            <article class="white-panel"><img src="pic/icon.png" alt="">
+                                <h4><a href="#"> Place name<h2>Date          </h2></a></h4>
 
-                            <section id="pinBoot">
+                                <p>  Description  </p>
+                            </article>
+                        </section>
 
-                                <article class="white-panel"><img src="pic/greece.jpg" alt="">
-                                    <h4><a href="#">Santorini<h2>Date:06/07/2019</h2></a></h4>
+                        <div class="row">
+                            <a class="welcome-button"  href="user_profile.html">Add more</a>
+                        </div>
 
-                                    <p>  Oia village in Santorini</p>
-                                </article>
-
-                                <article class="white-panel"> <img src="pic/Barcelona.jpg" alt="">
-                                    <h4><a href="#">  Barcelona<h2>Date:06/07/2019</h2></a></h4>
-                                    <p>  Sagrada Família is amazing. </p>
-                                </article>
-
-                                <article class="white-panel"> <img src="pic/Milano.jpg" alt="">
-                                    <h4><a href="#">  Milano <h2>Date:06/07/2019</h2></a></h4>
-
-                                    <p>  Duomo di Milano  </p>
-                                </article>
-                            </section>
                     </div>
                 </div>
             </div>
