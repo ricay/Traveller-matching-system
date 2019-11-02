@@ -33,7 +33,7 @@ function jumpTo(url) {
  
     if (email==null || email==""||!regEmail.test(email))
         {      
-        document.getElementById("email_msg").innerHTML="Email is empty or invalid(example: billhu@gmail.com)";
+        document.getElementById("email_msg").innerHTML="Email is empty or invalid(example: user@gmail.com)";
            result = false;
         }
     
