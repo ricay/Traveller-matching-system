@@ -22,19 +22,19 @@
         </ul>
     </div>
 </nav>
-<div id="background">
+    <div id="background">
 
-    <img id="background_img" src="pic/pt-backgroud.jpg" alt="">
-    <script>
-        window.onload = function(){
-            var opDiv = document.getElementById("background_img");
-            opDiv.onmouseover = function(){
-                startMove(100);
+        <img id="background_img" src="pic/pt-backgroud.jpg" alt="">
+        <script>
+            window.onload = function(){
+                var opDiv = document.getElementById("background_img");
+                opDiv.onmouseover = function(){
+                    startMove(100);
+                };
+                opDiv.onmouseout = function(){
+                    startMove(0);
+                }
             };
-            opDiv.onmouseout = function(){
-                startMove(0);
-            }
-        };
         var timer = null;
         var alpha = 100;
         var speed = 0;
@@ -61,7 +61,7 @@
         }
         </script>
     <form id='PlaceInfoForm'>
-        <input class="pt-button" id="searchInterestedPlaces" type="text" placeholder="Any interested places?">
+        <label for="searchInterestedPlaces"></label><input class="pt-button" id="searchInterestedPlaces" type="text" placeholder="Any interested places?">
         <input class="pt-button" id = "InputPlaceSubmit" type="submit" value="Search Your Trip">
     </form>
     <form id='PlanInfoForm'>
@@ -69,7 +69,7 @@
     </form>
 </div>
 <div id="HotProject">
-    <p> <font size="6"><strong>Some hottest spots</strong></font></p>
+    <p> <strong>Some hottest spots</strong></p>
     <table id='HotPlaceTable'>
     </table>
 </div>

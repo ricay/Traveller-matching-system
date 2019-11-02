@@ -1,8 +1,3 @@
-'use strict';
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-
-
 function jumpTo(url) {
   
     const email = document.getElementById("email").value;
@@ -14,8 +9,7 @@ function jumpTo(url) {
     const phone = document.getElementById("phone").value;
     const gender = document.getElementById("gender").value;
 
-    var result = true;    
-
+    var result = true;
 
     const regName = /[a-zA-Z]+/;
     const regEmail = /\S+@\S+\.\S+/;
@@ -31,37 +25,37 @@ function jumpTo(url) {
     document.getElementById("phone_msg").innerHTML ="";
     document.getElementById("gender_msg").innerHTML ="";
  
-    if (email==null || email==""||!regEmail.test(email))
+    if (email==null || email===""||!regEmail.test(email))
         {      
         document.getElementById("email_msg").innerHTML="Email is empty or invalid(example: billhu@gmail.com)";
            result = false;
         }
     
-    if (uname==null || uname=="")
+    if (uname==null || uname==="")
     {
         document.getElementById("uname_msg").innerHTML="Username can not be empty";
         result = false;
     }
 
-    if (password==null || password=="" || !regPassword.test(password))
+    if (password==null || password==="" || !regPassword.test(password))
     {
         document.getElementById("pswd_msg").innerHTML="Please Enter the password correctly(at least 6 characters long, at least one non-letter)";
         result = false;
     }
 
-    if (password2==null || password2=="" || password2 != password)
+    if (password2==null || password2==="" || password2 !== password)
     {
         document.getElementById("pswdr_msg").innerHTML="Two passwords do not match!";
         result = false;
     }
 
-    if (fname==null || fname=="")
+    if (fname==null || fname==="")
     {
         document.getElementById("fname_msg").innerHTML="First name can not be empty";
         result = false;
     }
 
-    if (lname==null || lname=="")
+    if (lname==null || lname==="")
     {
         document.getElementById("lname_msg").innerHTML="Last name can not be empty";
         result = false;
@@ -74,19 +68,19 @@ function jumpTo(url) {
         result = false;
     }
 
-    if (gender==null || !(gender=="male" || gender=="female"))
+    if (gender==null || !(gender==="male" || gender==="female"))
     {
         document.getElementById("gender_msg").innerHTML="Please enter male or female";
         result = false;
     }
 
 
-  if(result == false )
+  if(result === false )
         {    
             event.preventDefault();
         }
 
-    if (result == true)
+    if (result === true)
     {
         window.location.href = url;
         alert("Signup successfully!")

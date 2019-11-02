@@ -1,9 +1,5 @@
-
 var planList = [];
 var numberOfPlans = 1;
-
-//
-
 
 class Plan {
     constructor(StartPlace, EndPlace, MethodOfTravel,ExceptCost,StartDate,EndDate,Img,Author) {
@@ -20,7 +16,6 @@ class Plan {
         this.numPeople = 1;
         this.disPlay = false;
         numberOfPlans++;
-
     }
 }
 
@@ -30,40 +25,30 @@ Trip1.SpotList.push('Santorini');
 
 function addNewPlan(Plan) {
     planList.push(Plan);
-    //addNewPlanToView(Plan);
 }
 function addNewPlanToView(Plan){
     const content = document.getElementById('pinBoot');
     const plan = document.createElement('article');
     plan.className = "white-panel";
     plan.id = "white-panel-id";
-    const title = document.createElement('h4');
     const img = document.createElement('IMG');
     const StartPlace = document.createElement('p');
-    const startplace = 'StartPlace:  ' + Plan.StartPlace;
-    StartPlace.innerHTML = startplace;
+    StartPlace.innerHTML = 'StartPlace:  ' + Plan.StartPlace;
     const EndPlace = document.createElement('p');
-    const endplace = 'EndPlace:  ' + Plan.EndPlace;
-    EndPlace.innerHTML = endplace;
+    EndPlace.innerHTML = 'EndPlace:  ' + Plan.EndPlace;
     const MethodOfTravel = document.createElement('p');
-    const methodoftravel = 'Method of Travel:  ' + Plan.MethodOfTravel;
-    MethodOfTravel.innerHTML = methodoftravel;
+    MethodOfTravel.innerHTML = 'Method of Travel:  ' + Plan.MethodOfTravel;
     const ExceptCost = document.createElement('p');
-    const exceptcost = 'Except Cost:  '+ Plan.ExceptCost + ' dollars';
-    ExceptCost.innerHTML = exceptcost;
+    ExceptCost.innerHTML = 'Except Cost:  ' + Plan.ExceptCost + ' dollars';
     const StartDate = document.createElement('p');
-    const startdate = 'StartDate:  ' + Plan.StartDate;
-    StartDate.innerHTML = startdate;
+    StartDate.innerHTML = 'StartDate:  ' + Plan.StartDate;
     const EndDate = document.createElement('p');
-    const enddate = 'EndDate:  ' + Plan.EndDate;
-    EndDate.innerHTML = enddate;
+    EndDate.innerHTML = 'EndDate:  ' + Plan.EndDate;
     const Author = document.createElement('p');
-    const author = 'Author:  ' + Plan.Author;
-    Author.innerHTML = author;
+    Author.innerHTML = 'Author:  ' + Plan.Author;
     const NumPeople = document.createElement('pnum');
 
-    const numPeople = 'Currently ' + Plan.numPeople + ' user(s) interested      ';
-    NumPeople.innerHTML = numPeople;
+    NumPeople.innerHTML = 'Currently ' + Plan.numPeople + ' user(s) interested      ';
     NumPeople.id = Plan.PlanID + 'people';
 
     const JoinButton = document.createElement('button');
@@ -98,7 +83,7 @@ function changeNumPeople(ID,PlanList){
         if (PlanList[i].PlanID == ID){
             const numID = PlanList[i].PlanID + 'people';
             const Num = document.getElementById(numID);
-            console.log(PlanList[i].numPeople)
+            console.log(PlanList[i].numPeople);
             PlanList[i].numPeople+=1;
             Num.innerHTML = 'Currently ' + PlanList[i].numPeople + ' user(s) interested     ';
 
@@ -116,10 +101,7 @@ function displayTrip(planList) {
                 addNewPlanToView(planList[i])
             }
         }
-        //addNewPlanToView(planList[i])
-        //console.log(disPlayList[i])
     }
 }
 displayTrip(planList);
-
 addNewPlanToView(Trip1);
