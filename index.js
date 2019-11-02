@@ -81,6 +81,6 @@ function checkLogIn() {
         incorrectMessage.textContent = "Please go to admin page to log in as admin.";
     } else {
         incorrectMessage.hidden = true;
-        jumpTo("planing_trip.html")
+        jumpTo("create_plan.html")
     }
 }

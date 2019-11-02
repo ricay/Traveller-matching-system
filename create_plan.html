@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a plan</title>
+    <link rel="stylesheet" type="text/css" href="create_plan.css">
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand bg-primary">
+        <p class="nav">Friends On The Way</p>
+
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <p class="nav">User</p>
+                <input type="image" src="profile_photo.png" class="profile-img" alt="profile">
+            </form>
+        </div>
+    </nav>
+
+    <div>
+        <img class ="background_img" src="create_plan.jpg" alt="bg">
+    </div>
+
+    <div id="message-container">
+        <p> Say Hi to New Adventure</p>
+    </div>
+
+    <div id="small-message-container">
+        <p> Your ideal fellow travellers await, Go find it! </p>
+    </div>
+
+
+    <div id="form-container">
+        <form id='PlaceInfoForm'>
+            <label for='StartPlace'></label><input class="input" id='StartPlace' type="text" placeholder="You start place?">
+            <br>
+            <label for='EndPlace'></label><input class="input" id='EndPlace' type="text" placeholder="You end place?">
+            <br>
+            <label for='MethodOfTravel'></label><input class="input" id='MethodOfTravel' type="text" placeholder="You method of travel?">
+            <br>
+            <label for='ExceptCost'></label><input class="input" id='ExceptCost' type="text" placeholder="You except cost?">
+            <br>
+            <label for='StartDate'></label><input class="input" id='StartDate' type="text" placeholder="You start date?">
+            <br>
+            <label for='EndDate'></label><input class="input" id='EndDate' type="text" placeholder="You end date?">
+            <br>
+        </form>
+        <button id='PlanTrip' type="submit">Plan it !</button>
+    </div>
+</body>
+</html>

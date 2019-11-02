@@ -8,6 +8,8 @@ body {
 }
 
 .nav {
+	font-family: cursive;
+	font-weight: bolder;
 	color: white;
 	padding: 8px;
 }
@@ -60,12 +62,21 @@ body {
 }
 
 .welcome-button  {
-	height: 4vh;
-	width: 20vw;
-	font-size: 110%;
-	margin-bottom: 3%;
-	color: white;
-	background: rgba(110, 60, 128, 1);
+	box-shadow: 0 0 8px 0 #1c1b18;
+	height: 5vh;
+	width: 22vw;
+	margin: 1.5%;
+	background: linear-gradient(to bottom,skyblue, darkslateblue);
+	border-radius: 42px;
+	border: none;
+	cursor: pointer;
+	color:white;
+	font-family: Trebuchet MS, serif;
+	font-size: 120%;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	text-shadow:0 1px 20px #ffffff;
 }
 
 .authorization-container {

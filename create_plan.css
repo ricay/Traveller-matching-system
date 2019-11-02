@@ -1,0 +1,84 @@
+.background_img{
+	float: bottom;
+	width: 100%;
+}
+
+.profile-img {
+	height: 5vh;
+	border-radius: 50%;
+}
+
+.nav {
+	font-family: cursive;
+	font-weight: bolder;
+	color: white;
+	padding: 8px;
+}
+
+.nav-link {
+	color: white;
+}
+
+#message-container {
+	position: absolute;
+	top: 15%;
+	height: max-content;
+	width: 100%;
+	font-size: 450%;
+	font-weight: bolder;
+	font-family: cursive;
+	text-align: center;
+}
+
+#small-message-container {
+	position: absolute;
+	top: 26%;
+	height: max-content;
+	width: 100%;
+	font-size: 170%;
+	font-weight: bold;
+	font-family: cursive;
+	text-align: center;
+}
+
+#form-container {
+	background: rgba(255, 255, 255, 0.75);
+	position: absolute;
+	top: 35%;
+	left: 30%;
+	height: max-content;
+	width: 40vw;
+	border-radius: 55px;
+	border-style: outset;
+	text-align: center;
+}
+
+#StartPlace {
+	margin-top: 3vh;
+}
+
+.input {
+	margin: 1vh;
+	height: 6vh;
+	width: 25vw;
+	border-radius: 30%;
+	text-indent: 20px;
+}
+
+#PlanTrip {
+	box-shadow: 0 0 10px 0 #1c1b18;
+	height: 6vh;
+	width: 10vw;
+	margin: 4%;
+	background: #eae0c2 linear-gradient(to bottom, 	#4394EB 5%, #0070D3 80%);
+	border-radius: 42px;
+	border: 1px solid #333029;
+	cursor: pointer;
+	color: white;
+	font-family: Trebuchet MS, serif;
+	font-size: 120%;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: white;
+	text-shadow: 0 1px 20px #ffffff;
+}
