@@ -1,17 +1,18 @@
 'use strict';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
 
 
 function jumpTo(url) {
   
-    const a = document.getElementById("email").value;
-    const b = document.getElementById("uname").value;
-    const c = document.getElementById("password").value;
-    const d = document.getElementById("password2").value;
-    const e = document.getElementById("birthday").value;
-    const f = document.getElementById("fname").value;
-    const g = document.getElementById("lname").value;
-    const phone = document.getElementById("phone_msg").value;
-    const gender = document.getElementById("gender_msg").value;
+    const email = document.getElementById("email").value;
+    const uname = document.getElementById("uname").value;
+    const password = document.getElementById("password").value;
+    const password2 = document.getElementById("password2").value;
+    const fname = document.getElementById("fname").value;
+    const lname = document.getElementById("lname").value;
+    const phone = document.getElementById("phone").value;
+    const gender = document.getElementById("gender").value;
 
     var result = true;    
 
@@ -19,57 +20,55 @@ function jumpTo(url) {
     const regName = /[a-zA-Z]+/;
     const regEmail = /\S+@\S+\.\S+/;
     const regPhone = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
-    const regPassword = /(?=.*\d)(?=.*[a-z]).{6,}/;
-   
+    const regPassword = /(?=.*\d)(?=.*[a-z]).{6,}/;  
    
     document.getElementById("email_msg").innerHTML ="";
     document.getElementById("uname_msg").innerHTML ="";
     document.getElementById("pswd_msg").innerHTML ="";
     document.getElementById("pswdr_msg").innerHTML ="";
+    document.getElementById("fname_msg").innerHTML ="";
+    document.getElementById("lname_msg").innerHTML ="";
+    document.getElementById("phone_msg").innerHTML ="";
+    document.getElementById("gender_msg").innerHTML ="";
  
-    if (a==null || a==""||!regEmail.test(a))
+    if (email==null || email==""||!regEmail.test(email))
         {      
         document.getElementById("email_msg").innerHTML="Email is empty or invalid(example: billhu@gmail.com)";
            result = false;
         }
     
-    if (b==null || b=="")
+    if (uname==null || uname=="")
     {
         document.getElementById("uname_msg").innerHTML="Username can not be empty";
         result = false;
     }
 
-    if (c==null || c=="" || !regPassword.test(c))
+    if (password==null || password=="" || !regPassword.test(password))
     {
         document.getElementById("pswd_msg").innerHTML="Please Enter the password correctly(at least 6 characters long, at least one non-letter)";
         result = false;
     }
 
-    if (d==null || d=="" || d != c)
+    if (password2==null || password2=="" || password2 != password)
     {
         document.getElementById("pswdr_msg").innerHTML="Two passwords do not match!";
         result = false;
     }
 
-    if (e== null || e=="")
-    {
-        document.getElementById("birthday_msg").innerHTML="Please select the date";
-        result = false;
-    }
-
-    if (f==null || f=="")
+    if (fname==null || fname=="")
     {
         document.getElementById("fname_msg").innerHTML="First name can not be empty";
         result = false;
     }
 
-    if (g==null || g=="")
+    if (lname==null || lname=="")
     {
         document.getElementById("lname_msg").innerHTML="Last name can not be empty";
         result = false;
     }
 
-    if (phone==null || regPhone.test(phone))
+    
+    if (phone==null || !regPhone.test(phone))
     {
         document.getElementById("phone_msg").innerHTML="Invalid phone. example:1234567890 or 123-456-7890";
         result = false;
@@ -101,7 +100,6 @@ function SignUpResetForm()
     document.getElementById("uname_msg").innerHTML ="";
     document.getElementById("pswd_msg").innerHTML ="";
     document.getElementById("pswdr_msg").innerHTML ="";
-    document.getElementById("birthday_msg").innerHTML ="";
     document.getElementById("fname_msg").innerHTML ="";
     document.getElementById("lname_msg").innerHTML ="";
     document.getElementById("phone_msg").innerHTML ="";
