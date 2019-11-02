@@ -1,119 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
+<head>
+    <meta charset="UTF-8">
+    <title>Friends On The Way</title>
+    <link rel="stylesheet" type="text/css" href="signup.css">
     <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="signup.css">
-	  <title></title>
+    <script src="signup.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand bg-sandy">
+        <p class="nav">Friends On The Way</p>
 
-  </head>
-  <body>
-	  <nav class="navbar navbar-expand navbar-dark bg-primary">
-		  <a class="navbar-brand" href="#">Friends On The Way</a>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			  <span class="navbar-toggler-icon"></span>
-		  </button>
-
-		  <div class="navbar navbar-expand" id="navbarSupportedContent">
-			  <ul class="navbar-nav mr-auto">
-				  <li class="nav-item active">
-					  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-				  </li>
-				  <li>
-					  <a class="nav-link" href="#">Admin Login <span class="sr-only">(current)</span></a>
-				  </li>
-			  </ul>
-		  </div>
-	  </nav>
-	  <div class="card img-fluid">
-		  <img src="signUpBack.jpg" class="bg">
-		  <div class="card-img-overlay">
-
-			<!-- <div style="background-image: url('signUpBack.jpg'); background-repeat: no-repeat; background-size: cover;"> -->
-			<article class="card-body mx-auto" style="max-width: 400px;">
-				<h4 class="card-title mt-3 text-center">Create Account</h4>
-				<p class="text-center">Get started with your free account</p>
-				<p class="text-center">Have an account? <a href="index.html">Go back</a> </p>
-
-				<form>
-				<div class="form-group input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text"> <i class="fa fa-user"></i> </span>
-					</div>
-					<input name="" class="form-control" placeholder="First name" type="text">
-				</div> <!-- form-group// -->
-
-				<div class="form-group input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text"> <i class="fa fa-user"></i> </span>
-					</div>
-					<input name="" class="form-control" placeholder="Last name" type="text">
-				</div> <!-- form-group// -->
-
-				<div class="form-group input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-					</div>
-					<input class="form-control" placeholder="Username" type="text">
-				</div> <!-- form-group// -->
-
-				<div class="form-group input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-					</div>
-					<input class="form-control" placeholder="Birthday e.g. 2000.01.01" type="date">
-				</div> <!-- form-group// -->
-
-				<div class="form-group input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-					</div>
-					<input name="" class="form-control" placeholder="Email address" type="email">
-				</div> <!-- form-group// -->
-
-				<div class="form-group input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-					</div>
-					<input name="" class="form-control" placeholder="Phone number" type="text">
-				</div> <!-- form-group// -->
-
-				<div class="form-group input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text"> <i class="fa fa-building"></i> </span>
-					</div>
-					<select class="form-control">
-						<option selected=""> Gender</option>
-						<option>Male</option>
-						<option>Female</option>
-					</select>
-				</div> <!-- form-group end.// -->
-
-				<div class="form-group input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-					</div>
-					<input class="form-control" placeholder="Create password" type="password">
-				</div> <!-- form-group// -->
-
-				<div class="form-group input-group">
-					<div class="input-group-prepend">
-						<span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-					</div>
-					<input class="form-control" placeholder="Repeat password" type="password">
-				</div> <!-- form-group// -->
-
-				<div class="form-group">
-					<button type="submit" class="btn btn-success btn-block"> Create Account  </button>
-				</div> <!-- form-group// -->
-				</form>
-			</article>
-		</div> <!-- card.// -->
-	</div>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <p class="nav">Admin</p>
+                <input type="image" src="profile_photo.png" class="profile-img" alt="profile">
+            </form>
+        </div>
+    </nav>
+    <div id="welcome-header">
+        <img src="signUpBack.jpg" class="welcome-image" alt="Welcome"/>
     </div>
-  </body>
+
+    <div id="welcome-basic-info">
+          <section id="signup_section">
+            <div>
+                <h4 class="card-title mt-3 text-center">Create Account</h4>
+                <p class="text-center">Get started with your free account</p>
+                <p class="text-center">Have an account? <a href="index.html">Go back</a> </p>
+            </div>
+            <form id="SignUp" method="post">
+                    <table>
+                        <tr><td></td><td><label id="email_msg" class="err_msg"></label></td></tr>
+                        <tr><td>Email: </td><td> <input id="email" type="text" name="email" /></td> </tr>
+                         
+                        <tr><td></td><td><label id="uname_msg" class="err_msg"></label></td></tr>          
+                        <tr><td>Username: </td><td> <input id="uname" type="text" name="uname" /></td></tr>
+                        
+                        <tr><td></td><td><label id="pswd_msg" class="err_msg"></label></td></tr>
+                        <tr><td>Password: </td><td> <input id="password" type="password" name="password" /></td></tr>
+                        
+                        <tr><td></td><td><label id="pswdr_msg" class="err_msg"></label></td></tr>            
+                        <tr><td>Confirm Password: </td><td> <input id="password2" type="password" name="pwdr" /></td></tr>    
+                        
+                        <tr><td></td><td><label id="birthday_msg" class="err_msg"></label></td></tr>            
+                        <tr><td>Birthday: </td><td> <input id="birthday" type="date" name="birthday" /></td></tr> 
+
+                        <tr><td></td><td><label id="fname_msg" class="err_msg"></label></td></tr>            
+                        <tr><td>First name: </td><td> <input id="fname" type="text" name="fname" /></td></tr>  
+
+                        <tr><td></td><td><label id="lname_msg" class="err_msg"></label></td></tr>            
+                        <tr><td>Last name: </td><td> <input id="lname" type="password" name="lname"/></td></tr> 
+
+                        <tr><td></td><td><label id="phone_msg" class="err_msg"></label></td></tr>            
+                        <tr><td>Phone: </td><td> <input id="phone" type="text" name="fname" /></td></tr> 
+
+                        <tr><td></td><td><label id="gender_msg" class="err_msg"></label></td></tr>            
+                        <tr><td>Gender: </td><td> <input id="gender" type="text" name="fname" /></td></tr>
+                    </table>
+                    
+
+            </form>
+    </section>
+        <div id="buttons-container">
+            <button class="submit_button" type="submit" id="signup-button" onclick="jumpTo('plan_trip.html')">Submit</button>
+            <button class="submit_button" type="submit" id="signup-button" onclick="SignUpResetForm()">Reset</button>
+            
+        </div>
+    </div>
+
+    
+</body>
 </html>
+
+
