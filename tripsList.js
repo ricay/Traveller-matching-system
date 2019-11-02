@@ -11,6 +11,7 @@ class Plan {
         this.EndDate = EndDate;
         this.SpotList = [];
         this.PlanID = numberOfPlans;
+        this.PlanID = numberOfPlans;
         this.Img = Img;
         this.Author = Author;
         this.numPeople = 1;
@@ -19,13 +20,14 @@ class Plan {
     }
 }
 
-var Trip1 = new Plan('Athens','Santorini','bike',1000,'2019.11.01','2019.12.01','pic/Santorini.jpg','Tony');
+var Trip1 = new Plan('Athens','Santorini','bike',1000,'2019.11.01','2019.12.01','pic/Santorini1.jpg','Tony');
 Trip1.SpotList.push('Athens');
 Trip1.SpotList.push('Santorini');
 
 function addNewPlan(Plan) {
     planList.push(Plan);
 }
+
 function addNewPlanToView(Plan){
     const content = document.getElementById('pinBoot');
     const plan = document.createElement('article');
