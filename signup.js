@@ -17,9 +17,9 @@ function jumpTo(url) {
 
 
     const regName = /[a-zA-Z]+/;
-	const regEmail = /\S+@\S+\.\S+/;
-	const regPhone = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
-	const regPassword = /(?=.*\d)(?=.*[a-z]).{6,}/;
+    const regEmail = /\S+@\S+\.\S+/;
+    const regPhone = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
+    const regPassword = /(?=.*\d)(?=.*[a-z]).{6,}/;
    
    
     document.getElementById("email_msg").innerHTML ="";
@@ -28,11 +28,11 @@ function jumpTo(url) {
     document.getElementById("pswdr_msg").innerHTML ="";
  
     if (a==null || a==""||!regEmail.test(a))
-        {	   
-	    document.getElementById("email_msg").innerHTML="Email is empty or invalid(example: billhu@gmail.com)";
+        {      
+        document.getElementById("email_msg").innerHTML="Email is empty or invalid(example: billhu@gmail.com)";
            result = false;
         }
-	
+    
     if (b==null || b=="")
     {
         document.getElementById("uname_msg").innerHTML="Username can not be empty";
@@ -89,7 +89,7 @@ function jumpTo(url) {
 
     if (result == true)
     {
-    	window.location.href = url;
+        window.location.href = url;
         alert("Signup successfully!")
     }
 }
