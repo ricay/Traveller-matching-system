@@ -7,6 +7,10 @@
 	width: 30vw;
 	border-radius: 5%;
 }
+.profile-img {
+	height: 5vh;
+	border-radius: 50%;
+}
 
 .welcome-image {
 	float: bottom;
@@ -20,8 +24,10 @@
 	margin-bottom: 10%;
 }
 
-#text_container {
+
+.signup-message {
 	text-align: center;
+	margin: 0;
 }
 
 td {
@@ -45,6 +51,10 @@ td {
 .nav {
 	color: white;
 	padding: 8px;
+}
+
+.nav-link {
+	color: white;
 }
 
 .bg-sandy {
