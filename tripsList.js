@@ -1,6 +1,10 @@
 var planList = [];
 var numberOfPlans = 1;
 
+function jumpTo(url) {
+    window.location.href = url;
+}
+
 class Plan {
     constructor(StartPlace, EndPlace, MethodOfTravel,ExceptCost,StartDate,EndDate,Img,Author) {
         this.StartPlace = StartPlace;
@@ -57,6 +61,12 @@ function addNewPlanToView(Plan){
     JoinButton.innerHTML = 'Join the Trip';
     JoinButton.id = Plan.PlanID;
 
+    const warnMessage = document.createElement("p");
+    warnMessage.id = "warnMessage";
+    warnMessage.style.color = "red";
+    warnMessage.textContent = "You have already joined this trip";
+    warnMessage.hidden = true;
+
     img.src = Plan.Img;
     img.alt = "";
     img.className = "place";
@@ -71,6 +81,7 @@ function addNewPlanToView(Plan){
     plan.appendChild(Author);
     plan.appendChild(NumPeople);
     plan.appendChild(JoinButton);
+    plan.appendChild(warnMessage);
 
     content.appendChild(plan);
 
@@ -86,8 +97,12 @@ function changeNumPeople(ID,PlanList){
             const numID = PlanList[i].PlanID + 'people';
             const Num = document.getElementById(numID);
             console.log(PlanList[i].numPeople);
-            PlanList[i].numPeople+=1;
-            Num.innerHTML = 'Currently ' + PlanList[i].numPeople + ' user(s) interested     ';
+            if (PlanList[i].numPeople === 0) {
+                PlanList[i].numPeople+=1;
+                Num.innerHTML = 'Currently ' + PlanList[i].numPeople + ' user(s) interested     ';
+            } else {
+                document.getElementById("warnMessage").hidden = false;
+            }
 
         }
     }

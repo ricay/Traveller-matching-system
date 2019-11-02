@@ -12,18 +12,34 @@
 	border-radius: 50%;
 }
 
+#SignUp {
+	margin-left: 8%;
+}
+
+.nav {
+	font-family: cursive;
+	font-weight: bolder;
+	color: white;
+	padding: 8px;
+}
+
+.bg-pinkish {
+	background-color: #6B8598;
+}
+
+.nav-link {
+	color: white;
+}
+
 .welcome-image {
 	float: bottom;
 	width: 100%;
 }
 
-
-
 #buttons-container {
 	text-align: center;
 	margin-bottom: 10%;
 }
-
 
 .signup-message {
 	text-align: center;
@@ -33,30 +49,19 @@
 td {
 	text-align: center;
 	font-weight: bold;
-	color: green;
+	color: black;
 }
+
 .submit_button {
-	background: linear-gradient(to right, #C0AA26, #C0AA26);
+	background: linear-gradient(to right, #6B8598, #6B8598);
 	color: white;
 	border-radius: 30%;
 	margin-top: 20px;
 	height:5vh;
 	width: 12vw;
+	font-family: cursive;
 }
 
 .err_msg{ 
     color:red;
-}
-
-.nav {
-	color: white;
-	padding: 8px;
-}
-
-.nav-link {
-	color: white;
-}
-
-.bg-sandy {
-	background-color: #B0926F;
 }

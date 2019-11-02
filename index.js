@@ -63,6 +63,15 @@ function logIn() {
     buttonContainer.replaceChild(authorization_container, signUpButton);
     logInButton.textContent = "Enter";
     logInButton.setAttribute('onclick', "checkLogIn()");
+
+    const signUpMessage = document.createElement("p");
+    signUpMessage.textContent = "Don't have an account? ";
+    const linkToIndex = document.createElement("a");
+    linkToIndex.href = "index.html";
+    linkToIndex.textContent = "Go Back";
+    signUpMessage.appendChild(linkToIndex);
+    buttonContainer.appendChild(signUpMessage);
+
     document.addEventListener('keyup', function(event) {
         if (event.code === 'Enter') {
             logInButton.click()

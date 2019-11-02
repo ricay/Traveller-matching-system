@@ -48,7 +48,7 @@
 	height: 6vh;
 	width: 10vw;
 	background: #eae0c2 linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
-	border-radius:42px;
+	border-radius: 42px;
 	border: 2px solid #333029;
 	cursor: pointer;
 	color:#505739;
@@ -94,7 +94,6 @@
 	cursor: pointer;
 	color:#505739;
 }
-
 .validateUser:hover {
 	background: #ccc2a6 linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
 }

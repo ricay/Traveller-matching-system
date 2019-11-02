@@ -25,6 +25,6 @@ function checkLogIn() {
     } else {
         incorrectMessage.hidden = true;
         buttonsContainer.hidden = true;
-        functionContainer.hidden = false;
+        functionContainer.hidden = true;
     }
 }

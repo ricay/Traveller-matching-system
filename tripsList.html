@@ -5,17 +5,15 @@
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="tripsList.css">
     <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand navbar-dark bg-primary">
-        <a class="navbar-brand" href="">Friends On The Way</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <p class="nav">Friends On The Way</p>
 
-        <div class="navbar navbar-expand" id="navbarSupportedContent">
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
@@ -24,10 +22,18 @@
                     <a class="nav-link" href="plan_trip.html">Search <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <p class="nav">User</p>
+                <a class="profile-img" href="user_profile.html">
+                    <img class="profile-img" src="pic/profile_photo.png" alt="">
+                </a>
+            </form>
         </div>
     </nav>
 
     <img id="TripList_background" src="pic/TripList_background.jpg" alt="">
+
+    <button class="createPlanButton" type="button" onclick="jumpTo('create_plan.html')" >Not satisfied? Create one!</button>
 
     <div class="container" >
         <div class="row">
