@@ -12,8 +12,8 @@ For User:
 
 3. Search “Santorini”, get the existed plan or create a new plan if you are not satisfied with it.
 
-4. Click “Create your plan” or “Search” button on navigation bar on the top to create a plan.
-
+4. Click “Create your plan” or “Search” button on navigation bar on the top to create a plan with following information: Start Place: Los angeles, End Place: Mexico, Except Cost: 2000 dollars, Except Cost: 2000 dollars, Start Date: 2019.12.19, End Date: 2019.12.27.
+                                                                                                               
 5. View a plan that is created by user itself and user can choose to accept or decline other users who are willing to join this plan. 
 
 6. After create an account, user can see themselves on the right of navigation bar. Click “user icon” to see user profile.
