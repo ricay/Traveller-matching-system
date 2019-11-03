@@ -14,8 +14,8 @@ function jumpTo(url) {
     const regName = /[a-zA-Z]+/;
     const regEmail = /\S+@\S+\.\S+/;
     const regPhone = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
-    const regPassword = /(?=.*\d)(?=.*[a-z]).{6,}/;  
-   
+    // const regPassword = /(?=.*\d)(?=.*[a-z]).{6,}/;
+
     document.getElementById("email_msg").innerHTML ="";
     document.getElementById("uname_msg").innerHTML ="";
     document.getElementById("pswd_msg").innerHTML ="";
@@ -37,9 +37,9 @@ function jumpTo(url) {
         result = false;
     }
 
-    if (password==null || password==="" || !regPassword.test(password))
+    if (password==null || password==="" || password.length < 4)
     {
-        document.getElementById("pswd_msg").innerHTML="Please Enter the password correctly(at least 6 characters long, at least one non-letter)";
+        document.getElementById("pswd_msg").innerHTML="Please Enter the password correctly";
         result = false;
     }
 
