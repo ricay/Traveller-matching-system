@@ -18,7 +18,7 @@ For User:
 
 6. After create an account, user can see themselves on the right of navigation bar. Click “user icon” to see user profile.
 
-7. In profile, click “edit profile”. User can edit information in “About me ” and “Footprints”. 
+7. In profile, click “edit profile”. User can edit information in “About me ” and “Footprints”. click "plan 1" under "My plan" can see the plan created just now.
 
 For Admin:
 0. Open index.html, click “admin login”.
