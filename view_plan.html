@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View created plan</title>
+    <link rel="stylesheet" type="text/css" href="view_plan.css">
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="view_plan.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand navbar-dark bg-primary">
+        <p class="nav">Friends On The Way</p>
+
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="plan_trip.html">Search <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <p class="nav">User</p>
+                <a class="profile-img" href="user_profile.html">
+                    <img class="profile-img" src="pic/profile_photo.png" alt="">
+                </a>
+            </form>
+        </div>
+    </nav>
+
+    <img id="TripList_background" src="pic/TripList_background.jpg" alt="">
+
+    <strong class="viewPlanMessage">VIEW MY PLAN</strong>
+
+    <div class="container" >
+        <div class="row">
+            <section id="pinBoot">
+                <article class="white-panel" id="white-panel-id">
+                    <img src="pic/los-angeles.jpg" alt="" class="place">
+                    <strong> PLAN 1 </strong>
+                    <p>StartPlace:  Los angeles</p>
+                    <p>EndPlace:  Mexico</p>
+                    <p>Method of Travel:  cruise</p>
+                    <p>Except Cost:  2000 dollars</p>
+                    <p>StartDate:  2019.12.19</p>
+                    <p>EndDate:  2019.12.27</p>
+                    <p>Author:  Jennifer</p>
+                    <pnum id="people">Currently <strong id="numPeople">0</strong> user(s) joined </pnum>
+                    <div id="buttons-container1">
+                        <p><strong>· User1</strong> wants to join your plan
+                            <button class="btn btn-lg btn-outline-success" type="button" onclick="clicked(true, 'buttons-container1')">
+                                √
+                            </button>
+                            <button class="btn btn-lg btn-outline-danger" type="button" onclick="clicked(false, 'buttons-container1')">
+                                ×
+                            </button>
+                        </p>
+                    </div>
+                    <div id="buttons-container2">
+                        <p><strong>· User2</strong> wants to join your plan
+                            <button class="btn btn-lg btn-outline-success" type="button" onclick="clicked(true, 'buttons-container2')">
+                                √
+                            </button>
+                            <button class="btn btn-lg btn-outline-danger" type="button" onclick="clicked(false, 'buttons-container2')">
+                                ×
+                            </button>
+                        </p>
+                    </div>
+                    <div id="buttons-container3">
+                        <p><strong>· User3</strong> wants to join your plan
+                            <button class="btn btn-lg btn-outline-success" type="button" onclick="clicked(true, 'buttons-container3')">
+                                √
+                            </button>
+                            <button class="btn btn-lg btn-outline-danger" type="button" onclick="clicked(false, 'buttons-container3')">
+                                ×
+                            </button>
+                        </p>
+                    </div>
+                    <p id="warnMessage" hidden="" style="color: red;">You have already joined this trip</p>
+                </article>
+            </section>
+        </div>
+    </div>`
+
+</body>
+</html>
