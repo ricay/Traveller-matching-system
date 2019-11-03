@@ -1,6 +1,8 @@
 var planList = [];
 var numberOfPlans = 1;
-
+const tripListTable = document.getElementById('tripsListTable');
+var num_row = 0;
+var row
 function jumpTo(url) {
     window.location.href = url;
 }
@@ -14,29 +16,56 @@ class Plan {
         this.StartDate = StartDate;
         this.EndDate = EndDate;
         this.SpotList = [];
-        this.PlanID = numberOfPlans;
+
         this.PlanID = numberOfPlans;
         this.Img = Img;
         this.Author = Author;
         this.numPeople = 1;
         this.disPlay = false;
         numberOfPlans++;
+        console.log(numberOfPlans)
     }
 }
 
-var Trip1 = new Plan('Athens','Santorini','bike',1000,'2019.11.01','2019.12.01','pic/Santorini1.jpg','Tony');
+const Trip1 = new Plan('Athens','Santorini','bike',1000,'2019.11.01','2019.12.01','pic/Santorini1.jpg','Tony');
 Trip1.SpotList.push('Athens');
 Trip1.SpotList.push('Santorini');
+const Trip2 = new Plan('Athens','Santorini','bike',2000,'2019.12.01','2020.1.01','pic/Santorini1.jpg','Bony');
+Trip2.SpotList.push('Athens');
+Trip2.SpotList.push('Santorini');
+const Trip3 = new Plan('Athens','Santorini','bike',3000,'2030.12.01','2020.1.01','pic/Santorini1.jpg','Dony');
+Trip3.SpotList.push('Athens');
+Trip3.SpotList.push('Santorini');
+const Trip4 = new Plan('Athens','Santorini','bike',4000,'2040.12.01','2020.1.01','pic/Santorini1.jpg','Tony');
+Trip4.SpotList.push('Athens');
+Trip4.SpotList.push('Santorini');
+const Trip5 = new Plan('Athens','Santorini','bike',5000,'2050.12.01','2020.1.01','pic/Santorini1.jpg','Tony');
+Trip5.SpotList.push('Athens');
+Trip5.SpotList.push('Santorini');
 
 function addNewPlan(Plan) {
     planList.push(Plan);
 }
 
-function addNewPlanToView(Plan){
-    const content = document.getElementById('pinBoot');
-    const plan = document.createElement('article');
+function addNewPlanToView(Plan,index){
+    if (index % 4 == 0){
+        row = tripListTable.insertRow(num_row);
+        num_row+=1;
+    }
+
+
+    const cell = row.insertCell(index % 4);
+    //const content = document.getElementById('pinBoot');
+    const plan = document.createElement('div');
     plan.className = "white-panel";
-    plan.id = "white-panel-id";
+    plan.id = Plan.PlanID;
+
+    plan.style.background = 'white';
+    plan.style.height = 'max-content';
+    plan.style.width = '20vw';
+    plan.style.borderRadius = '5%';
+    plan.style.padding = '10px';
+
     const img = document.createElement('IMG');
     const StartPlace = document.createElement('p');
     StartPlace.innerHTML = 'StartPlace:  ' + Plan.StartPlace;
@@ -83,7 +112,7 @@ function addNewPlanToView(Plan){
     plan.appendChild(JoinButton);
     plan.appendChild(warnMessage);
 
-    content.appendChild(plan);
+    cell.appendChild(plan);
 
     document.getElementById(JoinButton.id).onclick = function(){changeNumPeople(JoinButton.id,planList)};
 
@@ -109,6 +138,11 @@ function changeNumPeople(ID,PlanList){
 }
 
 addNewPlan(Trip1);
+addNewPlan(Trip2);
+addNewPlan(Trip3);
+addNewPlan(Trip4);
+addNewPlan(Trip5);
+
 function displayTrip(planList) {
     console.log('Hello');
     for (let i=0; i<planList.length; i++){
@@ -121,4 +155,8 @@ function displayTrip(planList) {
     }
 }
 displayTrip(planList);
-addNewPlanToView(Trip1);
+addNewPlanToView(Trip1,0);
+addNewPlanToView(Trip2,1);
+addNewPlanToView(Trip3,2);
+addNewPlanToView(Trip4,3);
+addNewPlanToView(Trip5,4);
