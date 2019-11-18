@@ -1,0 +1,11 @@
+There are some minor visual problems. For example, in the search page when 
+the background changes, the text and the background sometimes doesn't create 
+harmony.
+
+Clicking on the user/admin picture will redirect to a strange webpage with
+not working css. Also, the admin page buttons do not work. (-2.5)
+
+The areas that require server call were not commented (-1.5)
+
+For css and javascript I suggest that you create folders. Since currently
+the project root looks a bit messy.
