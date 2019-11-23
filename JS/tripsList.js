@@ -27,19 +27,19 @@ class Plan {
     }
 }
 
-const Trip1 = new Plan('Athens','Santorini','bike',1000,'2019.11.01','2019.12.01','pic/Santorini1.jpg','Tony');
+const Trip1 = new Plan('Athens','Santorini','bike',1000,'2019.11.01','2019.12.01','PIC/Santorini1.jpg','Tony');
 Trip1.SpotList.push('Athens');
 Trip1.SpotList.push('Santorini');
-const Trip2 = new Plan('Athens','Santorini','bike',2000,'2019.12.01','2020.1.01','pic/Santorini1.jpg','Bony');
+const Trip2 = new Plan('Athens','Santorini','bike',2000,'2019.12.01','2020.1.01','PIC/Santorini1.jpg','Bony');
 Trip2.SpotList.push('Athens');
 Trip2.SpotList.push('Santorini');
-const Trip3 = new Plan('Athens','Santorini','bike',3000,'2030.12.01','2020.1.01','pic/Santorini1.jpg','Dony');
+const Trip3 = new Plan('Athens','Santorini','bike',3000,'2030.12.01','2020.1.01','PIC/Santorini1.jpg','Dony');
 Trip3.SpotList.push('Athens');
 Trip3.SpotList.push('Santorini');
-const Trip4 = new Plan('Athens','Santorini','bike',4000,'2040.12.01','2020.1.01','pic/Santorini1.jpg','Tony');
+const Trip4 = new Plan('Athens','Santorini','bike',4000,'2040.12.01','2020.1.01','PIC/Santorini1.jpg','Tony');
 Trip4.SpotList.push('Athens');
 Trip4.SpotList.push('Santorini');
-const Trip5 = new Plan('Athens','Santorini','bike',5000,'2050.12.01','2020.1.01','pic/Santorini1.jpg','Tony');
+const Trip5 = new Plan('Athens','Santorini','bike',5000,'2050.12.01','2020.1.01','PIC/Santorini1.jpg','Tony');
 Trip5.SpotList.push('Athens');
 Trip5.SpotList.push('Santorini');
 

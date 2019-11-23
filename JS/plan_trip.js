@@ -34,7 +34,7 @@ addNewHotTable('Santorini',0,"Santorini, officially Thira and classic Greek Ther
 addNewHotTable('Machu_Picchu',1,"Machu Picchu is a 15th-century Inca citadel, located in the Eastern Cordillera of southern Peru, on a 2,430-metre (7,970 ft) mountain ridge. It is located in the Cusco Region, Urubamba Province, Machupicchu District, above the Sacred Valley, which is 80 kilometres (50 mi) northwest of Cuzco and through which the Urubamba River flows, cutting through the Cordillera and creating a canyon with a tropical mountain climate.");
 function changeBackground(ID) {
     console.log(ID);
-    document.getElementById("background_img").src = 'pic/' + ID + '.jpg'
+    document.getElementById("background_img").src = 'PIC/' + ID + '.jpg'
 }
 
 function searchATrip(e) {
