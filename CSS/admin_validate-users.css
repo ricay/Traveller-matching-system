@@ -64,56 +64,56 @@
     color: red;
 }
 
-.insertPlan {
-    box-shadow: 0 0 50px 0 #1c1b18;
-    position: absolute;
-    top: 15%;
-    left: 15%;
-    height: 40vh;
-    width: 30vw;
-    background: #eae0c2 linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
-    border-radius:42px;
-    border: 6px solid #333029;
-    cursor: pointer;
-    color:#505739;
-}
-.insertPlan:hover {
-    background: #ccc2a6 linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
-}
+/*.insertPlan {*/
+/*    box-shadow: 0 0 50px 0 #1c1b18;*/
+/*    position: absolute;*/
+/*    top: 15%;*/
+/*    left: 15%;*/
+/*    height: 40vh;*/
+/*    width: 30vw;*/
+/*    background: #eae0c2 linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);*/
+/*    border-radius:42px;*/
+/*    border: 6px solid #333029;*/
+/*    cursor: pointer;*/
+/*    color:#505739;*/
+/*}*/
+/*.insertPlan:hover {*/
+/*    background: #ccc2a6 linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);*/
+/*}*/
 
-.validateUser {
-    box-shadow: 0 0 50px 0 #1c1b18;
-    position: absolute;
-    top: 60%;
-    left: 15%;
-    height: 40vh;
-    width: 30vw;
-    background: #eae0c2 linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
-    border-radius:42px;
-    border:6px solid #333029;
-    cursor: pointer;
-    color:#505739;
-}
-.validateUser:hover {
-    background: #ccc2a6 linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
-}
+/*.validateUser {*/
+/*    box-shadow: 0 0 50px 0 #1c1b18;*/
+/*    position: absolute;*/
+/*    top: 60%;*/
+/*    left: 15%;*/
+/*    height: 40vh;*/
+/*    width: 30vw;*/
+/*    background: #eae0c2 linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);*/
+/*    border-radius:42px;*/
+/*    border:6px solid #333029;*/
+/*    cursor: pointer;*/
+/*    color:#505739;*/
+/*}*/
+/*container py-10.validateUser:hover {*/
+/*    background: #ccc2a6 linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);*/
+/*}*/
 
-.delete {
-    box-shadow: 0 0 50px 0 #1c1b18;
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    height: 40vh;
-    width: 30vw;
-    background: #eae0c2 linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
-    border-radius:42px;
-    border:6px solid #333029;
-    cursor: pointer;
-    color:#505739;
-}
-.delete:hover {
-    background: #ccc2a6 linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
-}
+/*.delete {*/
+/*    box-shadow: 0 0 50px 0 #1c1b18;*/
+/*    position: absolute;*/
+/*    top: 15%;*/
+/*    left: 50%;*/
+/*    height: 40vh;*/
+/*    width: 30vw;*/
+/*    background: #eae0c2 linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);*/
+/*    border-radius:42px;*/
+/*    border:6px solid #333029;*/
+/*    cursor: pointer;*/
+/*    color:#505739;*/
+/*}*/
+/*.delete:hover {*/
+/*    background: #ccc2a6 linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);*/
+/*}*/
 
 .button-message {
     font-family: Trebuchet MS, serif;
