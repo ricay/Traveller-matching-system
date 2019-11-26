@@ -1,0 +1,91 @@
+.profile-img {
+	height: 5vh;
+	border-radius: 50%;
+}
+
+.bg-sandy {
+	background-color: #B0926F;
+}
+
+.nav {
+	font-family: cursive;
+	font-weight: bolder;
+	color: white;
+	padding: 8px;
+}
+
+.nav-link {
+	color: white;
+}
+
+.backgroundImage {
+	float: bottom;
+	width: 100%;
+}
+
+#small-message-container {
+	position: absolute;
+	top: 12%;
+	height: max-content;
+	width: 100%;
+	font-size: 170%;
+	font-weight: bold;
+	font-family: cursive;
+	text-align: center;
+}
+#insert-form-container {
+	background: rgba(255, 255, 255, 0.75);
+	position: absolute;
+	top: 20%;
+	left: 25%;
+	height: max-content;
+	width: 50vw;
+	border-radius: 55px;
+	border-style: outset;
+	text-align: center;
+}
+
+.input{
+	margin-top: 2vh;
+	height: 6vh;
+	width: 25vw;
+	border-radius: 30px;
+	text-indent: 20px;
+	word-wrap: break-word;
+}
+
+#Destination {
+	margin-top: 4vh;
+}
+
+#Description {
+	height: 25vh;
+	width: 30vw;
+	border-radius: 20px;
+	border-style: inset;
+}
+
+#dragImage {
+	height: 30vh;
+	width: 30vw;
+	border-radius: 20px;
+	border-style: inset;
+}
+
+#InsertRecommendation {
+	box-shadow: 0 0 10px 0 #1c1b18;
+	height: 6vh;
+	width: 10vw;
+	margin: 4%;
+	background: #eae0c2 linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+	border-radius: 42px;
+	border: 1px solid #333029;
+	cursor: pointer;
+	color:#505739;
+	font-family: Trebuchet MS, serif;
+	font-size: 120%;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: white;
+	text-shadow: 0 1px 20px #ffffff;
+}

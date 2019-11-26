@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert new recommendation</title>
+    <link rel="stylesheet" type="text/css" href="CSS/insert_recommendation.css">
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <script src="JS/insert_recommendation.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand bg-sandy">
+        <p class="nav">Friends On The Way</p>
+
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="admin_main.html">Back to Menu<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <p class="nav">Admin</p>
+                <a class="profile-img" href="my_profile.html">
+                    <img class="profile-img" src="PIC/profile_photo.png" alt="">
+                </a>
+            </form>
+        </div>
+    </nav>
+
+    <div id="main-background">
+        <img src="PIC/main_background.jpg" class="backgroundImage" alt="MainBackground"/>
+    </div>
+
+    <div id="small-message-container">
+        <p> Fill up the following information to insert a new recommendation </p>
+    </div>
+
+    <div id="insert-form-container">
+        <form id='insert-form'>
+            <label for='Destination'></label>
+            <input class="input" id='Destination' type="text" placeholder="Destination">
+            <br>
+            <label for='RecommendedTimePeriod'></label>
+            <input class="input" id='RecommendedTimePeriod' type="text" placeholder="Recommended Time Period">
+            <br>
+            <label for='ExpectCost'></label>
+            <input class="input" id='ExpectCost' type="text" placeholder="The expect cost">
+            <br>
+            <label for='Description'></label>
+            <textarea class="input" id='Description' type="text" placeholder="Description"></textarea>
+            <br>
+            <form method="post" enctype="multipart/form-data">
+                <p>Drag and Drop an image here</p>
+                <input id="dragImage" type="file" accept="image" name="myFile">
+<!--                <button type="submit">Upload</button>-->
+            </form>
+        </form>
+        <button id='InsertRecommendation' type="submit" onclick="jumpTo('view_plan.html')">Insert</button>
+    </div>
+
+</body>
+</html>
