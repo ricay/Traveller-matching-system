@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Validate users</title>
+    <link rel="stylesheet" type="text/css" href="CSS/admin_validate-users.css">
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script src="JS/admin_validate-users.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand bg-sandy">
+        <p class="nav">Friends On The Way</p>
+
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <p class="nav">Admin</p>
+                <a class="profile-img" href="my_profile.html">
+                    <img class="profile-img" src="PIC/profile_photo.png" alt="">
+                </a>
+            </form>
+        </div>
+    </nav>
+
+    <div id="main-background">
+        <img src="PIC/main_background.jpg" class="backgroundImage" alt="MainBackground"/>
+    </div>
+
+
+    <div class="container text-center text-white">
+        <div id="tag1" class="col-lg-8 mx-auto">
+            <h2 class="display-4">validate users</h2>
+        </div>
+    </div><!-- End -->
+
+
+    <div id="table1" class="container py-10">
+        <div class="row">
+            <div class="col-lg-11 mx-auto bg-white rounded shadow">
+                <!-- Fixed header table-->
+                <div class="table-responsive text-nowrap">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="col-2">Email</th>
+                                <th scope="col" class="col-2">Username</th>
+                                <th scope="col" class="col-2">First name</th>
+                                <th scope="col" class="col-2">Last name</th>
+                                <th scope="col" class="col-2">Phone</th>
+                                <th scope="col" class="col-2">Gender</th>
+                                <th scope="col" class="col-2"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="row1">
+                                <td class="col-2">Mark</td>
+                                <td class="col-2">Otto</td>
+                                <td class="col-2">@mdo</td>
+                                <td class="col-2">Mark</td>
+                                <td class="col-2">Otto</td>
+                                <td class="col-2">@mdo</td>
+                                <td class="col-2">
+                                    <button class="btn btn-sm btn-outline-danger" type="button" onclick="clicked(false, this.parentElement.parentElement.id)">
+                                    delete
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr id="row2">
+                                <td class="col-2">Mark</td>
+                                <td class="col-2">Otto</td>
+                                <td class="col-2">@mdo</td>
+                                <td class="col-2">Mark</td>
+                                <td class="col-2">Otto</td>
+                                <td class="col-2">@mdo</td>
+                                <td class="col-2">
+                                    <button class="btn btn-sm btn-outline-danger" type="button" onclick="clicked(false, this.parentElement.parentElement.id)">
+                                        delete
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr id="row3">
+                                <td class="col-2">Mark</td>
+                                <td class="col-2">Otto</td>
+                                <td class="col-2">@mdo</td>
+                                <td class="col-2">Mark</td>
+                                <td class="col-2">Otto</td>
+                                <td class="col-2">@mdo</td>
+                                <td class="col-2">
+                                    <button class="btn btn-sm btn-outline-danger" type="button" onclick="clicked(false, this.parentElement.parentElement.id)">
+                                        delete
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr id="row4">
+                                <td class="col-2">Mark</td>
+                                <td class="col-2">Otto</td>
+                                <td class="col-2">@mdo</td>
+                                <td class="col-2">Mark</td>
+                                <td class="col-2">Otto</td>
+                                <td class="col-2">@mdo</td>
+                                <td class="col-2">
+                                    <button class="btn btn-sm btn-outline-danger" type="button" onclick="clicked(false, this.parentElement.parentElement.id)">
+                                        delete
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr id="row5">
+                                <td class="col-2">Mark</td>
+                                <td class="col-2">Otto</td>
+                                <td class="col-2">@mdo</td>
+                                <td class="col-2">Mark</td>
+                                <td class="col-2">Otto</td>
+                                <td class="col-2">@mdo</td>
+                                <td class="col-2">
+                                    <button class="btn btn-sm btn-outline-danger" type="button" onclick="clicked(false, this.parentElement.parentElement.id)">
+                                        delete
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
