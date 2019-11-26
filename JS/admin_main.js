@@ -1,3 +1,7 @@
+function jumpTo(url) {
+    window.location.href = url;
+}
+
 function logIn() {
     const authorizationContainer = document.getElementById("authorization-container");
     authorizationContainer.hidden = false;

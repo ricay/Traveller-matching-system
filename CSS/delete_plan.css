@@ -41,7 +41,7 @@
 }
 
 .table-fixed tbody {
-    height: 800px;
+    height: 700px;
     overflow-y: auto;
     width: 100%;
 }
@@ -59,6 +59,19 @@
 .table-fixed thead > tr > th {
     float: left;
     position: relative;
-
-
+}
+button {
+    box-shadow: 0 0 5px 0 #1c1b18;
+    height: 3vh;
+    width: 10vw;
+    background: #eae0c2 linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+    border: 1px solid #333029;
+    cursor: pointer;
+    color:#505739;
+    font-family: Trebuchet MS, serif;
+    font-size: 120%;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: white;
+    text-shadow: 0 1px 20px #ffffff;
 }

@@ -46,15 +46,16 @@ function addNewPlanToView(Plan){
     plan.id = Plan.PlanID;
     plan.style.background = 'white';
     plan.style.height = 'max-content';
-    plan.style.width = '20vw';
+    plan.style.width =  "50vw";
     plan.style.borderRadius = '5%';
     plan.style.padding = '10px';
     const img = document.createElement('IMG');
     const Author = document.createElement('p');
     Author.innerHTML = 'Author:  ' + Plan.Author;
     const DeleteButton = document.createElement('button');
-    DeleteButton.innerHTML = 'DeleteThisPlan';
+    DeleteButton.textContent = 'DeleteThisPlan';
     DeleteButton.id = Plan.PlanID;
+    DeleteButton.style.borderRadius = "20px";
     const Description = document.createElement('p');
     Description.innerHTML = Plan.description;
 
@@ -80,7 +81,7 @@ function deletePlan(id,planList){
     console.log(id);
    for (let i=0; i<planList.length; i++){
        if (planList[i].PlanID == id){
-           planList.splice(i,1)
+           planList.splice(i,1);
            deletePlanTable.deleteRow(i)
        }
    }
