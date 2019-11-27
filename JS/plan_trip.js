@@ -35,6 +35,7 @@ addNewHotTable('Machu_Picchu',1,"Machu Picchu is a 15th-century Inca citadel, lo
 function changeBackground(ID) {
     console.log(ID);
     document.getElementById("background_img").src = 'PIC/' + ID + '.jpg'
+
 }
 
 function searchATrip(e) {

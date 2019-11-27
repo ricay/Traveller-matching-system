@@ -2,10 +2,29 @@ body{
     background: -webkit-linear-gradient(left, #3931af, #00c6ff);
 }
 
+.profile-img {
+    height: 5vh;
+    border-radius: 50%;
+}
+
+.bg-sandy {
+    background-color: #B0926F;
+}
 
 .nav {
+    font-family: cursive;
+    font-weight: bolder;
     color: white;
     padding: 8px;
+}
+
+.nav-link {
+    color: white;
+}
+
+.backgroundImage {
+    float: bottom;
+    width: 100%;
 }
 
 .emp-profile{
