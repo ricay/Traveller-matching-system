@@ -28,13 +28,15 @@ function addNewHotTable(place,index,text) {
 
     Introduction.appendChild(HotButton);
     Introduction.appendChild(Description);
-    document.getElementById(place).onclick = function(){changeBackground(place)}
+    document.getElementById(place).onclick = function(){changeBackground(place); changeFontColor()}
 }
 addNewHotTable('Santorini',0,"Santorini, officially Thira and classic Greek Thera, is an island in the southern Aegean Sea, about 200 km (120 mi) southeast of Greece's mainland. It is the largest island of a small, circular archipelago, which bears the same name and is the remnant of a volcanic caldera. It forms the southernmost member of the Cyclades group of islands, with an area of approximately 73 km2 (28 sq mi) and a 2011 census population of 15,550. The municipality of Santorini includes the inhabited islands of Santorini and Therasia, as well as the uninhabited islands of Nea Kameni, Palaia Kameni, Aspronisi and Christiana. The total land area is 90.623 km2 (34.990 sq mi).");
 addNewHotTable('Machu Picchu',1,"Machu Picchu is a 15th-century Inca citadel, located in the Eastern Cordillera of southern Peru, on a 2,430-metre (7,970 ft) mountain ridge. It is located in the Cusco Region, Urubamba Province, Machupicchu District, above the Sacred Valley, which is 80 kilometres (50 mi) northwest of Cuzco and through which the Urubamba River flows, cutting through the Cordillera and creating a canyon with a tropical mountain climate.");
 function changeBackground(ID) {
     document.getElementById("background_img").src = 'PIC/' + ID + '.jpg';
-    let new_rgb = getAverageRGB(document.getElementById("background_img"));
+}
+function changeFontColor() {
+    const new_rgb = getAverageRGB(document.getElementById("background_img"));
     let new_rgb_str = 'rgb('+new_rgb.r+', '+new_rgb.g+', '+new_rgb.b+')';
     document.getElementById("HotProject").style.color = new_rgb_str;
     console.log(new_rgb_str);
