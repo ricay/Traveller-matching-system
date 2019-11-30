@@ -121,6 +121,9 @@
     font-weight: 600;
     color: #0062cc;
 }
+.nav-link {
+    color: black;
+}
 .welcome-button {
     box-shadow: 0 0 10px 0 #1c1b18;
     height: 5vh;
