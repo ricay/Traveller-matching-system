@@ -60,7 +60,7 @@
     width: 70%;
     /*padding: 2%;*/
     font-weight: 600;
-    color: #6c757d;
+    color: black;
     cursor: pointer;
     margin-bottom: 3%;
 }
@@ -70,18 +70,8 @@
     width: 80%;
     /*padding: 3%;*/
     font-weight: 600;
-    color: #6c757d;
+    color: black;
     cursor: pointer;
-}
-.profile-rating{
-    font-size: 12px;
-    color: #818182;
-    margin-top: 5%;
-}
-.profile-rating span{
-    color: #495057;
-    font-size: 15px;
-    font-weight: 600;
 }
 .profile-head .nav-tabs{
     margin-bottom:5%;
@@ -100,14 +90,14 @@
 }
 .profile-work p{
     font-size: 25px;
-    color: #818182;
+    color: black;
     font-weight: 600;
     margin-top: 10%;
     font-family: cursive;
 }
 .profile-work a{
     text-decoration: none;
-    color: #495057;
+    color: black;
     font-weight: 600;
     font-size: 14px;
 }
