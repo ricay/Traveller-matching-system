@@ -80,10 +80,14 @@ const sessionChecker = (req, res, next) => {
 app.get('/', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/index.html')
 })
+
 app.get('/index.html', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/index.html')
 })
 
+app.get('/admin_main.html', sessionChecker, (req, res) => {
+  res.sendFile(__dirname + '/admin_main.html')
+})
 
 
 /*************************************************/
