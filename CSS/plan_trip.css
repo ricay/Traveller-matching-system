@@ -1,12 +1,11 @@
 body {
-    background-color: #e6ecf0;
+    background-color: black;
     margin: 0;
     font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 
 #background_img{
-    /*padding: 5px;*/
-    background-color: white;
+    background-color: black;
     width: 100%;
 }
 
@@ -43,9 +42,13 @@ body {
 #HotProject{
     position: absolute;
     top: 100px;
-    color: black;
+    color: white;
     left: 500px;
     justify-content: center;
+}
+
+#HotProject p {
+    mix-blend-mode: difference;
 }
 
 .HotButton{
