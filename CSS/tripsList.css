@@ -1,7 +1,3 @@
-body {
-    background-color:#eee;
-}
-
 .container{
     position: absolute;
     top: 100px;
@@ -34,19 +30,10 @@ body {
     width: 100%;
 }
 
-img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-}
-
 .place {
     border-radius: 5%;
 }
 
-/*
-stylize any heading tags withing white-panel below
-*/
 
 .white-panel h1 {
     font-size: 1em;

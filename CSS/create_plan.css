@@ -3,22 +3,6 @@
 	width: 100%;
 }
 
-.profile-img {
-	height: 5vh;
-	border-radius: 50%;
-}
-
-.nav {
-	font-family: cursive;
-	font-weight: bolder;
-	color: white;
-	padding: 8px;
-}
-
-.nav-link {
-	color: white;
-}
-
 #message-container {
 	position: absolute;
 	top: 15%;
@@ -61,7 +45,7 @@
 	margin: 1vh;
 	height: 6vh;
 	width: 25vw;
-	border-radius: 20px;
+	border-radius: 10px;
 	text-indent: 20px;
 }
 

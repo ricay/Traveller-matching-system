@@ -1,3 +1,8 @@
+.backgroundImage {
+	float: bottom;
+	width: 100%;
+}
+
 #welcome-basic-info {
 	background: rgba(255, 255, 255, 0.75);
 	position: absolute;
