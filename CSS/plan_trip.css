@@ -4,18 +4,6 @@ body {
     font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 
-.profile-img {
-    height: 5vh;
-    border-radius: 50%;
-}
-
-.nav {
-    font-family: cursive;
-    font-weight: bolder;
-    color: white;
-    padding: 8px;
-}
-
 #background_img{
     /*padding: 5px;*/
     background-color: white;

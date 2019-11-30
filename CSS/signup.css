@@ -7,28 +7,12 @@
 	width: 30vw;
 	border-radius: 5%;
 }
-.profile-img {
-	height: 5vh;
-	border-radius: 50%;
-}
-
 #SignUp {
 	margin-left: 8%;
 }
 
-.nav {
-	font-family: cursive;
-	font-weight: bolder;
-	color: white;
-	padding: 8px;
-}
-
 .bg-pinkish {
 	background-color: #6B8598;
-}
-
-.nav-link {
-	color: white;
 }
 
 .welcome-image {

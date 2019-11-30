@@ -2,10 +2,6 @@ body{
     background: -webkit-linear-gradient(left, #3931af, #00c6ff);
 }
 
-.nav {
-    color: white;
-    padding: 8px;
-}
 .edit_button{
     color: grey;
     font-size: 17px;
