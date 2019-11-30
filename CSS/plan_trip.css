@@ -42,7 +42,7 @@ body {
 #HotProject{
     position: absolute;
     top: 100px;
-    left: 500px;
+    left: 1200px;
     mix-blend-mode: difference;
     justify-content: center;
 }
@@ -60,4 +60,16 @@ body {
     float: left;
     width: 100px;
     justify-content: center;
+}
+#HotPlaceTable{
+    position: absolute;
+    left:50%
+}
+#description_place{
+    background-color: rgba(255,255,255,0.7);
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    left: 500px;
+    top: 200px;
 }
