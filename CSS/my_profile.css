@@ -9,16 +9,16 @@
     background: rgba(255, 255, 255, 0.75);
 }
 
-.profile-img{
+#profile-img{
     text-align: center;
 }
 
-.profile-img img{
+#profile-img img{
     width: 70%;
     height: 100%;
 }
 
-.profile-img .file {
+#profile-img .file {
     position: relative;
     overflow: hidden;
     margin-top: -20%;
@@ -29,7 +29,7 @@
     background: #212529b8;
 }
 
-.profile-img .file input {
+#profile-img .file input {
     position: absolute;
     opacity: 0;
     right: 0;
