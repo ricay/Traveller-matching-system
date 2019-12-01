@@ -28,7 +28,6 @@ function checkLogIn() {
         userName: userNameInput,
         password: passWordInput
     };
-    log("input are " + data.userName + " " + data.password);
     const request = new Request('/admin/login', {
         method: 'post',
         body: JSON.stringify(data),

@@ -119,10 +119,7 @@ app.post('/users/signup', (req, res) => {
 
 
 app.post('/admin/login', (req, res) => {
-    log(req.body.userName);
-    log(req.body.password);
     Account.findByUserNamePassword(req.body.userName, req.body.password).then((account) => {
-        log(account);
         if (!account) {
             res.status(404).send()
         } else {
