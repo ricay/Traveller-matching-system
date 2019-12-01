@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<html>
 <head>
     <meta charset="UTF-8">
     <title>User profile</title>
@@ -64,7 +64,7 @@
 
                 </div>
                 <div class="col-md-2">
-                    <a class="edit_button" href="my_profile.html">Edit Profile <span class="sr-only">(current)</span></a><br>
+                    <a class="edit_button" href="my_profile.hbs">Edit Profile <span class="sr-only">(current)</span></a><br>
 
                 </div>
             </div>
@@ -80,56 +80,73 @@
                 <div class="col-md-8">
                     <div class="tab-content profile-tab" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            //display info
                             <div class="row">
                                 <label class="col-md-5 control-label" for="Username">Username</label>
                                 <div class="col-md-5">
-                                    <input type=" text" name = "username">
+                                    <input id="userName" name="username" type="text" placeholder="Username" class="form-control input-md">
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <label class="col-md-5 control-label" for="Username">First name</label>
+                                <div class="col-md-5">
+                                    <input id="FirstName" name="username" type="text" placeholder="Username" class="form-control input-md">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-5 control-label" for="Username">Username</label>
+                                <div class="col-md-5">
+                                    <input id="lastName" name="username" type="text" placeholder="Username" class="form-control input-md">
+                                </div>
+                            </div>
+
                             <div class="row">
                                 <label class="col-md-5 control-label" for="Gender">Gender</label>
                                 <div class="col-md-5">
-                                   <input type="text" name="gender">
+                                    <input id="Gender" name="gender" type="text" placeholder="Gender" class="form-control input-md">
                                 </div>
                             </div>
+
                             <div class="row">
-                                <label class="col-md-5 control-label" for="Date Of Birth">Date Of Birth</label>
+                                <label class="col-md-5 control-label" for="Birthday">Date Of Birth</label>
                                 <div class="col-md-5">
-                                    07/09/1996
+                                    <input id="Birthday" name="birthday" type="text" placeholder="Date Of Birth" class="form-control input-md">
                                 </div>
                             </div>
+
                             <div class="row">
                                 <label class="col-md-5 control-label" for="Email">Email address</label>
                                 <div class="col-md-5">
-                                    user1996@gmail.com
+                                    <input id="Email" name="email" type="text" placeholder="Email address" class="form-control input-md">
                                 </div>
                             </div>
+
                             <div class="row">
                                 <label class="col-md-5 control-label" for="Phone">Phone number</label>
                                 <div class="col-md-5">
-                                    +1 123 456 678
+                                    <input id="Phone" name="phone" type="text" placeholder="Phone number" class="form-control input-md">
                                 </div>
                             </div>
+
                             <div class="row">
-                                <label class="col-md-5 control-label" for="Languages Known">Languages Known</label>
+                                <label class="col-md-5 control-label" for="Languages">Languages Known</label>
                                 <div class="col-md-5">
-                                    English
+                                    <div>
+                                        <input type="text" name="language" id="Languages"  placeholder="Languages" class="form-control input-md">
+                                    </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <label class="col-md-5 control-label" for="Detail">Detail description:</label>
                                 <div class="col-md-5">
-                                    Up to last year, my wanderlust was confined to the 25-day holiday benefit I got
-                                        through my office job. But the urgent desire to see the world was stronger than
-                                        anything else. So I left my British courtyard behind and entered the travel culture.
-                                        I love to challenge myself and push my limits, and I love having time for myself.
-                                        Free feel to contact me if you have interest to know more about me and
-                                        travel with me.
-
+                                    <textarea class="form-control" rows="10"  id="Detail" name="description" placeholder="max 200 words"></textarea>
                                 </div>
                             </div>
+
                             <div class="row">
-                                <a class="welcome-button" id="login-button" href="my_profile.html">Edit</a>
+                                <a class="welcome-button" id="login-button" href="my_profile.hbs">Edit</a>
                                 <form action = "/">
                             </div>
                         </div>
