@@ -1,4 +1,4 @@
-
+const log = console.log
 function jumpTo(url) {
     window.location.href = url;
 }
@@ -80,16 +80,55 @@ function logIn() {
 }
 
 function checkLogIn() {
+
+    // const req = new Request('/users', {
+    //         method: 'GET',
+    //         headers: {
+    //             'Content-type': 'application/json'
+    //         }
+    //     })
+
+    // fetch(req).then(result => {
+    //     log(result)
+    // })
+    fetch('/users').then(result => {
+        log(result.json())
+    })
+
     let userNameInput = document.querySelector("#userName").value;
     let passWordInput = document.querySelector("#passWord").value;
     const incorrectMessage = document.getElementById("incorrect_message");
 
-    if ((userNameInput !== "user" || passWordInput !== "user") && (userNameInput !== "admin" || passWordInput !== "admin")) {
-        incorrectMessage.textContent = "Incorrect Username/Password! Please enter again.";
-    } else if (userNameInput === "admin" && passWordInput === "admin"){
+    // if ((userNameInput !== "user" || passWordInput !== "user") && (userNameInput !== "admin" || passWordInput !== "admin")) {
+    //     incorrectMessage.textContent = "Incorrect Username/Password! Please enter again.";
+    // } else 
+    if (userNameInput === "admin" && passWordInput === "admin"){
         incorrectMessage.textContent = "Please go to admin page to log in as admin.";
     } else {
-        incorrectMessage.hidden = true;
-        jumpTo("plan_trip.html")
+        // incorrectMessage.hidden = true;
+        // jumpTo("plan_trip.html")
+        const data = {
+            userName: userNameInput,
+            password: passWordInput
+        }
+        const request = new Request('/users/login', {
+            method: 'post',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-type': 'application/json'
+            }
+        })
+        fetch(request)
+        .then(function(res) {
+            if (res.status === 200) {
+                // log(res);
+                log('haha')
+                window.location.href = 'plan_trip.html';
+            } else {
+                incorrectMessage.textContent = "Wrong username or password";
+            }
+        }).catch((error) => {
+            log(error);
+        })
     }
 }

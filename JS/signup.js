@@ -90,8 +90,7 @@ function jumpTo(url) {
         phone: phone,
         gender: gender
     }
-    // if (result === true)
-    if(true)
+    if (result === true)
     {   
         const request = new Request('/users/signup', {
             method: 'post',
@@ -104,7 +103,8 @@ function jumpTo(url) {
         .then(function(res) {
             if (res.status === 200) {
                 // log(res);
-                window.location.href = url;
+                alert('Congratulations, you have successfully signed up.\nPlease log in.')
+                window.location.href = 'index.html';
             } else {
                 // alert("Failed to signup, userName has been used");
                 document.getElementById("uname_msg").innerHTML="Failed to signup, userName has been used";
