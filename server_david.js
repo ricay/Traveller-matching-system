@@ -114,17 +114,23 @@ app.post('/users/signup', (req, res) => {
     }, (error) => {
         res.status(400).send(error)
     });
-
-    // const profile = new Profile({
-    //     email: req.body.email
-    // })
-    // profile.save().then((result) => {
-    //     res.send(result)
-    // }, (error) => {
-    //     res.status(400).send(error)
-    // })
-    // res.status(200).send()
     log(309)
+});
+
+
+app.post('/admin/login', (req, res) => {
+    log(req.body.userName);
+    log(req.body.password);
+    Account.findByUserNamePassword(req.body.userName, req.body.password).then((account) => {
+        log(account);
+        if (!account) {
+            res.status(404).send()
+        } else {
+            res.status(200).send()
+        }
+    }).catch((error) => {
+        res.status(400).send(error)
+    })
 });
 
 
