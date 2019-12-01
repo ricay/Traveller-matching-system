@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const Account = mongoose.model('Account', {
-    // uid: {
-    //     type: Number,
-    //     required: false
-    // },
     userName: {
         type: String,
         required: true,

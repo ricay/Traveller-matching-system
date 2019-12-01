@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 const datetime = require("date-and-time");
 
 const Plan = mongoose.model('Plan', {
-    pid: {
-        type: Number,
-        required: false
-    },
+    // pid: {
+    //     type: String,
+    //     required: false
+    // },
     name: {
         type: String
     },
     creator: {
-        type: Number
+        type: String
     },
     places: {
         type: Array

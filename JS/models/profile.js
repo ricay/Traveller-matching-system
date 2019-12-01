@@ -2,9 +2,8 @@ const mongoose = require('mongoose');
 const datetime = require("date-and-time");
 
 const Profile = mongoose.model('Profile', {
-    uid: {
-        type: Number,
-        required: false
+    userName: {
+        type: String,
     },
     firstName: {
         type: String,
