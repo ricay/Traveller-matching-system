@@ -68,7 +68,7 @@
                 </div>
                 <div class="col-md-2">
                     <a class="profile-edit-btn" href="my_profile.html">Edit Profile <span class="sr-only">(current)</span></a><br>
-                    <a class="profile-privacy" href="my_profile.html">Privacy setting <span class="sr-only">(current)</span></a>
+<!--                    <a class="profile-privacy" href="my_profile.html">Privacy setting <span class="sr-only">(current)</span></a>-->
                 </div>
             </div>
             <div class="row">
@@ -89,21 +89,26 @@
                             <div class="row">
                                 <label class="col-md-5 control-label" for="Username">Username</label>
                                 <div class="col-md-5">
-                                    <input id="Username" name="username" type="text" placeholder="Username" class="form-control input-md">
+                                    <input value="userName" id="userName" name="userName" type="text" placeholder="Username" class="form-control input-md">
                                 </div>
                             </div>
 
                             <div class="row">
+                                <label class="col-md-5 control-label" for="Username">Username</label>
+                                <div class="col-md-5">
+                                    <input id="firstName" name="firstName" type="text" placeholder="firstName" class="form-control input-md">
+                                </div>
+                            </div>
+                            <div class="row">
+                            <label class="col-md-5 control-label" for="Username">Username</label>
+                            <div class="col-md-5">
+                                <input id="lastName" name="lastName" type="text" placeholder="lastName" class="form-control input-md">
+                            </div>
+                        </div>
+
+                            <div class="row">
                                 <label class="col-md-5 control-label" for="Gender">Gender</label>
                                 <div class="col-md-5">
-<!--                                    <label class="radio-inline" for="Gender-0">-->
-<!--                                        <input type="radio" name="gender" id="Gender-0" value="1" checked="checked">-->
-<!--                                        Male-->
-<!--                                    </label>-->
-<!--                                    <label class="radio-inline" for="Gender-1">-->
-<!--                                        <input type="radio" name="gender" id="Gender-1" value="2">-->
-<!--                                        Female-->
-<!--                                    </label>-->
                                     <input id="Gender" name="gender" type="text" placeholder="Gender" class="form-control input-md">
                                 </div>
                             </div>
@@ -132,13 +137,6 @@
                             <div class="row">
                                 <label class="col-md-5 control-label" for="Languages">Languages Known</label>
                                 <div class="col-md-5">
-<!--                                    <div class="checkbox">-->
-<!--                                        <label for="Languages Known-1">-->
-<!--                                            <input type="checkbox" name="lan1" id="Languages Known-1" value="3">-->
-<!--                                            English-->
-<!--                                        </label>-->
-<!--                                    </div>-->
-                                    <div>
                                         <input type="text" name="language" id="Languages"  placeholder="Languages" class="form-control input-md">
                                     </div>
                                 </div>
@@ -152,7 +150,7 @@
                             </div>
 
                             <div class="row">
-                                <button class="welcome-button" id="login-button" onclick="addProfile()"> Save </button>
+                                <button class="welcome-button" id="login-button" onclick="editProfile()"> Save </button>
                             </div>
                         </div>
 
@@ -167,7 +165,7 @@
                             </section>
 
                             <div class="row">
-                                <a class="welcome-button"  href="user_profile.html">Add more</a>
+                                <a class="welcome-button"  href="user_profile.hbs">Add more</a>
                             </div>
                         </div>
                     </div>
