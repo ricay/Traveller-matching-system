@@ -12,7 +12,19 @@ PlaceInfoForm.addEventListener('submit', searchATrip);
 function jumpTo(url) {
     window.location.href = url;
 }
-
+function searchTrip(){
+    const searchPlace = document.querySelector('#searchInterestedPlaces')
+    const url = '/plans';
+    fetch(url)
+        .then((res) => {
+            if (res.status === 200) {
+                // return a promise that resolves with the JSON body
+                return res.json()
+            } else {
+                alert('Could not get plans')
+            }
+        })
+}
 function addNewHotTable(place,index,text) {
     const row = HotTable.insertRow(index);
     const cell = row.insertCell(0);
