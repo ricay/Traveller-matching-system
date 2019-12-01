@@ -99,6 +99,18 @@ app.get('/plan_trip.html', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/plan_trip.html')
 });
 
+app.get('/admin_insert_recommendation.html', sessionChecker, (req, res) => {
+    res.sendFile(__dirname + '/admin_insert_recommendation.html')
+});
+
+app.get('/admin_validate_users.html', sessionChecker, (req, res) => {
+    res.sendFile(__dirname + '/admin_validate_users.html')
+});
+
+app.get('/admin_delete_plan.html', sessionChecker, (req, res) => {
+    res.sendFile(__dirname + '/admin_delete_plan.html')
+});
+
 app.post('/users/signup', (req, res) => {
     log(1);
     log(req.body);
