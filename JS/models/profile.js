@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const datetime = require("date-and-time");
+// const datetime = require("date-and-time");
 
 const Profile = mongoose.model('Profile', {
     userName: {
@@ -15,7 +15,7 @@ const Profile = mongoose.model('Profile', {
         type: String,
     },
     birthday: {
-        type: datetime,
+        type: String,
     },
     email: {
         type: String,
