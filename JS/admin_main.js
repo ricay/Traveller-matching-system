@@ -1,3 +1,4 @@
+const log = console.log;
 function jumpTo(url) {
     window.location.href = url;
 }
@@ -22,13 +23,28 @@ function checkLogIn() {
     const buttonsContainer = document.getElementById("buttons-container");
     const functionContainer = document.getElementById("function-container");
 
-    if ((userNameInput !== "user" || passWordInput !== "user") && (userNameInput !== "admin" || passWordInput !== "admin")) {
-        incorrectMessage.textContent = "Incorrect Username/Password! Please enter again.";
-    } else if (userNameInput === "user" && passWordInput === "user"){
-        incorrectMessage.textContent = "Please go to user page to log in as user.";
-    } else {
-        incorrectMessage.hidden = true;
-        buttonsContainer.hidden = true;
-        functionContainer.hidden = false;
-    }
+    // Server use
+    const data = {
+        userName: userNameInput,
+        password: passWordInput
+    };
+    log("input are " + data.userName + " " + data.password);
+    const request = new Request('/admin/login', {
+        method: 'post',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-type': 'application/json'
+        }
+    });
+    fetch(request).then(function(res) {
+        if (res.status === 200) {
+            incorrectMessage.hidden = true;
+            buttonsContainer.hidden = true;
+            functionContainer.hidden = false;
+        } else {
+            incorrectMessage.textContent = "Incorrect Username/Password! Please enter again.";
+        }
+    }).catch((error) => {
+       log(error);
+    });
 }

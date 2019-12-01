@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const datetime = require("date-and-time");
+// const datetime = require("date-and-time");
 
 const Plan = mongoose.model('Plan', {
     // pid: {
@@ -22,10 +22,10 @@ const Plan = mongoose.model('Plan', {
         type: Number
     },
     startTime: {
-        type: datetime
+        type: String
     },
     endTime: {
-        type: datetime
+        type: String
     },
     poolMember: {
         type: Array

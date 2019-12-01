@@ -103,10 +103,11 @@ function jumpTo(url) {
         fetch(request)
         .then(function(res) {
             if (res.status === 200) {
-                log(res);
+                // log(res);
                 window.location.href = url;
             } else {
-                log("Failed to signup");
+                // alert("Failed to signup, userName has been used");
+                document.getElementById("uname_msg").innerHTML="Failed to signup, userName has been used";
             }
         }).catch((error) => {
             log(error);
