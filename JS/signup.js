@@ -1,3 +1,4 @@
+const log = console.log
 function jumpTo(url) {
   
     const email = document.getElementById("email").value;
@@ -75,15 +76,41 @@ function jumpTo(url) {
     }
 
 
-  if(result === false )
+    if(result === false )
         {    
             event.preventDefault();
         }
 
-    if (result === true)
-    {
-        window.location.href = url;
-        alert("Signup successfully!")
+    const data = {
+        email: email,
+        userName: uname,
+        password: password,
+        firstName: fname,
+        lastName: lname,
+        phone: phone,
+        gender: gender
+    }
+    // if (result === true)
+    if(true)
+    {   
+        const request = new Request('/users/signup', {
+            method: 'post',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-type': 'application/json'
+            }
+        })
+        fetch(request)
+        .then(function(res) {
+            if (res.status === 200) {
+                log(res);
+                window.location.href = url;
+            } else {
+                log("Failed to signup");
+            }
+        }).catch((error) => {
+            log(error);
+        })
     }
 }
 

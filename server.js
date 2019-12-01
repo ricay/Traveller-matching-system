@@ -31,6 +31,8 @@ app.use('/JS', express.static('JS'))
 app.use('/CSS', express.static('CSS'))
 app.use('/bootstrap-4.3.1-dist', express.static('bootstrap-4.3.1-dist'))
 
+mongoose.set('useCreateIndex', true)
+
 
 
 /*** Session handling **************************************/
@@ -88,6 +90,42 @@ app.get('/index.html', sessionChecker, (req, res) => {
 app.get('/admin_main.html', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/admin_main.html')
 })
+
+app.get('/signup.html', sessionChecker, (req, res) => {
+  res.sendFile(__dirname + '/signup.html')
+})
+
+app.get('/plan_trip.html', sessionChecker, (req, res) => {
+  res.sendFile(__dirname + '/plan_trip.html')
+})
+
+app.post('/users/signup', (req, res) => {
+    log(1)
+    log(req.body)
+
+    const account = new Account({
+        userName: req.body.userName,
+        password: req.body.password,
+        type: 'normal' // normal for normal users
+    })
+    log("account is " + account);
+    account.save().then((result) => {
+        res.send(result)
+    }, (error) => {
+        res.status(400).send(error)
+    })
+
+    // const profile = new Profile({
+    //     email: req.body.email
+    // })
+    // profile.save().then((result) => {
+    //     res.send(result)
+    // }, (error) => {
+    //     res.status(400).send(error)
+    // })
+    // res.status(200).send()
+    log(309)
+});
 
 
 /*************************************************/
