@@ -88,16 +88,11 @@
                 <div class="col-md-8">
                     <div class="tab-content profile-tab" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
                             <div class="row">
-                                <label class="col-md-5 control-label" for="First-name">First name</label>
+                                <label class="col-md-5 control-label" for="Username">Username</label>
                                 <div class="col-md-5">
-                                    <input id="First-name" name="Username" type="text" placeholder="First name" class="form-control input-md">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <label class="col-md-5 control-label" for="Last-name">Last name</label>
-                                <div class="col-md-5">
-                                    <input id="Last-name" name="Username" type="text" placeholder="Last name" class="form-control input-md">
+                                    <input id="Username" name="username" type="text" placeholder="Last name" class="form-control input-md">
                                 </div>
                             </div>
 
@@ -105,48 +100,48 @@
                                 <label class="col-md-5 control-label" for="Gender">Gender</label>
                                 <div class="col-md-5">
                                     <label class="radio-inline" for="Gender-0">
-                                        <input type="radio" name="Gender" id="Gender-0" value="1" checked="checked">
+                                        <input type="radio" name="gender" id="Gender-0" value="1" checked="checked">
                                         Male
                                     </label>
                                     <label class="radio-inline" for="Gender-1">
-                                        <input type="radio" name="Gender" id="Gender-1" value="2">
+                                        <input type="radio" name="gender" id="Gender-1" value="2">
                                         Female
                                     </label>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <label class="col-md-5 control-label" for="Date Of Birth">Date Of Birth</label>
+                                <label class="col-md-5 control-label" for="Birthday">Date Of Birth</label>
                                 <div class="col-md-5">
-                                    <input id="Date Of Birth" name="Date Of Birth" type="text" placeholder="Date Of Birth" class="form-control input-md">
+                                    <input id="Birthday" name="birthday" type="text" placeholder="Date Of Birth" class="form-control input-md">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <label class="col-md-5 control-label" for="Email">Email address</label>
                                 <div class="col-md-5">
-                                    <input id="Email" name="Email" type="text" placeholder="Email address" class="form-control input-md">
+                                    <input id="Email" name="email" type="text" placeholder="Email address" class="form-control input-md">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <label class="col-md-5 control-label" for="Phone">Phone number</label>
                                 <div class="col-md-5">
-                                    <input id="Phone" name="Phone" type="text" placeholder="Phone number" class="form-control input-md">
+                                    <input id="Phone" name="phone" type="text" placeholder="Phone number" class="form-control input-md">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <label class="col-md-5 control-label" for="Languages Known">Languages Known</label>
                                 <div class="col-md-5">
-                                    <div class="checkbox">
-                                        <label for="Languages Known-1">
-                                            <input type="checkbox" name="Languages Known" id="Languages Known-1" value="3">
-                                            English
-                                        </label>
-                                    </div>
-                                    <div class="othertop">
-                                        <input type="text" name="LanguagesKnown" id="Languages Known-2"  placeholder="Other Language">
+<!--                                    <div class="checkbox">-->
+<!--                                        <label for="Languages Known-1">-->
+<!--                                            <input type="checkbox" name="lan1" id="Languages Known-1" value="3">-->
+<!--                                            English-->
+<!--                                        </label>-->
+<!--                                    </div>-->
+                                    <div>
+                                        <input type="text" name="language" id="Languages Known-2"  placeholder="Other Language" class="form-control input-md">
                                     </div>
                                 </div>
                             </div>
@@ -154,12 +149,12 @@
                             <div class="row">
                                 <label class="col-md-5 control-label" for="Detail">Detail description:</label>
                                 <div class="col-md-5">
-                                    <textarea class="form-control" rows="10"  id="Detail" name="Detail" placeholder="max 200 words"></textarea>
+                                    <textarea class="form-control" rows="10"  id="Detail" name="description" placeholder="max 200 words"></textarea>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <a class="welcome-button" id="login-button" href="user_profile.html">Save</a>
+                                <button class="welcome-button" id="login-button" onclick="addProfile()">Save</button>
                             </div>
                         </div>
 
