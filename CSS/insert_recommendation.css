@@ -41,8 +41,7 @@
 }
 
 #dragImage {
-	height: 30vh;
-	width: 30vw;
+	height: 3.6vh;
 	border-radius: 20px;
 	border-style: inset;
 }

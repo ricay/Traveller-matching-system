@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="CSS/general_navbar.css">
-    <link rel="stylesheet" type="text/css" href="CSS/plan_trip.css">
     <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="CSS/plan_trip.css">
 </head>
 <body>
     <nav class="navbar navbar-expand navbar-dark bg-primary">
@@ -29,41 +29,8 @@
     <div id="background">
 
         <img id="background_img" src="PIC/pt-backgroud.jpg" alt="">
-        <script>
-            window.onload = function(){
-                var opDiv = document.getElementById("background_img");
-                opDiv.onmouseover = function(){
-                    startMove(100);
-                };
-                opDiv.onmouseout = function(){
-                    startMove(0);
-                }
-            };
-            var timer = null;
-            var alpha = 100;
-            var speed = 0;
-            function startMove(opTarget){
 
-                clearInterval(timer);
-                var opDiv = document.getElementById("background_img");
-                timer = setInterval(function(){
-                    if(alpha<opTarget){
-                        speed = 10;
-                    }
-                    else if(alpha>opTarget){
-                        speed = -10;
-                    }
-                    if(alpha==opTarget){
-                        clearInterval(timer);
-                    }
-                    else {
-                        alpha += speed;
-                        opDiv.style.opacity = alpha/100;
-                        opDiv.style.filter = 'alpha(opacity='+alpha+')';
-                    }
-                },50);
-            }
-        </script>
+
         <form id='PlaceInfoForm'>
             <label for="searchInterestedPlaces"></label>
             <input class="pt-button" id="searchInterestedPlaces" type="text" placeholder="Any interested places?">
@@ -72,14 +39,52 @@
         <form id='PlanInfoForm'>
             <input class="pt-button" id ="PlanInfoSubmit" type="button" value="Or You Want Initiate A New Trip?" onclick="jumpTo('create_plan.html')">
         </form>
-    </div>
 
+    </div>
+    <div id = 'description_place'>
+
+    </div>
     <div id="HotProject">
         <p> <strong>Some hottest spots</strong></p>
         <table id='HotPlaceTable'>
         </table>
-    </div>
 
+    </div>
+    <script>
+
+        window.onload = function(){
+            var opDiv = document.getElementById("HotProject");
+            opDiv.onmouseover = function(){
+                startMove(0);
+            };
+            opDiv.onmouseout = function(){
+                startMove(100);
+            }
+        };
+        var timer = null;
+        var alpha = 100;
+        var speed = 0;
+        function startMove(opTarget){
+            clearInterval(timer);
+            var opDiv = document.getElementById("background_img");
+            timer = setInterval(function(){
+                if(alpha<opTarget){
+                    speed = 10;
+                }
+                else if(alpha>opTarget){
+                    speed = -10;
+                }
+                if(alpha==opTarget){
+                    clearInterval(timer);
+                }
+                else {
+                    alpha += speed;
+                    opDiv.style.opacity = alpha/100;
+                    opDiv.style.filter = 'alpha(opacity='+alpha+')';
+                }
+            },50)
+        }
+    </script>
     <script type="text/javascript" src="JS/plan_trip.js"></script>
     <script type="text/javascript" src="JS/tripsList.js"></script>
 

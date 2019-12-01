@@ -34,6 +34,10 @@ function transit_pro(){
     console.log(homeLink);
 }
 
+
+
+
+
 function logIn() {
     const welcomeBasicInfo = document.getElementById("welcome-basic-info");
     const newUser = document.getElementById("new_user");
