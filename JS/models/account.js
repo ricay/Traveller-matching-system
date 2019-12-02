@@ -21,7 +21,6 @@ const AccountSchema = new mongoose.Schema({
     }
 });
 
-
 AccountSchema.statics.findByUserNamePassword = function(userName, password) {
     const Account = this;
 
@@ -45,6 +44,30 @@ AccountSchema.statics.findByUserNamePassword = function(userName, password) {
         // })
     })
 };
+
+// AccountSchema.statics.findByAdminNamePassword = function(userName, password) {
+//     const Account = this;
+//
+//     return Account.findOne({ userName: userName }).then((account) => {
+//         if (!account) {
+//             return Promise.reject()
+//         } else {
+//             if (account.password === password && account.type === "admin") {
+//                 return Promise.resolve(account);
+//             }
+//         }
+//         // return new Promise((resolve, reject) => {
+//         //     bcrypt.compare(password, account.password, (err, result) => {
+//         //         if (result) {
+//         //             resolve(account)
+//         //         } else {
+//         //             console.log(2);
+//         //             reject()
+//         //         }
+//         //     })
+//         // })
+//     })
+// };
 
 // make a model using the User schema
 const Account = mongoose.model('Account', AccountSchema);

@@ -66,27 +66,6 @@ const adminSessionChecker = (req, res, next) => {
     }
 };
 
-// A route to login and create a session
-// app.post('/users/login', (req, res) => {
-// 	const email = req.body.email
-//     const password = req.body.password
-
-//     // Use the static method on the User model to find a user
-//     // by their email and password
-// 	User.findByEmailPassword(email, password).then((user) => {
-// 	    if (!user) {
-//             res.redirect('/login');
-//         } else {
-//             // Add the user's id to the session cookie.
-//             // We can check later if this exists to ensure we are logged in.
-//             req.session.user = user._id;
-//             res.redirect('/dashboard');
-//         }
-//     }).catch((error) => {
-// 		res.status(400).redirect('/login');
-//     })
-// })
-
 app.get('/', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/index.html')
 });
