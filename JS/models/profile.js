@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 // const datetime = require("date-and-time");
 
-const Profile = mongoose.model('Profile', {
+const ProfileSchema = new mongoose.Schema({
     userName: {
         type: String,
     },
@@ -33,4 +33,17 @@ const Profile = mongoose.model('Profile', {
 
 });
 
+ProfileSchema.statics.deleteByUserName = function(userName) {
+    const Profile = this;
+
+    return Profile.deleteOne({ userName: userName }).then((profile) => {
+        if (!profile) {
+            return Promise.reject()
+        } else {
+            return Promise.resolve(profile);
+        }
+    })
+};
+
+const Profile = mongoose.model('Profile', ProfileSchema);
 module.exports = { Profile };

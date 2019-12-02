@@ -45,6 +45,18 @@ AccountSchema.statics.findByUserNamePassword = function(userName, password) {
     })
 };
 
+AccountSchema.statics.deleteByUserName = function(userName) {
+    const Account = this;
+
+    return Account.deleteOne({ userName: userName }).then((account) => {
+        if (!account) {
+            return Promise.reject()
+        } else {
+            return Promise.resolve(account);
+        }
+    })
+};
+
 // AccountSchema.statics.findByAdminNamePassword = function(userName, password) {
 //     const Account = this;
 //

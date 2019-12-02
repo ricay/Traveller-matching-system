@@ -22,13 +22,9 @@ function checkLogIn() {
     const incorrectMessage = document.getElementById("incorrect-message");
 
     // Server use
-    const data = {
-        userName: userNameInput,
-        password: passWordInput
-    };
-    const request = new Request('/admin/login', {
+    url = '/admin/login/'+userNameInput+'/'+passWordInput;
+    const request = new Request(url, {
         method: 'post',
-        body: JSON.stringify(data),
         headers: {
             'Content-type': 'application/json'
         }

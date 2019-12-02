@@ -95,7 +95,7 @@ app.get('/admin_insert_recommendation.html', adminSessionChecker, (req, res) => 
 });
 
 app.get('/admin_validate_users.html', adminSessionChecker, (req, res) => {
-    log(req.session.account);
+    // log(req.session.account);
     res.sendFile(__dirname + '/admin_validate_users.html')
 });
 
@@ -104,31 +104,43 @@ app.get('/admin_delete_plan.html', adminSessionChecker, (req, res) => {
 });
 
 app.post('/users/signup', (req, res) => {
-    log(1);
-    log(req.body);
-
     const account = new Account({
         userName: req.body.userName,
         password: req.body.password,
         type: 'normal' // normal for normal users
     });
-    log("account is " + account);
     account.save().then((result) => {
-        res.send(result)
+        const profile = new Profile({
+            userName: req.body.userName,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            gender: req.body.gender,
+            birthday: '',
+            email: req.body.email,
+            phone: req.body.phone,
+            language: '',
+            description: ''
+        });
+        profile.save().then((result) => {
+            res.send(result)
+        }, (error) => {
+            res.status(400).send(error)
+        })
     }, (error) => {
         res.status(400).send(error)
-    });
-    log(309)
+    })
 });
 
+app.post('/admin/login/:userName/:password', (req, res) => {
+    const userName = req.params.userName;
+    const password = req.params.password;
 
-app.post('/admin/login', (req, res) => {
-    Account.findByUserNamePassword(req.body.userName, req.body.password).then((account) => {
+    Account.findByUserNamePassword(userName, password).then((account) => {
         if (!account) {
             res.status(404).send()
         } else {
-            req.session.account = account._id;
-            log(req.session.account);
+            // req.session.account = account._id;
+            // log(req.session.account);
             res.status(200).send()
         }
     }).catch((error) => {
@@ -136,6 +148,43 @@ app.post('/admin/login', (req, res) => {
     })
 });
 
+
+app.get('/admin/getUsers', (req, res) => {
+    Profile.find().then((profiles) => {
+        res.send({ profiles }) // can wrap in object if want to add more properties
+    }, (error) => {
+        res.status(500).send(error) // server error
+    })
+});
+
+app.delete('/admin/deleteUser/:userName', (req, res) => {
+    const userName = req.params.userName;
+    // Delete account
+    Account.deleteByUserName(userName).then((account) => {
+        log(account);
+        if (!account) {
+            res.status(404).send()
+        }
+        else {
+            res.status(200).send()
+        }
+    }).catch((error) => {
+        res.status(500).send()
+    });
+
+    // Delete profile
+    Profile.deleteByUserName(userName).then((profile) => {
+        log(profile);
+        if (!profile) {
+            res.status(404).send()
+        }
+        else {
+            res.status(200).send()
+        }
+    }).catch((error) => {
+        res.status(500).send()
+    })
+});
 
 /*************************************************/
 // Express server listening...
