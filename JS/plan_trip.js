@@ -12,6 +12,35 @@ PlaceInfoForm.addEventListener('submit', searchATrip);
 function jumpTo(url) {
     window.location.href = url;
 }
+
+function jumpAndPost(url) {
+    const data = {
+        location: document.getElementById('searchInterestedPlaces').value
+    }
+
+    const request = new Request('/plan/search', {
+        method: 'post',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-type': 'application/json'
+        }
+    })
+    fetch(request)
+        .then(function(res) {
+            if (res.status === 200) {
+                // log(res);
+
+
+            }
+
+        }).catch((error) => {
+        log(error);
+    })
+    jumpTo(url)
+}
+
+
+
 function searchTrip(){
     const searchPlace = document.querySelector('#searchInterestedPlaces')
     const url = '/plans';

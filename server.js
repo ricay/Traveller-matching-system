@@ -107,7 +107,9 @@ app.get('/my_profile.hbs', (req, res) => {
 app.get('/view_plan.html', (req, res) => {
     res.sendFile(__dirname + '/view_plan.html')
 });
-
+app.get('/tripsList.html', (req, res) => {
+    res.sendFile(__dirname + '/tripsList.html')
+});
 
 
 app.post('/users/signup', (req, res) => {
@@ -141,6 +143,17 @@ app.post('/users/signup', (req, res) => {
         res.status(400).send(error)
     })
 });
+
+app.post('/plan/search', (req, res) => {
+    const location = req.body.location;
+    req.session.location = location;
+    res.send();
+
+});
+
+
+
+
 
 
 app.post('/users/login', (req, res) => {
@@ -204,6 +217,15 @@ app.get('/profiles', (req, res) => {
 });
 
 
+app.get('/allPlan', (req, res) => {
+    Plan.find().then((plans) => {
+
+        res.send({ plans }) // can wrap in object if want to add more properties
+    }, (error) => {
+        res.status(500).send(error) // server error
+    })
+});
+
 
 
 app.get('/plan', (req, res) => {
@@ -241,6 +263,14 @@ app.post('/plan', (req, res) => {
     log(309)
 });
 
+
+app.get('/plan/search', (req, res) => {
+    // res.send(req.session.location);
+    res.send(JSON.stringify(req.session.location));
+
+   });
+
+
 app.delete('/plan/:id', (req, res) => {
     const pid = req.params.id;
     log(pid)
@@ -255,6 +285,21 @@ app.delete('/plan/:id', (req, res) => {
         res.status(500).send() // server error, could not delete.
     })
 });
+
+
+app.get('/allPlace', (req, res) => {
+    Plan.find({creator: req.session.userName}).then((plans) => {
+
+        res.send({ plans }) // can wrap in object if want to add more properties
+    }, (error) => {
+        res.status(500).send(error) // server error
+    })
+});
+
+// a user want to join other user's plan
+app.patch('/plan/:pid', (req, res) => {
+    const currUserName = req.session.userName
+})
 
 
 /*************************************************/

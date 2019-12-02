@@ -45,7 +45,7 @@ function clicked(bool, id) {
 }
 
 function loadMyPlan(){
-    const creator = 'Tony';
+
     const url = '/plan';
 
     // Since this is a GET request, simply call fetch on the URL

@@ -1,3 +1,4 @@
+const log = console.log;
 var planList = [];
 var numberOfPlans = 1;
 const tripListTable = document.getElementById('tripsListTable');
@@ -26,7 +27,33 @@ class Plan {
         console.log(numberOfPlans)
     }
 }
+function loadSearchResult()
+    {
+        const url = '/plan/search';
 
+        // Since this is a GET request, simply call fetch on the URL
+        fetch(url)
+            .then((res) => {
+                return res.json();
+            }).then((json) => {  // the resolved promise with the JSON body
+                const location = json;
+                log(location)
+            fetch('/allPlan')
+                .then((res) => {
+                    return res.json();
+                }).then((plans) => {
+                // log(plans.plans[0]);
+                for (let i=0;i<plans.plans.length;i++){
+                    // here!!!
+                }
+            })
+
+
+        }).catch((error) => {
+            log(error)
+        })
+
+}
 const Trip1 = new Plan('Athens','Santorini','bike',1000,'2019.11.01','2019.12.01','PIC/Santorini1.jpg','Tony');
 Trip1.SpotList.push('Athens');
 Trip1.SpotList.push('Santorini');
