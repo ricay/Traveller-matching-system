@@ -120,12 +120,11 @@ function checkLogIn() {
         })
         fetch(request)
         .then(function(res) {
-            if (res.status === 200) {
-                // log(res);
-                log('haha')
-                window.location.href = 'plan_trip.html';
-            } else {
+            if (res.status === 404) {
                 incorrectMessage.textContent = "Wrong username or password";
+                log(res.status)
+            } else {
+                window.location.href = res.url;
             }
         }).catch((error) => {
             log(error);
