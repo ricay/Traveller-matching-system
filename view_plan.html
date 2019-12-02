@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <title>View created plan</title>
     <link rel="stylesheet" type="text/css" href="CSS/general_navbar.css">
+
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="CSS/view_plan.css">
-    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="JS/view_plan.js"></script>
+
 </head>
-<body>
+<body onload=loadMyPlan()>
     <nav class="navbar navbar-expand navbar-dark bg-primary">
         <p class="nav">Friends On The Way</p>
 
@@ -41,6 +42,9 @@
     <div class="container" >
         <div class="row">
             <section id="pinBoot">
+                <table id = 'myPlanList'>
+                </table>
+
                 <article class="white-panel" id="white-panel-id">
                     <img src="PIC/los-angeles.jpg" alt="" class="place">
                     <strong> PLAN 1 </strong>
@@ -87,6 +91,7 @@
             </section>
         </div>
     </div>`
-
+    <script type="text/javascript" src="JS/view_plan.js"></script>
 </body>
+
 </html>
