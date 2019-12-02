@@ -17,6 +17,9 @@ const { Profile } = require('./JS/models/profile')
 
 // to validate object IDs
 const { ObjectID } = require('mongodb');
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
 
 // body-parser: middleware for parsing HTTP JSON body into a usable object
 const bodyParser = require('body-parser');
@@ -31,6 +34,7 @@ app.use('/JS', express.static('JS'))
 app.use('/CSS', express.static('CSS'))
 app.use('/bootstrap-4.3.1-dist', express.static('bootstrap-4.3.1-dist'))
 app.set('view engine', 'hbs');
+
 
 
 
@@ -49,7 +53,7 @@ app.use(session({
 // Our own express middleware to check for
 // an active user on the session cookie (indicating a logged in user.)
 const sessionChecker = (req, res, next) => {
-    if (!req.session.profile_id) {
+    if (!req.session.user) {
         // res.redirect('/dashboard'); // redirect to dashboard if logged in.
         res.sendFile(__dirname + '/index.html')
     } else {
@@ -64,7 +68,9 @@ app.get('/', sessionChecker, (req, res) => {
 app.get('/index.html', sessionChecker, (req, res) => {
     res.sendFile(__dirname + '/index.html')
 })
-
+app.get('/my_profile.hbs', sessionChecker, (req, res) => {
+    res.sendFile(__dirname + '/hbs.html')
+})
 /*get profile*/
 app.get('/getProfile',(req,res) =>{
     Profile.find({userName:req.session.userName}).then((profiles) => {
@@ -120,6 +126,7 @@ app.put('/editProfiles', (req, res) =>{
                 .catch(err => res.status(500).send())
         })
 });
+
 
 
 /*get profile*/

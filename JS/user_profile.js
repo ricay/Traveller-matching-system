@@ -36,8 +36,6 @@ function transit_pro(){
 
 
 
-
-
 function logIn() {
     const welcomeBasicInfo = document.getElementById("welcome-basic-info");
     const newUser = document.getElementById("new_user");
@@ -117,7 +115,7 @@ onload = function () {
         if (res.status === 200){
             return res.json();
         }else {
-            alert('Could not get all profiles.')
+            alert('Could not get profile.')
         }
         }).then((json) => { //get all profiles
             const profile = json.profile;
