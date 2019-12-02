@@ -58,6 +58,14 @@ const sessionChecker = (req, res, next) => {
     }    
 };
 
+const adminSessionChecker = (req, res, next) => {
+    if (req.session.account) {
+        res.sendFile(__dirname + '/admin_main.html')
+    } else {
+        next(); // next() moves on to the route.
+    }
+};
+
 // A route to login and create a session
 // app.post('/users/login', (req, res) => {
 // 	const email = req.body.email
@@ -87,10 +95,6 @@ app.get('/index.html', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/index.html')
 });
 
-app.get('/admin_main.html', sessionChecker, (req, res) => {
-  res.sendFile(__dirname + '/admin_main.html')
-});
-
 app.get('/signup.html', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/signup.html')
 });
@@ -99,15 +103,24 @@ app.get('/plan_trip.html', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/plan_trip.html')
 });
 
-app.get('/admin_insert_recommendation.html', sessionChecker, (req, res) => {
+app.get('/admin_login.html', adminSessionChecker, (req, res) => {
+    res.sendFile(__dirname + '/admin_login.html')
+});
+
+app.get('/admin_main.html', adminSessionChecker, (req, res) => {
+    res.sendFile(__dirname + '/admin_main.html')
+});
+
+app.get('/admin_insert_recommendation.html', adminSessionChecker, (req, res) => {
     res.sendFile(__dirname + '/admin_insert_recommendation.html')
 });
 
-app.get('/admin_validate_users.html', sessionChecker, (req, res) => {
+app.get('/admin_validate_users.html', adminSessionChecker, (req, res) => {
+    log(req.session.account);
     res.sendFile(__dirname + '/admin_validate_users.html')
 });
 
-app.get('/admin_delete_plan.html', sessionChecker, (req, res) => {
+app.get('/admin_delete_plan.html', adminSessionChecker, (req, res) => {
     res.sendFile(__dirname + '/admin_delete_plan.html')
 });
 
@@ -135,6 +148,8 @@ app.post('/admin/login', (req, res) => {
         if (!account) {
             res.status(404).send()
         } else {
+            req.session.account = account._id;
+            log(req.session.account);
             res.status(200).send()
         }
     }).catch((error) => {

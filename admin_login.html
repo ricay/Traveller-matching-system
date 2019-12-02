@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <link rel="stylesheet" type="text/css" href="CSS/general_navbar.css">
+    <link rel="stylesheet" type="text/css" href="CSS/admin_login.css">
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <script src="JS/admin_login.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand bg-sandy">
+        <p class="nav">Friends On The Way</p>
+
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="main-background">
+        <img src="PIC/main_background.jpg" class="backgroundImage" alt="MainBackground"/>
+    </div>
+
+    <a id="buttons-container">
+        <form id="authorization-container" hidden="hidden">
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                </div>
+                <label for="userName"></label><input name="" id="userName" class="form-control" placeholder="Username" type="text">
+            </div>
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                </div>
+                <label for="passWord"></label><input name="" id="passWord" class="form-control" placeholder="Password" type="text">
+            </div>
+        </form>
+        <br>
+        <button type="submit" id="login-button" class="welcome-button" onclick="logIn()">Log in</button>
+        <p id="incorrect-message"></p>
+    </a>
+</body>
+</html>
