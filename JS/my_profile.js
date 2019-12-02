@@ -49,7 +49,7 @@ function editProfile(){
         dob: document.querySelector('#Birthday').value,
         email: document.querySelector('#Email').value,
         phone:document.querySelector('#Phone').value,
-        language: document.querySelector('Languages').value,
+        // language: document.querySelector('Languages').value,
         description:document.querySelector('Description').value,
     }
     // Create our request constructor with all the parameters we need
@@ -65,7 +65,7 @@ function editProfile(){
     // Send the request with fetch()
     fetch(request)
         .then(res => {
-            window.location.href = '/my_profile' //???????????
+            window.location.href = '/user_profile.html' //???????????
         })
         .catch(error => console.log(error))
 }

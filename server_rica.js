@@ -30,6 +30,7 @@ app.use('/PIC', express.static('PIC'))
 app.use('/JS', express.static('JS'))
 app.use('/CSS', express.static('CSS'))
 app.use('/bootstrap-4.3.1-dist', express.static('bootstrap-4.3.1-dist'))
+app.set('view engine', 'hbs');
 
 
 
@@ -64,6 +65,14 @@ app.get('/index.html', sessionChecker, (req, res) => {
     res.sendFile(__dirname + '/index.html')
 })
 
+/*get profile*/
+app.get('/getProfile',(req,res) =>{
+    Profile.find({userName:req.session.userName}).then((profiles) => {
+        res.send({profiles})
+    },(error) => {
+        res.status(500).send(error)
+    })
+});
 
 //a route to user_profile
 app.put('/editProfiles', (req, res) =>{
@@ -77,27 +86,27 @@ app.put('/editProfiles', (req, res) =>{
     //     language: req.body.language,
     //     description: req.body.description,
     // })
-    const user = req.body.userName;
+    const userName = req.body.userName;
     const first = req.body.firstName;
     const last = req.body.lastName;
     const gender = req.body.gender;
     const dob = req.body.birthday;
     const email = req.body.email;
     const phone = req.body.phone;
-    const language = req.body.language;
+    // const language = req.body.language;
     const description = req.body.description;
 
     //save to database
-    Profile.findById(req.session.profile_id)
+    Profile.findById(req.session.user)
         .then(profile => {
-            profile.userName = user;
+            profile.userName = userName;
             profile.firstName = first;
             profile.lastName = last;
             profile.gender = gender;
             profile.dob = dob;
             profile.email = email;
             profile.phone = phone;
-            profile.language = language;
+            // profile.language = language;
             profile.description = description;
 
             profile.save().then(
@@ -112,41 +121,32 @@ app.put('/editProfiles', (req, res) =>{
         })
 });
 
-app.get('/profiles', (req, res) => {
-    Profile.find().then((profiles) => {
-        res.send({ profiles }) // can wrap in object if want to add more properties
-    }, (error) => {
-        res.status(500).send(error) // server error
-    })
-});
 
 /*get profile*/
-app.get('/profiles/:id', (req, res) => {
-    /// req.params has the wildcard parameters in the url, in this case, id.
-    // log(req.params.id)
-    const id = req.params.id;
-
-    // Good practise: Validate id immediately.
-    if (!ObjectID.isValid(id)) {
-        res.status(404).send()  // if invalid id, definitely can't find resource, 404.
-    }
-
-    // Otherwise, findById
-    Profile.findById(id).then((profiles) => {
-        if (!profiles) {
-            res.status(404).send()  // could not find this student
-        } else {
-            /// sometimes we wrap returned object in another object:
-            //res.send({student})
-            res.send(profiles)
-        }
-    }).catch((error) => {
-        res.status(500).send()  // server error
-    })
-});
-
-
-
+// app.get('/profiles', (req, res) => {
+//     /// req.params has the wildcard parameters in the url, in this case, id.
+//     if (req.session.userName) {
+//         Profile.findById(req.session.user)
+//             .then(user => {
+//                 if (!user) {
+//                     res.status(404).send()
+//                 } else {
+//                     // res.render('view/my_profile.hbs', {
+//                     //     score: user.rating,
+//                     //     name: user.name,
+//                     //     icon: user.icon,
+//                     //     email: user.email,
+//                     //     intro: user.intro
+//                     })
+//                 }
+//             })
+//             .catch(error => {
+//                 res.status(400).send(error)
+//             })
+//     } else {
+//         res.redirect('/login')
+//     }
+// });
 
 
 

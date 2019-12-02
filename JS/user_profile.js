@@ -105,17 +105,78 @@ function logIn() {
     });
 }
 
-function checkLogIn() {
-    let userNameInput = document.querySelector("#userName").value;
-    let passWordInput = document.querySelector("#passWord").value;
-    const incorrectMessage = document.getElementById("incorrect_message");
+// function replaceInfo(){
+//     const user=document.getElementById("userName").innerHTML=;
+// }
 
-    if ((userNameInput !== "user" || passWordInput !== "user") && (userNameInput !== "admin" || passWordInput !== "admin")) {
-        incorrectMessage.textContent = "Incorrect Username/Password! Please enter again.";
-    } else if (userNameInput === "admin" && passWordInput === "admin"){
-        incorrectMessage.textContent = "Please go to admin page to log in as admin.";
-    } else {
-        incorrectMessage.hidden = true;
-        jumpTo("create_plan.html")
-    }
+
+onload = function () {
+    url = '/getProfile';
+
+    fetch(url).then((res) =>{
+        if (res.status === 200){
+            return res.json();
+        }else {
+            alert('Could not get all profiles.')
+        }
+        }).then((json) => { //get all profiles
+            const profile = json.profile;
+            const user = document.getElementById("name1");
+            const new_user = document.createElement("p");
+            new_user.innerHTML=profile.userName;
+            user.appendChild(new_user);
+
+            const first = document.getElementById("name2");
+            const new_first = document.createElement("p");
+            new_first.innerHTML=profile.firstName;
+            first.appendChild(new_first);
+
+            const last = document.getElementById("name3");
+            const new_last = document.createElement("p");
+            new_last.innerHTML=profile.lastName;
+            last.appendChild(new_last);
+
+            const gen = document.getElementById("gen");
+            const new_gen = document.createElement("p");
+            new_gen.innerHTML=profile.gender;
+            gen.appendChild(new_gen)
+
+            const bir = document.getElementById("bir");
+            const new_bir = document.createElement("p");
+            new_bir.innerHTML=profile.birthday;
+            bir.appendChild(new_gen);
+            const ema = document.getElementById("ema");
+            const new_ema = document.createElement("p");
+            new_ema.innerHTML=profile.email;
+            ema.appendChild(new_ema)
+
+            const ph = document.getElementById("ph");
+            const new_ph = document.createElement("p");
+            new_ph.innerHTML=profile.phone;
+            ph.appendChild(new_ph)
+
+            // const lan = document.getElementById("lan");
+            // const new_lan = document.createElement("p");
+            // new_lan.innerHTML=profile.userName;
+            // lan.appendChild(new_lan)
+
+            const des = document.getElementById("des");
+            const new_des = document.createElement("textarea");
+            new_des.className="form-control";
+            new_user.innerHTML=profile.description;
+            des.appendChild(new_des);
+
+            const dash = document.getElementById("dash");
+            const new_dash = document.createElement("h6");
+            new_dash.innerHTML=profile.userName;
+            dash.appendChild(new_dash)
+
+            const dash2 = document.getElementById("dash");
+            const new_dash2 = document.createElement("h7");
+            new_dash2.innerHTML=profile.description;
+            dash.appendChild(new_dash2)
+
+
+
+    })
 }
