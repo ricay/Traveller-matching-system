@@ -42,7 +42,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        expires: 60000,
+        expires: 60000 * 60,
         httpOnly: true
     }
 }));
@@ -50,34 +50,18 @@ app.use(session({
 // Our own express middleware to check for 
 // an active user on the session cookie (indicating a logged in user.)
 const sessionChecker = (req, res, next) => {
-    if (req.session.user) {
+    log('checker')
+    log(req.session)
+    log(req.sessionID)
+    if (req.session.user !== undefined) {
         // res.redirect('/dashboard'); // redirect to dashboard if logged in.
-        res.sendFile(__dirname + '/index.html')
+        log('go back!!!!!!')
+        res.sendFile(__dirname + '/plan_trip.html')
     } else {
         next(); // next() moves on to the route.
+        // res.sendFile(__dirname + '/index.html')
     }    
 };
-
-// A route to login and create a session
-// app.post('/users/login', (req, res) => {
-// 	const email = req.body.email
-//     const password = req.body.password
-
-//     // Use the static method on the User model to find a user
-//     // by their email and password
-// 	User.findByEmailPassword(email, password).then((user) => {
-// 	    if (!user) {
-//             res.redirect('/login');
-//         } else {
-//             // Add the user's id to the session cookie.
-//             // We can check later if this exists to ensure we are logged in.
-//             req.session.user = user._id;
-//             res.redirect('/dashboard');
-//         }
-//     }).catch((error) => {
-// 		res.status(400).redirect('/login');
-//     })
-// })
 
 app.get('/', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/index.html')
@@ -95,36 +79,117 @@ app.get('/signup.html', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/signup.html')
 })
 
-app.get('/plan_trip.html', sessionChecker, (req, res) => {
+app.get('/plan_trip.html', (req, res) => {
   res.sendFile(__dirname + '/plan_trip.html')
 })
 
+app.get('/create_plan.html', (req, res) => {
+    log('create_plan')
+    log(req.session)
+    log(req.sessionID)
+  res.sendFile(__dirname + '/create_plan.html')
+})
+
+app.get('/user_profile.html', (req, res) => {
+    log('userProfile')
+    log(req.session)
+    log(req.sessionID)
+  res.sendFile(__dirname + '/user_profile.html')
+})
+
+
+
 app.post('/users/signup', (req, res) => {
-    log(1)
-    log(req.body)
+    // log(1)
+    // log(req.body)
 
     const account = new Account({
         userName: req.body.userName,
         password: req.body.password,
         type: 'normal' // normal for normal users
     })
-    log("account is " + account);
+    // log("account is " + account);
     account.save().then((result) => {
-        res.send(result)
+        const profile = new Profile({
+            userName: req.body.userName,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            gender: req.body.gender,
+            birthday: '',
+            email: req.body.email,
+            phone: req.body.phone,
+            language: '',
+            description: ''
+        })
+        profile.save().then((result) => {
+            res.send(result)
+        }, (error) => {
+            res.status(400).send(error)
+        })
     }, (error) => {
         res.status(400).send(error)
     })
+});
 
-    // const profile = new Profile({
-    //     email: req.body.email
-    // })
-    // profile.save().then((result) => {
-    //     res.send(result)
-    // }, (error) => {
-    //     res.status(400).send(error)
-    // })
-    // res.status(200).send()
-    log(309)
+
+app.post('/users/login', (req, res) => {
+    const userName = req.body.userName
+    const password = req.body.password
+
+    Account.findByUserNamePassword(userName, password).then((user) => {
+        if (!user) {
+            res.redirect('/login');
+        } else {
+            // Add the user's id to the session cookie.
+            // We can check later if this exists to ensure we are logged in.
+            req.session.user = user._id;
+            req.session.userName = user.userName
+            log(req.session)
+            log(req.sessionID)
+            res.redirect('/plan_trip.html');
+        }
+    }).catch((error) => {
+        res.status(400).redirect('/login');
+    })
+});
+
+app.get('/users', (req, res) => {
+    Account.find().then(users => {
+        res.send({ users })
+    }, (error) => {
+        res.status(500).send(error)
+    })
+});
+
+app.get('/myprofile', sessionChecker, (req, res) => {
+    log('test')
+    log(req.session)
+    log(req.sessionID)
+    Profile.findOne({userName: req.session.user}).then(user => {
+        res.send({ user })
+    }, (error) => {
+        res.status(500).send(error)
+    })
+});
+
+app.get('/userProfile', sessionChecker, (req, res) => {
+    log('userProfile')
+    log(req.session)
+    log(req.sessionID)
+    Profile.findOne({userName: req.session.user}).then(user => {
+        log(user)
+        res.send({ user })
+    }, (error) => {
+        res.status(500).send(error)
+    })
+});
+
+app.get('/profiles', (req, res) => {
+    Profile.find().then((profiles) => {
+        res.send({ profiles }) // can wrap in object if want to add more properties
+    }, (error) => {
+        res.status(500).send(error) // server error
+    })
 });
 
 
