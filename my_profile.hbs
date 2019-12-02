@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<html>
 <head>
     <meta charset="UTF-8">
     <title>My profile</title>
@@ -67,8 +67,8 @@
                      </div>
                 </div>
                 <div class="col-md-2">
-                    <a class="profile-edit-btn" href="my_profile.html">Edit Profile <span class="sr-only">(current)</span></a><br>
-<!--                    <a class="profile-privacy" href="my_profile.html">Privacy setting <span class="sr-only">(current)</span></a>-->
+                    <a class="profile-edit-btn" href="my_profile.hbs">Edit Profile <span class="sr-only">(current)</span></a><br>
+<!--                    <a class="profile-privacy" href="my_profile.hbs">Privacy setting <span class="sr-only">(current)</span></a>-->
                 </div>
             </div>
             <div class="row">
@@ -89,55 +89,55 @@
                             <div class="row">
                                 <label class="col-md-5 control-label" for="Username">Username</label>
                                 <div class="col-md-5">
-                                    <input value="userName" id="userName" name="userName" type="text" placeholder="Username" class="form-control input-md">
+                                    <input value="{{userName}}" id="userName" name="userName" type="text" placeholder="Username" class="form-control input-md">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <label class="col-md-5 control-label" for="Username">Username</label>
                                 <div class="col-md-5">
-                                    <input id="firstName" name="firstName" type="text" placeholder="firstName" class="form-control input-md">
+                                    <input value="{{firstName}}" id="firstName" name="firstName" type="text" placeholder="firstName" class="form-control input-md">
                                 </div>
                             </div>
                             <div class="row">
                             <label class="col-md-5 control-label" for="Username">Username</label>
                             <div class="col-md-5">
-                                <input id="lastName" name="lastName" type="text" placeholder="lastName" class="form-control input-md">
+                                <input value="{{lastName}}" id="lastName" name="lastName" type="text" placeholder="lastName" class="form-control input-md">
                             </div>
                         </div>
 
                             <div class="row">
                                 <label class="col-md-5 control-label" for="Gender">Gender</label>
                                 <div class="col-md-5">
-                                    <input id="Gender" name="gender" type="text" placeholder="Gender" class="form-control input-md">
+                                    <input value="{{gender}}" id="Gender" name="gender" type="text" placeholder="Gender" class="form-control input-md">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <label class="col-md-5 control-label" for="Birthday">Date Of Birth</label>
                                 <div class="col-md-5">
-                                    <input id="Birthday" name="birthday" type="text" placeholder="Date Of Birth" class="form-control input-md">
+                                    <input value="{{birthday}}" id="Birthday" name="birthday" type="text" placeholder="Date Of Birth" class="form-control input-md">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <label class="col-md-5 control-label" for="Email">Email address</label>
                                 <div class="col-md-5">
-                                    <input id="Email" name="email" type="text" placeholder="Email address" class="form-control input-md">
+                                    <input value="{{email}}" id="Email" name="email" type="text" placeholder="Email address" class="form-control input-md">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <label class="col-md-5 control-label" for="Phone">Phone number</label>
                                 <div class="col-md-5">
-                                    <input id="Phone" name="phone" type="text" placeholder="Phone number" class="form-control input-md">
+                                    <input value="{{phone}}" id="Phone" name="phone" type="text" placeholder="Phone number" class="form-control input-md">
                                 </div>
                             </div>
 
                             <div class="row">
                                 <label class="col-md-5 control-label" for="Languages">Languages Known</label>
                                 <div class="col-md-5">
-                                        <input type="text" name="language" id="Languages"  placeholder="Languages" class="form-control input-md">
+                                        <input value="{{language}}" type="text" name="language" id="Languages"  placeholder="Languages" class="form-control input-md">
                                     </div>
                                 </div>
                             </div>
@@ -145,7 +145,7 @@
                             <div class="row">
                                 <label class="col-md-5 control-label" for="Detail">Detail description:</label>
                                 <div class="col-md-5">
-                                    <textarea class="form-control" rows="10"  id="Detail" name="description" placeholder="max 200 words"></textarea>
+                                    <textarea value="{{description}}"class="form-control" rows="6"  id="Detail" name="description" placeholder="max 200 words"></textarea>
                                 </div>
                             </div>
 
@@ -165,11 +165,10 @@
                             </section>
 
                             <div class="row">
-                                <a class="welcome-button"  href="user_profile.hbs">Add more</a>
+                                <a class="welcome-button"  href="user_profile.html">Add more</a>
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </form>
     </div>

@@ -35,13 +35,16 @@ function jumpTo(url) {
     window.location.href = url;
 }
 
-function addProfile(){
+//
+function editProfile(){
     // the URL for the request
-    const url = '/profiles';
+    const url = '/editProfile';
 
     // The data we are going to send in our request
     let data = {
-        name: document.querySelector('#Username').value,
+        name: document.querySelector('#userName').value,
+        first: document.querySelector('#firstName').value,
+        last: document.querySelector('#lastName').value,
         gender: document.querySelector('#Gender').value,
         dob: document.querySelector('#Birthday').value,
         email: document.querySelector('#Email').value,
@@ -62,7 +65,7 @@ function addProfile(){
     // Send the request with fetch()
     fetch(request)
         .then(res => {
-            window.location.href = '/dashboard'
+            window.location.href = '/my_profile' //???????????
         })
         .catch(error => console.log(error))
 }
