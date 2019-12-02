@@ -1,28 +1,15 @@
-.welcome-button {
-    box-shadow: 0 0 10px 0 #1c1b18;
-    height: 6vh;
-    width: 10vw;
-    background: #eae0c2 linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
-    border-radius: 42px;
-    border: 2px solid #333029;
-    cursor: pointer;
-    color:#505739;
-    font-family: Trebuchet MS, serif;
-    font-size: 120%;
-    font-weight: bold;
-    text-align: center;
-    text-shadow:0 1px 20px #ffffff;
-}
-
 #table1{
     position: absolute;
     top: 20%;
+    left: 11%;
+    right: 10%;
 }
 
 #tag1{
     position: absolute;
     top: 10%;
-    left:1%;
+    left: 40%;
+    right: 30%;
 }
 
 .table-fixed tbody {
