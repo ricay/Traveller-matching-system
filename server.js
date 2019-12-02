@@ -207,7 +207,8 @@ app.get('/profiles', (req, res) => {
 
 
 app.get('/plan', (req, res) => {
-    Plan.find().then((plans) => {
+    Plan.find({creator: req.session.userName}).then((plans) => {
+
         res.send({ plans }) // can wrap in object if want to add more properties
     }, (error) => {
         res.status(500).send(error) // server error
@@ -221,7 +222,8 @@ app.post('/plan', (req, res) => {
 
     const plan = new Plan({
         name: req.body.name,
-        creator: req.body.creator,
+        creator: req.session.userName,
+
         places:req.body.places,
         transportation:req.body.transportation,
         cost:req.body.cost,
@@ -229,6 +231,7 @@ app.post('/plan', (req, res) => {
         endTime: req.body.endTime,
         poolMember: req.body.poolMember,
     });
+    log(req.session.userName);
     plan.save().then((result) => {
         res.send(result)
     }, (error) => {
@@ -236,6 +239,21 @@ app.post('/plan', (req, res) => {
     });
 
     log(309)
+});
+
+app.delete('/plan/:id', (req, res) => {
+    const pid = req.params.id;
+    log(pid)
+    Plan.findByIdAndRemove(pid).then((student) => {
+        log(student)
+        if (!student) {
+            res.status(404).send()
+        } else {
+            res.status(200).send()
+        }
+    }).catch((error) => {
+        res.status(500).send() // server error, could not delete.
+    })
 });
 
 

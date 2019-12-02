@@ -62,11 +62,11 @@ function loadMyPlan(){
         const plans = json.plans;
         log(plans);
         for (let i=0;i<plans.length;i++){
-            if (plans[i].creator == 'Tony'){
-                log('find');
+
+
                 addNewPlanToView(plans[i],index);
                 index++;
-            }
+
 
         }
 
@@ -115,13 +115,16 @@ function addNewPlanToView(Plan,index){
     EndDate.innerHTML = 'EndDate:  ' + Plan.endTime;
     const Author = document.createElement('p');
     Author.innerHTML = 'Author:  ' + Plan.creator;
+    const Id = document.createElement('p');
+    Id.innerHTML =Plan._id;
+    Id.hidden = true;
+    const deleteButton = document.createElement('button');
+    deleteButton.innerHTML = 'Delete this plan'
+    deleteButton.onclick = function(){deletePlan(Plan._id)};
 
 
 
-
-
-
-    //img.src = Plan.Img;
+        //img.src = Plan.Img;
     //img.alt = "";
     //img.className = "place";
 
@@ -133,6 +136,8 @@ function addNewPlanToView(Plan,index){
     plan.appendChild(StartDate);
     plan.appendChild(EndDate);
     plan.appendChild(Author);
+    plan.appendChild(Id);
+    plan.appendChild(deleteButton);
 
 
 
@@ -141,4 +146,24 @@ function addNewPlanToView(Plan,index){
 
     //document.getElementById(JoinButton.id).onclick = function(){changeNumPeople(JoinButton.id,planList)};
 
+}
+function deletePlan(ID) {
+    log(ID);
+    const url =  '/plan/'+ID;
+    const request = new Request(url, {
+        method: 'delete',
+        headers: {
+            'Content-type': 'application/json'
+        }
+    });
+    fetch(request)
+        .then(function(res) {
+            if (res.status === 200) {
+                window.location.href = 'view_plan.html';
+            } else {
+                alert('should not happened!')
+            }
+        }).catch((error) => {
+        log(error);
+    })
 }
