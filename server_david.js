@@ -78,8 +78,16 @@ app.get('/signup.html', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/signup.html')
 });
 
-app.get('/plan_trip.html', sessionChecker, (req, res) => {
-  res.sendFile(__dirname + '/plan_trip.html')
+app.get('/plan_trip.html', (req, res) => {
+    res.sendFile(__dirname + '/plan_trip.html')
+});
+
+app.get('/user_profile.html', (req, res) => {
+    res.sendFile(__dirname + '/user_profile.html')
+});
+
+app.get('/my_profile.html', (req, res) => {
+    res.sendFile(__dirname + '/my_profile.html')
 });
 
 app.get('/admin_login.html', adminSessionChecker, (req, res) => {
@@ -143,6 +151,81 @@ app.post('/users/signup', (req, res) => {
         res.status(400).send(error)
     })
 });
+
+app.post('/users/login', (req, res) => {
+    const userName = req.body.userName;
+    const password = req.body.password;
+
+    Account.findByUserNamePassword(userName, password).then((user) => {
+        if (!user) {
+            res.redirect('/login');
+        } else {
+            // Add the user's id to the session cookie.
+            // We can check later if this exists to ensure we are logged in.
+            req.session.user = user._id;
+            req.session.userName = user.userName;
+            // log(req.session);
+            // log(req.sessionID);
+            res.redirect('/plan_trip.html');
+        }
+    }).catch((error) => {
+        res.status(400).redirect('/login');
+    })
+});
+
+
+/*get profile*/
+app.get('/getProfile',(req,res) =>{
+    Profile.findOne({userName:req.session.userName}).then((profile) => {
+        console.log(req.session.userName);
+        console.log(profile);
+        res.send({ profile })
+    },(error) => {
+        res.status(500).send(error)
+    })
+});
+
+//a route to user_profile
+app.put('/editProfile', (req, res) => {
+    const userName = req.body.userName;
+    const first = req.body.firstName;
+    const last = req.body.lastName;
+    const gender = req.body.gender;
+    const dob = req.body.birthday;
+    const email = req.body.email;
+    const phone = req.body.phone;
+    // const language = req.body.language;
+    const description = req.body.description;
+    log(req.session.userName);
+
+    //save to database
+    Profile.findOne({userName:req.session.userName}).then(profile => {
+        log(profile);
+        if (!profile) {
+            res.status(404).send()
+        } else {
+            profile.userName = userName;
+            profile.firstName = first;
+            profile.lastName = last;
+            profile.gender = gender;
+            profile.birthday = dob;
+            profile.email = email;
+            profile.phone = phone;
+            // profile.language = language;
+            profile.description = description;
+
+            profile.save().then((result) => {
+                res.send({result});
+            }, (error) => {
+                res.status(404).send(error)
+            });
+        }
+    }).catch((error) => {
+        log(2);
+        res.status(500).send()
+    });
+});
+
 
 app.post('/admin/login/:userName/:password', (req, res) => {
     const userName = req.params.userName;

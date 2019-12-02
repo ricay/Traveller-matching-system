@@ -1,3 +1,4 @@
+const log = console.log;
 
 function transit_home() {
     const home = document.getElementById("home");
@@ -38,36 +39,41 @@ function jumpTo(url) {
 //
 function editProfile(){
     // the URL for the request
-    const url = '/editProfile';
+    url = '/editProfile';
 
     // The data we are going to send in our request
     let data = {
-        name: document.querySelector('#userName').value,
-        first: document.querySelector('#firstName').value,
-        last: document.querySelector('#lastName').value,
+        userName: document.querySelector('#userName').value,
+        firstName: document.querySelector('#firstName').value,
+        lastName: document.querySelector('#lastName').value,
         gender: document.querySelector('#Gender').value,
-        dob: document.querySelector('#Birthday').value,
+        birthday: document.querySelector('#Birthday').value,
         email: document.querySelector('#Email').value,
         phone:document.querySelector('#Phone').value,
         // language: document.querySelector('Languages').value,
-        description:document.querySelector('Description').value,
-    }
+        description:document.querySelector('#Detail').value,
+    };
+    log(data);
     // Create our request constructor with all the parameters we need
     const request = new Request(url, {
-        method: 'post',
+        method: 'put',
         body: JSON.stringify(data),
         headers: {
-            'Accept': 'application/json, text/plain, */*',
             'Content-Type': 'application/json'
         },
     });
 
     // Send the request with fetch()
-    fetch(request)
-        .then(res => {
-            window.location.href = '/user_profile.html' //???????????
-        })
-        .catch(error => console.log(error))
+    fetch(request).then(function(res) {
+        if (res.status === 200) {
+            log('edited');
+            jumpTo('user_profile.html');
+        } else {
+            log('failed edit');
+        }
+    }).catch((error) => {
+        log(error)
+    })
 }
 
 
