@@ -19,7 +19,7 @@ const Plan = mongoose.model('Plan', {
         type: String
     },
     cost: {
-        type: Number
+        type: String
     },
     startTime: {
         type: String
