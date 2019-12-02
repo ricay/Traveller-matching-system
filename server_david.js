@@ -103,6 +103,19 @@ app.get('/admin_delete_plan.html', adminSessionChecker, (req, res) => {
     res.sendFile(__dirname + '/admin_delete_plan.html')
 });
 
+app.post('/index/onload', (req, res) => {
+    const newAdmin = new Account({
+        userName: req.body.userName,
+        password: req.body.password,
+        type: req.body.type
+    });
+    newAdmin.save().then((result) => {
+        res.send(result);
+    }, (error) => {
+        res.status(400).send(error);
+    })
+});
+
 app.post('/users/signup', (req, res) => {
     const account = new Account({
         userName: req.body.userName,

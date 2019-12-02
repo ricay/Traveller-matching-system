@@ -59,10 +59,8 @@ onload = function() {
 
 function deleteUser(bool, id) {
     const user = document.getElementById(id);
-    const userName = user.getElementsByTagName("td")[1].textContent
-    log(userName);
+    const userName = user.getElementsByTagName("td")[1].textContent;
     url = '/admin/deleteUser/' + userName;
-    log(url);
     const request = new Request(url, {
         method: 'delete',
         headers: {

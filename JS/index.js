@@ -1,4 +1,30 @@
-const log = console.log
+const log = console.log;
+
+onload = function() {
+    const data = {
+        userName: 'admin',
+        password: 'admin',
+        type: 'admin'
+    };
+    const request = new Request('/index/onload', {
+        method: 'post',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-type': 'application/json'
+        }
+    });
+    fetch(request)
+        .then(function(res) {
+            if (res.status === 200) {
+                log("Added admin");
+            } else {
+                log("Failed to add admin");
+            }
+        }).catch((error) => {
+        log(error);
+    })
+};
+
 function jumpTo(url) {
     window.location.href = url;
 }
