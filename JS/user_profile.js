@@ -36,8 +36,6 @@ function transit_pro(){
 
 
 
-
-
 function logIn() {
     const welcomeBasicInfo = document.getElementById("welcome-basic-info");
     const newUser = document.getElementById("new_user");
@@ -117,7 +115,7 @@ onload = function () {
         if (res.status === 200){
             return res.json();
         }else {
-            alert('Could not get all profiles.')
+            alert('Could not get profile.')
         }
         }).then((json) => { //get all profiles
             const profile = json.profile;
@@ -174,7 +172,7 @@ onload = function () {
             const dash2 = document.getElementById("dash");
             const new_dash2 = document.createElement("h7");
             new_dash2.innerHTML=profile.description;
-            dash.appendChild(new_dash2)
+            dash2.appendChild(new_dash2)
 
 
 
