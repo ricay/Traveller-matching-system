@@ -97,6 +97,17 @@ app.get('/user_profile.html', (req, res) => {
   res.sendFile(__dirname + '/user_profile.html')
 })
 
+app.get('/my_profile.hbs', (req, res) => {
+    log('my_profile.hbs')
+    log(req.session)
+    log(req.sessionID)
+  res.render('/my_profile.hbs')
+})
+
+app.get('/view_plan.html', (req, res) => {
+    res.sendFile(__dirname + '/view_plan.html')
+});
+
 
 
 app.post('/users/signup', (req, res) => {
@@ -190,6 +201,41 @@ app.get('/profiles', (req, res) => {
     }, (error) => {
         res.status(500).send(error) // server error
     })
+});
+
+
+
+
+app.get('/plan', (req, res) => {
+    Plan.find().then((plans) => {
+        res.send({ plans }) // can wrap in object if want to add more properties
+    }, (error) => {
+        res.status(500).send(error) // server error
+    })
+});
+
+
+app.post('/plan', (req, res) => {
+    log(1);
+    log(req.body);
+
+    const plan = new Plan({
+        name: req.body.name,
+        creator: req.body.creator,
+        places:req.body.places,
+        transportation:req.body.transportation,
+        cost:req.body.cost,
+        startTime: req.body.startTime,
+        endTime: req.body.endTime,
+        poolMember: req.body.poolMember,
+    });
+    plan.save().then((result) => {
+        res.send(result)
+    }, (error) => {
+        res.status(400).send(error)
+    });
+
+    log(309)
 });
 
 
