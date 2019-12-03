@@ -108,19 +108,12 @@ body{
     margin-top: -15%;
 }
 
-.profile-work p{
+.profile-work a{
     font-size: 25px;
     color: #818182;
     font-weight: 600;
     margin-top: 10%;
     font-family: cursive;
-}
-
-.profile-work a{
-    text-decoration: none;
-    color: #495057;
-    font-weight: 600;
-    font-size: 14px;
 }
 
 .profile-work ul{
@@ -203,5 +196,9 @@ img {
 }
 
 .col-md-5 p{
+    color: black;
+}
+
+.nav-link {
     color: black;
 }

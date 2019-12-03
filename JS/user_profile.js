@@ -121,10 +121,10 @@ onload = function () {
         console.log(json)
             const profile = json.profile;
 
-            const user = document.getElementById("name1");
-            const new_user = document.createElement("p");
-            new_user.innerHTML=profile.userName;
-            user.appendChild(new_user);
+            // const user = document.getElementById("name1");
+            // const new_user = document.createElement("p");
+            // new_user.innerHTML=profile.userName;
+            // user.appendChild(new_user);
 
             const first = document.getElementById("name2");
             const new_first = document.createElement("p");
@@ -141,19 +141,20 @@ onload = function () {
             new_gen.innerHTML=profile.gender;
             gen.appendChild(new_gen)
 
-            const bir = document.getElementById("bir");
-            const new_bir = document.createElement("p");
-            new_bir.innerHTML=profile.birthday;
-            bir.appendChild(new_gen);
+            // const bir = document.getElementById("bir");
+            // const new_bir = document.createElement("p");
+            // new_bir.innerHTML=profile.birthday;
+            // bir.appendChild(new_bir);
+
             const ema = document.getElementById("ema");
             const new_ema = document.createElement("p");
             new_ema.innerHTML=profile.email;
-            ema.appendChild(new_ema)
+            ema.appendChild(new_ema);
 
             const ph = document.getElementById("ph");
             const new_ph = document.createElement("p");
             new_ph.innerHTML=profile.phone;
-            ph.appendChild(new_ph)
+            ph.appendChild(new_ph);
 
             // const lan = document.getElementById("lan");
             // const new_lan = document.createElement("p");
@@ -163,18 +164,19 @@ onload = function () {
             const des = document.getElementById("des");
             const new_des = document.createElement("textarea");
             new_des.className="form-control";
-            new_user.innerHTML=profile.description;
+            new_des.placeholder="max 200 words";
+            new_des.innerHTML=profile.description;
             des.appendChild(new_des);
 
             const dash = document.getElementById("dash");
             const new_dash = document.createElement("h6");
-            new_dash.innerHTML=profile.userName;
-            dash.appendChild(new_dash)
+            new_dash.innerHTML = profile.userName;
+            dash.appendChild(new_dash);
 
             const dash2 = document.getElementById("dash");
             const new_dash2 = document.createElement("h7");
             new_dash2.innerHTML=profile.description;
-            dash2.appendChild(new_dash2)
+            dash2.appendChild(new_dash2);
 
 
 

@@ -204,6 +204,7 @@ app.put('/editProfile', (req, res) => {
         if (!profile) {
             res.status(404).send()
         } else {
+
             profile.userName = userName;
             profile.firstName = first;
             profile.lastName = last;
