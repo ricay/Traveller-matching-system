@@ -19,14 +19,13 @@ const ProfileSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-
     },
     phone: {
         type: String,
     },
-    language: {
-        type: String,
-    },
+    // language: {
+    //     type: String,
+    // },
     description: {
         type: String,
     }
