@@ -2,8 +2,8 @@ const log = console.log;
 function jumpTo(url) {
 
     const transportation = document.getElementById("MethodOfTravel").value;
-    const name = 'HappyTrip';
-    const creator = 'Tony';
+
+
     const cost = document.getElementById("ExceptCost").value;
     const startTime = document.getElementById("StartDate").value;
     const endTime = document.getElementById("EndDate").value;
@@ -14,8 +14,8 @@ function jumpTo(url) {
     places.push(startPlace);
     places.push(endPlace);
     const data = {
-        name: name,
-        creator: creator,
+
+
         places: places,
         transportation: transportation,
         cost: cost,
