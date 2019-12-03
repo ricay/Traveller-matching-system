@@ -1,3 +1,7 @@
+body {
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+}
+
 .emp-profile{
     position: absolute;
     left: 12%;
@@ -86,18 +90,12 @@
     padding: 14%;
     margin-top: -15%;
 }
-.profile-work p{
+.profile-work a{
     font-size: 25px;
     color: black;
     font-weight: 600;
     margin-top: 10%;
     font-family: cursive;
-}
-.profile-work a{
-    text-decoration: none;
-    color: black;
-    font-weight: 600;
-    font-size: 14px;
 }
 .profile-work ul{
     list-style: none;
