@@ -50,8 +50,8 @@ app.use(session({
 // Our own express middleware to check for 
 // an active user on the session cookie (indicating a logged in user.)
 const sessionChecker = (req, res, next) => {
-    if (req.session.user !== undefined) {
-        res.sendFile(__dirname + '/plan_trip.html')
+    if (req.session.user === undefined) {
+        res.sendFile(__dirname + '/index.html')
     } else {
         next(); // next() moves on to the route.
     }    
@@ -492,6 +492,7 @@ app.delete('/admin/deleteUser/:userName', (req, res) => {
 /*************************************************/
 // Express server listening...
 const port = process.env.PORT || 3001;
+// const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/FriendsOnTheWayAPI'
 app.listen(port, () => {
 	log(`Listening on port ${port}...`)
 });
