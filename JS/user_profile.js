@@ -173,6 +173,16 @@ onload = function () {
             new_dash2.innerHTML=profile.description;
             dash2.appendChild(new_dash2);
 
+            const dash3 = document.getElementById("dash");
+            const new_dash3 = document.createElement("h7");
+            new_dash3.innerHTML="Review of me:";
+            const new_dash4 = document.createElement("h7");
+            new_dash4.innerHTML="Rate of me:";
+            dash3.appendChild(new_dash3);
+            dash3.appendChild(new_dash4);
+
+
+
 
 
     })
