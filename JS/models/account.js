@@ -32,13 +32,16 @@ AccountSchema.statics.findByUserNamePassword = function(userName, password) {
         //       return Promise.resolve(account);
         //   }
         // }
+        if (account.type === "admin") {
+            return reject();
+        }
         return new Promise((resolve, reject) => {
             bcrypt.compare(password, account.password, (err, result) => {
-                if (result) {
+                if (result){
                     resolve(account)
                 } else {
                     console.log(2);
-                    reject()
+                    reject();
                 }
             })
         })

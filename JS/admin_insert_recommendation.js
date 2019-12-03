@@ -18,9 +18,9 @@ function insertRecommendation() {
         cost: newExpectCost,
         startTime: "By preference",
         endTime: "Will last for " + newTimePeriod,
-        poolMember: []
+        poolMember: [],
+        description: newDescription
     };
-    log(newRecommendation);
     const request = new Request('/admin/insertRecommendation', {
         method: 'post',
         body: JSON.stringify(newRecommendation),

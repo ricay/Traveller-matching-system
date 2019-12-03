@@ -1,14 +1,15 @@
 const log = console.log;
 
 onload = function() {
-    const data = {
+    // For adding an admin
+    const adminData = {
         userName: 'admin',
         password: 'admin',
         type: 'admin'
     };
     const request = new Request('/index/onload', {
         method: 'post',
-        body: JSON.stringify(data),
+        body: JSON.stringify(adminData),
         headers: {
             'Content-type': 'application/json'
         }
@@ -18,10 +19,10 @@ onload = function() {
             if (res.status === 200) {
                 log("Added admin");
             } else {
-                log("Failed to add admin");
+                log("It's ok.");
             }
         }).catch((error) => {
-        log(error);
+            log(error);
     })
 };
 
@@ -119,7 +120,7 @@ function checkLogIn() {
     // })
     fetch('/users').then(result => {
         log(result.json())
-    })
+    });
 
     let userNameInput = document.querySelector("#userName").value;
     let passWordInput = document.querySelector("#passWord").value;
@@ -136,17 +137,20 @@ function checkLogIn() {
         const data = {
             userName: userNameInput,
             password: passWordInput
-        }
+        };
         const request = new Request('/users/login', {
             method: 'post',
             body: JSON.stringify(data),
             headers: {
                 'Content-type': 'application/json'
             }
-        })
+        });
         fetch(request)
         .then(function(res) {
-            if (res.status === 404) {
+            log(res);
+            if (res.status === 400) {
+                incorrectMessage.textContent = "Please go to admin page to log in as admin.";
+            } else if (res.status === 404){
                 incorrectMessage.textContent = "Wrong username or password";
                 log(res.status)
             } else {
