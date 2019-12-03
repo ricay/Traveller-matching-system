@@ -4,6 +4,7 @@ var numberOfPlans = 1;
 const tripListTable = document.getElementById('tripsListTable');
 var num_row = 0;
 var row
+var index = 0;
 function jumpTo(url) {
     window.location.href = url;
 }
@@ -45,6 +46,12 @@ function loadSearchResult()
                 // log(plans.plans[0]);
                 for (let i=0;i<plans.plans.length;i++){
                     // here!!!
+                    if(plans.plans[i].places.includes(location)){
+                        log(plans.plans[i].places);
+                        addNewPlanToView(plans.plans[i],index);
+                        index++;
+                    }
+
                 }
             })
 
@@ -93,24 +100,24 @@ function addNewPlanToView(Plan,index){
     plan.style.borderRadius = '5%';
     plan.style.padding = '10px';
 
-    const img = document.createElement('IMG');
+    //const img = document.createElement('IMG');
     const StartPlace = document.createElement('p');
-    StartPlace.innerHTML = 'StartPlace:  ' + Plan.StartPlace;
+    StartPlace.innerHTML = 'StartPlace:  ' + Plan.places[0];
     const EndPlace = document.createElement('p');
-    EndPlace.innerHTML = 'EndPlace:  ' + Plan.EndPlace;
+    EndPlace.innerHTML = 'EndPlace:  ' + Plan.places[1];
     const MethodOfTravel = document.createElement('p');
-    MethodOfTravel.innerHTML = 'Method of Travel:  ' + Plan.MethodOfTravel;
+    MethodOfTravel.innerHTML = 'Method of Travel:  ' + Plan.transportation;
     const ExceptCost = document.createElement('p');
-    ExceptCost.innerHTML = 'Except Cost:  ' + Plan.ExceptCost + ' dollars';
+    ExceptCost.innerHTML = 'Except Cost:  ' + Plan.cost + ' dollars';
     const StartDate = document.createElement('p');
-    StartDate.innerHTML = 'StartDate:  ' + Plan.StartDate;
+    StartDate.innerHTML = 'StartDate:  ' + Plan.startTime;
     const EndDate = document.createElement('p');
-    EndDate.innerHTML = 'EndDate:  ' + Plan.EndDate;
+    EndDate.innerHTML = 'EndDate:  ' + Plan.endTime;
     const Author = document.createElement('p');
-    Author.innerHTML = 'Author:  ' + Plan.Author;
+    Author.innerHTML = 'Author:  ' + Plan.creator;
     const NumPeople = document.createElement('pnum');
 
-    NumPeople.innerHTML = 'Currently ' + Plan.numPeople + ' user(s) interested      ';
+    NumPeople.innerHTML = 'Currently ' + Plan.poolMember.length + ' user(s) interested      ';
     NumPeople.id = Plan.PlanID + 'people';
 
     const JoinButton = document.createElement('button');
@@ -123,11 +130,11 @@ function addNewPlanToView(Plan,index){
     warnMessage.textContent = "You have already joined this trip";
     warnMessage.hidden = true;
 
-    img.src = Plan.Img;
-    img.alt = "";
-    img.className = "place";
+    //img.src = Plan.Img;
+    //img.alt = "";
+    //img.className = "place";
 
-    plan.appendChild(img);
+    //plan.appendChild(img);
     plan.appendChild(StartPlace);
     plan.appendChild(EndPlace);
     plan.appendChild(MethodOfTravel);
@@ -141,27 +148,29 @@ function addNewPlanToView(Plan,index){
 
     cell.appendChild(plan);
 
-    document.getElementById(JoinButton.id).onclick = function(){changeNumPeople(JoinButton.id,planList)};
+    document.getElementById(JoinButton.id).onclick = function(){changeNumPeople(JoinButton.id,Plan._id)};
 
 }
 
-function changeNumPeople(ID,PlanList){
-
-    for (let i = 0; i<PlanList.length;i++){
-
-        if (PlanList[i].PlanID == ID){
-            const numID = PlanList[i].PlanID + 'people';
-            const Num = document.getElementById(numID);
-            console.log(PlanList[i].numPeople);
-            if (PlanList[i].numPeople === 0) {
-                PlanList[i].numPeople+=1;
-                Num.innerHTML = 'Currently ' + PlanList[i].numPeople + ' user(s) interested     ';
-            } else {
-                document.getElementById("warnMessage").hidden = false;
-            }
-
+function changeNumPeople(buttonID,ID){// add current person to the plan
+    const url =  '/addToPlan/'+ID;
+    const request = new Request(url, {
+        method: 'put',
+        headers: {
+            'Content-type': 'application/json'
         }
-    }
+    });
+    fetch(request)
+        .then(function(res) {
+            if (res.status === 200) {
+                window.location.href = 'tripList.html';
+            } else {
+                alert('should not happened!')
+            }
+        }).catch((error) => {
+        log(error);
+    })
+
 }
 
 addNewPlan(Trip1);
@@ -170,20 +179,9 @@ addNewPlan(Trip3);
 addNewPlan(Trip4);
 addNewPlan(Trip5);
 
-function displayTrip(planList) {
-    console.log('Hello');
-    for (let i=0; i<planList.length; i++){
-        for (let j= 0; j < planList[i].length; j++){
-            if (planList[i].SpotList[j] == spot){
-                console.log(planList[i].SpotList[j]);
-                addNewPlanToView(planList[i])
-            }
-        }
-    }
-}
-displayTrip(planList);
-addNewPlanToView(Trip1,0);
-addNewPlanToView(Trip2,1);
-addNewPlanToView(Trip3,2);
-addNewPlanToView(Trip4,3);
-addNewPlanToView(Trip5,4);
+
+//addNewPlanToView(Trip1,0);
+//addNewPlanToView(Trip2,1);
+//addNewPlanToView(Trip3,2);
+//addNewPlanToView(Trip4,3);
+//addNewPlanToView(Trip5,4);
