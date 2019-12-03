@@ -9,6 +9,8 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="CSS/general_navbar.css">
     <link href="CSS/user_profile.css" rel="stylesheet">
+    <script src="JS/logout.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand navbar-dark bg-primary">
@@ -19,6 +21,7 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="plan_trip.html">Home <span class="sr-only">(current)</span></a>
                 </li>
+                <button class="nav-button" onclick="userLogout()">Logout </button>
             </ul>
         </div>
     </nav>
