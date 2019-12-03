@@ -32,8 +32,9 @@ onload = function() {
             const Author = document.createElement('p');
             Author.innerHTML = 'Author:  ' + allPlans[i].creator;
             const DeleteButton = document.createElement('button');
-            DeleteButton.textContent = 'DeleteThisPlan';
-            DeleteButton.className = "delete-button";
+            DeleteButton.textContent = 'Delete this plan';
+            DeleteButton.className = "btn btn-sm btn-outline-danger";
+            DeleteButton.style.display = 'inline';
             const Description = document.createElement('p');
             Description.innerHTML = allPlans[i].description;
 

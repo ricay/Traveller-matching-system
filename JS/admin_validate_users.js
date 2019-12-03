@@ -1,4 +1,5 @@
 const log = console.log;
+let activeUsers = 0;
 onload = function() {
     url = '/admin/getUsers';
     // Get all profiles
@@ -10,7 +11,6 @@ onload = function() {
         }
     }).then((json) => { // Got all profiles
         const profiles = json.profiles;
-        log(profiles);
         // Generate table accordingly
         const tbody = document.getElementById("tbody");
         for (let i = 0; i < profiles.length; i++) {
@@ -51,6 +51,7 @@ onload = function() {
             newRow.appendChild(newGender);
             newRow.appendChild(newCol);
             tbody.appendChild(newRow);
+            activeUsers++;
         }
     }).catch((error) => {
         log(error)
@@ -69,7 +70,36 @@ function deleteUser(bool, id) {
     });
     fetch(request).then(function(res) {
         if (res.status === 200) {
-            user.hidden = true;
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    Swal.fire(
+                        'Deleted!',
+                        'This user has been deleted.',
+                        'success'
+                    );
+                    user.hidden = true;
+                    activeUsers--;
+                    if (activeUsers === 0) {
+                        Swal.fire({
+                            title: 'There are no more users to delete.',
+                            showClass: {
+                                popup: 'animated fadeInDown faster'
+                            },
+                            hideClass: {
+                                popup: 'animated fadeOutUp faster'
+                            }
+                        })
+                    }
+                }
+            });
             log('deleted');
         } else {
             log('deletion failed');

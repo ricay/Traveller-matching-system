@@ -8,6 +8,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="JS/admin_validate_users.js"></script>
     <link rel="stylesheet" type="text/css" href="CSS/admin_validate_users.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="JS/logout.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand bg-sandy">
@@ -18,9 +20,7 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="admin_main.html">Back to Menu<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Logout <span class="sr-only">(current)</span></a>
-                </li>
+                <button class="nav-button" onclick="adminLogout()">Logout </button>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <p class="nav">Admin</p>

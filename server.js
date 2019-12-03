@@ -116,16 +116,16 @@ app.get('/admin_main.html', (req, res) => {
     res.sendFile(__dirname + '/admin_main.html')
 });
 
-app.get('/admin_insert_recommendation.html', sessionChecker, (req, res) => {
+app.get('/admin_insert_recommendation.html', (req, res) => {
     res.sendFile(__dirname + '/admin_insert_recommendation.html')
 });
 
-app.get('/admin_validate_users.html', sessionChecker, (req, res) => {
+app.get('/admin_validate_users.html', (req, res) => {
     // log(req.session.account);
     res.sendFile(__dirname + '/admin_validate_users.html')
 });
 
-app.get('/admin_delete_plan.html', sessionChecker, (req, res) => {
+app.get('/admin_delete_plan.html', (req, res) => {
     res.sendFile(__dirname + '/admin_delete_plan.html')
 });
 
