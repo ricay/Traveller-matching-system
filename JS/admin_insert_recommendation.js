@@ -8,7 +8,7 @@ function insertRecommendation() {
     const newDestination = document.getElementById("Destination").value;
     const newTimePeriod = document.getElementById("RecommendedTimePeriod").value;
     const newExpectCost = document.getElementById("ExpectCost").value;
-    const newDescription = document.getElementById("Description").value;
+    const newDescription = document.querySelector("#Description").value;
     // const newImage = document.getElementById("dragImage").value;
     const newRecommendation = {
         name: newName,
@@ -21,6 +21,7 @@ function insertRecommendation() {
         poolMember: [],
         description: newDescription
     };
+    log(newRecommendation);
     const request = new Request('/admin/insertRecommendation', {
         method: 'post',
         body: JSON.stringify(newRecommendation),

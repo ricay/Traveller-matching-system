@@ -245,6 +245,7 @@ app.post('/plan', (req, res) => {
         startTime: req.body.startTime,
         endTime: req.body.endTime,
         poolMember: req.body.poolMember,
+        description: ""
     });
     plan.save().then((result) => {
         res.send(result)
@@ -450,6 +451,7 @@ app.post('/admin/insertRecommendation', (req, res) => {
         startTime: req.body.startTime,
         endTime: req.body.endTime,
         poolMember: req.body.poolMember,
+        description: req.body.description
     });
     plan.save().then((result) => {
         res.send(result)
