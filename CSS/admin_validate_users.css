@@ -5,10 +5,12 @@
     right: 10%;
 }
 
-#tag1{
+#main-message-container{
     position: absolute;
+    font-family: cursive;
+    color: white;
     top: 10%;
-    left: 40%;
+    left: 38%;
     right: 30%;
 }
 

@@ -1,4 +1,4 @@
-const log = console.log
+const log = console.log;
 function jumpTo(url) {
   
     const email = document.getElementById("email").value;
@@ -89,7 +89,7 @@ function jumpTo(url) {
         lastName: lname,
         phone: phone,
         gender: gender
-    }
+    };
     if (result === true)
     {   
         const request = new Request('/users/signup', {
@@ -98,12 +98,19 @@ function jumpTo(url) {
             headers: {
                 'Content-type': 'application/json'
             }
-        })
+        });
         fetch(request)
         .then(function(res) {
             if (res.status === 200) {
-                alert('Congratulations, you have successfully signed up.\nPlease log in.')
-                window.location.href = 'index.html';
+                Swal.fire(
+                    'Congratulations!',
+                    'You have successfully signed up!\nPlease login.',
+                    'success',
+                ).then((result) => {
+                    if (result.value) {
+                        window.location.href = 'index.html'
+                    }
+                })
             } else {
                 document.getElementById("uname_msg").innerHTML="Failed to signup, userName has been used";
             }
