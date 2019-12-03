@@ -32,7 +32,7 @@ function jumpTo(url) {
            result = false;
         }
     
-    if (uname==null || uname==="")
+    if (uname==null || uname===""|| uname==="admin")
     {
         document.getElementById("uname_msg").innerHTML="Username can not be empty";
         result = false;
