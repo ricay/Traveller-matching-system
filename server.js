@@ -50,16 +50,10 @@ app.use(session({
 // Our own express middleware to check for 
 // an active user on the session cookie (indicating a logged in user.)
 const sessionChecker = (req, res, next) => {
-    log('checker')
-    log(req.session)
-    log(req.sessionID)
     if (req.session.user !== undefined) {
-        // res.redirect('/dashboard'); // redirect to dashboard if logged in.
-        log('go back!!!!!!')
         res.sendFile(__dirname + '/plan_trip.html')
     } else {
         next(); // next() moves on to the route.
-        // res.sendFile(__dirname + '/index.html')
     }    
 };
 
@@ -84,31 +78,36 @@ app.get('/admin_main.html', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/admin_main.html')
 })
 
-app.get('/signup.html', sessionChecker, (req, res) => {
-  res.sendFile(__dirname + '/signup.html')
+app.get('/signup.html', (req, res) => {
+    if (req.session.user === undefined) {
+        res.sendFile(__dirname + '/signup.html')      
+    }else{
+        res.sendFile(__dirname + '/plan_trip.html')  
+    }
+  
 })
 
-app.get('/plan_trip.html', (req, res) => {
+app.get('/plan_trip.html', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/plan_trip.html')
 })
 
-app.get('/create_plan.html', (req, res) => {
+app.get('/create_plan.html', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/create_plan.html')
 })
 
-app.get('/user_profile.html', (req, res) => {
+app.get('/user_profile.html', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/user_profile.html')
 })
 
-app.get('/my_profile.hbs', (req, res) => {
-  res.render('/my_profile.hbs')
+app.get('/my_profile.hbs', sessionChecker, (req, res) => {
+  res.sendFile(__dirname + '/my_profile.html')
 })
 
-app.get('/view_plan.html', (req, res) => {
+app.get('/view_plan.html', sessionChecker, (req, res) => {
     res.sendFile(__dirname + '/view_plan.html')
 });
 
-app.get('/tripsList.html', (req, res) => {
+app.get('/tripsList.html', sessionChecker, (req, res) => {
     res.sendFile(__dirname + '/tripsList.html')
 });
 
@@ -206,25 +205,6 @@ app.get('/users', (req, res) => {
     })
 });
 
-// 可能是没用的
-app.get('/myprofile', sessionChecker, (req, res) => {
-    Profile.findOne({userName: req.session.user}).then(user => {
-        res.send({ user })
-    }, (error) => {
-        res.status(500).send(error)
-    })
-});
-
-// 可能是没用的
-app.get('/userProfile', sessionChecker, (req, res) => {
-    Profile.findOne({userName: req.session.user}).then(user => {
-        log(user)
-        res.send({ user })
-    }, (error) => {
-        res.status(500).send(error)
-    })
-});
-
 /* get all profiles*/
 app.get('/profiles', (req, res) => {
     Profile.find().then((profiles) => {
@@ -282,7 +262,9 @@ app.post('/plan/search', (req, res) => {
 
 /* send the location that user wants to search */
 app.get('/plan/search', (req, res) => {
-    res.send(JSON.stringify(req.session.location));
+    const location = req.session.location;
+    req.session.location = undefined;
+    res.send(JSON.stringify(location));
 });
 
 /* delete a plan with input id */

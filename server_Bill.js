@@ -50,16 +50,10 @@ app.use(session({
 // Our own express middleware to check for 
 // an active user on the session cookie (indicating a logged in user.)
 const sessionChecker = (req, res, next) => {
-    log('checker')
-    log(req.session)
-    log(req.sessionID)
-    if (req.session.user === undefined) {
-        // res.redirect('/dashboard'); // redirect to dashboard if logged in.
-        log('go back!!!!!!')
-        res.sendFile(__dirname + '/index.html')
+    if (req.session.user !== undefined) {
+        res.sendFile(__dirname + '/plan_trip.html')
     } else {
         next(); // next() moves on to the route.
-        // res.sendFile(__dirname + '/index.html')
     }    
 };
 
