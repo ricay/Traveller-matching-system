@@ -121,10 +121,10 @@ onload = function () {
         console.log(json)
             const profile = json.profile;
 
-            // const user = document.getElementById("name1");
-            // const new_user = document.createElement("p");
-            // new_user.innerHTML=profile.userName;
-            // user.appendChild(new_user);
+            const user = document.getElementById("name1");
+            const new_user = document.createElement("h6");
+            new_user.innerHTML=profile.userName;
+            user.appendChild(new_user);
 
             const first = document.getElementById("name2");
             const new_first = document.createElement("p");
@@ -163,10 +163,10 @@ onload = function () {
             new_des.innerHTML=profile.description;
             des.appendChild(new_des);
 
-            const dash = document.getElementById("dash");
-            const new_dash = document.createElement("h6");
-            new_dash.innerHTML = profile.userName;
-            dash.appendChild(new_dash);
+            // const dash = document.getElementById("dash");
+            // const new_dash = document.createElement("h6");
+            // new_dash.innerHTML = profile.userName;
+            // dash.appendChild(new_dash);
 
             const dash2 = document.getElementById("dash");
             const new_dash2 = document.createElement("h7");
