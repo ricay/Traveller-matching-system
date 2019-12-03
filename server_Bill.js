@@ -211,25 +211,6 @@ app.get('/users', (req, res) => {
     })
 });
 
-// 可能是没用的
-app.get('/myprofile', sessionChecker, (req, res) => {
-    Profile.findOne({userName: req.session.user}).then(user => {
-        res.send({ user })
-    }, (error) => {
-        res.status(500).send(error)
-    })
-});
-
-// 可能是没用的
-app.get('/userProfile', sessionChecker, (req, res) => {
-    Profile.findOne({userName: req.session.user}).then(user => {
-        log(user)
-        res.send({ user })
-    }, (error) => {
-        res.status(500).send(error)
-    })
-});
-
 /* get all profiles*/
 app.get('/profiles', (req, res) => {
     Profile.find().then((profiles) => {

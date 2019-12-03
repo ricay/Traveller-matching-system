@@ -17,26 +17,34 @@ function jumpAndPost(url) {
     const data = {
         location: document.getElementById('searchInterestedPlaces').value
     }
-
-    const request = new Request('/plan/search', {
-        method: 'post',
-        body: JSON.stringify(data),
-        headers: {
-            'Content-type': 'application/json'
-        }
-    })
-    fetch(request)
-        .then(function(res) {
-            if (res.status === 200) {
-                // log(res);
-
-
+    if (data.location) {
+        const request = new Request('/plan/search', {
+            method: 'post',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-type': 'application/json'
             }
+        })
+        fetch(request)
+            .then(function(res) {
+                if (res.status === 200) {
+                    // log(res);
 
-        }).catch((error) => {
-        log(error);
-    })
-    jumpTo(url)
+
+                }
+
+            }).catch((error) => {
+            log(error);
+        })
+        jumpTo(url)
+    } else{
+        // alert('please enter a location')
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Please enter a location',
+        })
+    }
 }
 
 
