@@ -62,6 +62,8 @@ AccountSchema.statics.deleteByUserName = function(userName) {
 
 AccountSchema.statics.findByAdminNamePassword = function(userName, password) {
     const Account = this;
+    console.log(userName)
+    console.log(password)
 
     return Account.findOne({ userName: userName }).then((account) => {
         // if (!account) {
@@ -71,9 +73,11 @@ AccountSchema.statics.findByAdminNamePassword = function(userName, password) {
         //         return Promise.resolve(account);
         //     }
         // }
-         return new Promise((resolve, reject) => {
+        console.log(account)
+        return new Promise((resolve, reject) => {
              bcrypt.compare(password, account.password, (err, result) => {
-                 if (result) {
+                 if (result && account.type === "admin") {
+                    console.log('success')
                      resolve(account)
                  } else {
                      console.log(2);

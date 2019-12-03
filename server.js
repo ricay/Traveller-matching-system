@@ -74,9 +74,6 @@ app.get('/index.html', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/index.html')
 });
 
-app.get('/admin_main.html', sessionChecker, (req, res) => {
-  res.sendFile(__dirname + '/admin_main.html')
-});
 
 app.get('/signup.html', (req, res) => {
     if (req.session.user === undefined) {
@@ -99,7 +96,7 @@ app.get('/user_profile.html', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/user_profile.html')
 });
 
-app.get('/my_profile.hbs', sessionChecker, (req, res) => {
+app.get('/my_profile.html', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/my_profile.html')
 });
 
@@ -111,24 +108,24 @@ app.get('/tripsList.html', sessionChecker, (req, res) => {
     res.sendFile(__dirname + '/tripsList.html')
 });
 
-app.get('/admin_login.html', adminSessionChecker, (req, res) => {
+app.get('/admin_login.html', (req, res) => {
     res.sendFile(__dirname + '/admin_login.html')
 });
 
-app.get('/admin_main.html', adminSessionChecker, (req, res) => {
+app.get('/admin_main.html', (req, res) => {
     res.sendFile(__dirname + '/admin_main.html')
 });
 
-app.get('/admin_insert_recommendation.html', adminSessionChecker, (req, res) => {
+app.get('/admin_insert_recommendation.html', sessionChecker, (req, res) => {
     res.sendFile(__dirname + '/admin_insert_recommendation.html')
 });
 
-app.get('/admin_validate_users.html', adminSessionChecker, (req, res) => {
+app.get('/admin_validate_users.html', sessionChecker, (req, res) => {
     // log(req.session.account);
     res.sendFile(__dirname + '/admin_validate_users.html')
 });
 
-app.get('/admin_delete_plan.html', adminSessionChecker, (req, res) => {
+app.get('/admin_delete_plan.html', sessionChecker, (req, res) => {
     res.sendFile(__dirname + '/admin_delete_plan.html')
 });
 
@@ -175,8 +172,6 @@ app.post('/users/login', (req, res) => {
             // We can check later if this exists to ensure we are logged in.
             req.session.user = user._id;
             req.session.userName = user.userName;
-            log(req.session);
-            log(req.sessionID);
             res.redirect('/plan_trip.html');
         }
     }).catch((error) => {
@@ -421,8 +416,8 @@ app.post('/admin/login/:userName/:password', (req, res) => {
         if (!account) {
             res.status(404).send()
         } else {
-            // req.session.account = account._id;
-            // log(req.session.account);
+            // res.session.userName = userName;
+            // res.session.user = userName;
             res.status(200).send()
         }
     }).catch((error) => {
@@ -492,7 +487,7 @@ app.delete('/admin/deleteUser/:userName', (req, res) => {
 /*************************************************/
 // Express server listening...
 const port = process.env.PORT || 3001;
-// const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/FriendsOnTheWayAPI'
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/FriendsOnTheWayAPI'
 app.listen(port, () => {
 	log(`Listening on port ${port}...`)
 });
