@@ -6,7 +6,9 @@
     <link rel="stylesheet" type="text/css" href="CSS/general_navbar.css">
     <link rel="stylesheet" type="text/css" href="CSS/admin_main.css">
     <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="JS/admin_main.js"></script>
+    <script src="JS/logout.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand bg-sandy">
@@ -15,7 +17,7 @@
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Logout <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" onclick="logout()">Logout <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">

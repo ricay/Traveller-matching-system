@@ -64,7 +64,7 @@ const sessionChecker = (req, res, next) => {
 
 const adminSessionChecker = (req, res, next) => {
     if (req.session.account) {
-        res.sendFile(__dirname + '/admin_main.html')
+        res.sendFile(__dirname + '/admin_login.html')
     } else {
         next(); // next() moves on to the route.
     }
@@ -113,10 +113,6 @@ app.get('/tripsList.html', (req, res) => {
 
 app.get('/admin_login.html', adminSessionChecker, (req, res) => {
     res.sendFile(__dirname + '/admin_login.html')
-});
-
-app.get('/admin_main.html', adminSessionChecker, (req, res) => {
-    res.sendFile(__dirname + '/admin_main.html')
 });
 
 app.get('/admin_insert_recommendation.html', adminSessionChecker, (req, res) => {
