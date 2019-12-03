@@ -1,4 +1,3 @@
-/* server.js nov 20 */
 'use strict';
 const log = console.log;
 
@@ -42,20 +41,25 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        expires: 60000,
+        expires: 60000 * 60,
         httpOnly: true
     }
 }));
 
-// Our own express middleware to check for 
+// Our own express middleware to check for
 // an active user on the session cookie (indicating a logged in user.)
 const sessionChecker = (req, res, next) => {
-    if (req.session.user) {
+    log('checker');
+    log(req.session);
+    log(req.sessionID);
+    if (req.session.user !== undefined) {
         // res.redirect('/dashboard'); // redirect to dashboard if logged in.
-        res.sendFile(__dirname + '/index.html')
+        log('go back!!!!!!');
+        res.sendFile(__dirname + '/plan_trip.html')
     } else {
         next(); // next() moves on to the route.
-    }    
+        // res.sendFile(__dirname + '/index.html')
+    }
 };
 
 const adminSessionChecker = (req, res, next) => {
@@ -66,28 +70,45 @@ const adminSessionChecker = (req, res, next) => {
     }
 };
 
+/*  route redirection  */
 app.get('/', sessionChecker, (req, res) => {
-  res.sendFile(__dirname + '/index.html')
+    res.sendFile(__dirname + '/index.html')
 });
 
 app.get('/index.html', sessionChecker, (req, res) => {
-  res.sendFile(__dirname + '/index.html')
+    res.sendFile(__dirname + '/index.html')
+});
+
+app.get('/admin_main.html', sessionChecker, (req, res) => {
+    res.sendFile(__dirname + '/admin_main.html')
 });
 
 app.get('/signup.html', sessionChecker, (req, res) => {
-  res.sendFile(__dirname + '/signup.html')
+    res.sendFile(__dirname + '/signup.html')
 });
 
 app.get('/plan_trip.html', (req, res) => {
     res.sendFile(__dirname + '/plan_trip.html')
 });
 
+app.get('/create_plan.html', (req, res) => {
+    res.sendFile(__dirname + '/create_plan.html')
+});
+
 app.get('/user_profile.html', (req, res) => {
     res.sendFile(__dirname + '/user_profile.html')
 });
 
-app.get('/my_profile.html', (req, res) => {
-    res.sendFile(__dirname + '/my_profile.html')
+app.get('/my_profile.hbs', (req, res) => {
+    res.render('/my_profile.hbs')
+});
+
+app.get('/view_plan.html', (req, res) => {
+    res.sendFile(__dirname + '/view_plan.html')
+});
+
+app.get('/tripsList.html', (req, res) => {
+    res.sendFile(__dirname + '/tripsList.html')
 });
 
 app.get('/admin_login.html', adminSessionChecker, (req, res) => {
@@ -111,25 +132,14 @@ app.get('/admin_delete_plan.html', adminSessionChecker, (req, res) => {
     res.sendFile(__dirname + '/admin_delete_plan.html')
 });
 
-app.post('/index/onload', (req, res) => {
-    const newAdmin = new Account({
-        userName: req.body.userName,
-        password: req.body.password,
-        type: req.body.type
-    });
-    newAdmin.save().then((result) => {
-        res.send(result);
-    }, (error) => {
-        res.status(400).send(error);
-    })
-});
-
+/* User signup */
 app.post('/users/signup', (req, res) => {
     const account = new Account({
         userName: req.body.userName,
         password: req.body.password,
         type: 'normal' // normal for normal users
     });
+
     account.save().then((result) => {
         const profile = new Profile({
             userName: req.body.userName,
@@ -152,6 +162,7 @@ app.post('/users/signup', (req, res) => {
     })
 });
 
+/* User login */
 app.post('/users/login', (req, res) => {
     const userName = req.body.userName;
     const password = req.body.password;
@@ -164,8 +175,8 @@ app.post('/users/login', (req, res) => {
             // We can check later if this exists to ensure we are logged in.
             req.session.user = user._id;
             req.session.userName = user.userName;
-            // log(req.session);
-            // log(req.sessionID);
+            log(req.session);
+            log(req.sessionID);
             res.redirect('/plan_trip.html');
         }
     }).catch((error) => {
@@ -173,6 +184,149 @@ app.post('/users/login', (req, res) => {
     })
 });
 
+/* A route to logout a user*/
+app.get('/logout', (req, res) => {
+    // Remove the session
+    req.session.destroy((error) => {
+        if (error) {
+            res.status(500).send(error)
+        } else {
+            res.redirect('/')
+        }
+    })
+});
+
+/* A route to get all users*/
+app.get('/users', (req, res) => {
+    Account.find().then(users => {
+        res.send({ users })
+    }, (error) => {
+        res.status(500).send(error)
+    })
+});
+
+// 可能是没用的
+app.get('/myprofile', sessionChecker, (req, res) => {
+    Profile.findOne({userName: req.session.user}).then(user => {
+        res.send({ user })
+    }, (error) => {
+        res.status(500).send(error)
+    })
+});
+
+// 可能是没用的
+app.get('/userProfile', sessionChecker, (req, res) => {
+    Profile.findOne({userName: req.session.user}).then(user => {
+        log(user);
+        res.send({ user })
+    }, (error) => {
+        res.status(500).send(error)
+    })
+});
+
+/* get all profiles*/
+app.get('/profiles', (req, res) => {
+    Profile.find().then((profiles) => {
+        res.send({ profiles }) // can wrap in object if want to add more properties
+    }, (error) => {
+        res.status(500).send(error) // server error
+    })
+});
+
+/* get all plans*/
+app.get('/allPlan', (req, res) => {
+    Plan.find().then((plans) => {
+        res.send({ plans }) // can wrap in object if want to add more properties
+    }, (error) => {
+        res.status(500).send(error) // server error
+    })
+});
+
+/* get all plans for the user who currently login*/
+app.get('/plan', (req, res) => {
+    Plan.find({creator: req.session.userName}).then((plans) => {
+
+        res.send({ plans }) // can wrap in object if want to add more properties
+    }, (error) => {
+        res.status(500).send(error) // server error
+    })
+});
+
+/* add a new plan */
+app.post('/plan', (req, res) => {
+    const plan = new Plan({
+        name: req.body.name,
+        creator: req.session.userName,
+
+        places:req.body.places,
+        transportation:req.body.transportation,
+        cost:req.body.cost,
+        startTime: req.body.startTime,
+        endTime: req.body.endTime,
+        poolMember: req.body.poolMember,
+    });
+    plan.save().then((result) => {
+        res.send(result)
+    }, (error) => {
+        res.status(400).send(error)
+    });
+});
+
+/* record the location that user wants to search */
+app.post('/plan/search', (req, res) => {
+    const location = req.body.location;
+    req.session.location = location;
+    res.send();
+});
+
+/* send the location that user wants to search */
+app.get('/plan/search', (req, res) => {
+    res.send(JSON.stringify(req.session.location));
+});
+
+/* delete a plan with input id */
+app.delete('/plan/:id', (req, res) => {
+    const pid = req.params.id;
+    Plan.findByIdAndRemove(pid).then((student) => {
+        log(student);
+        if (!student) {
+            res.status(404).send()
+        } else {
+            res.status(200).send()
+        }
+    }).catch((error) => {
+        res.status(500).send() // server error, could not delete.
+    })
+});
+
+/* get all places */
+app.get('/allPlace', (req, res) => {
+    Plan.find({creator: req.session.userName}).then((plans) => {
+
+        res.send({ plans }) // can wrap in object if want to add more properties
+    }, (error) => {
+        res.status(500).send(error) // server error
+    })
+});
+
+/* a user want to join other user's plan */
+app.patch('/plan/:pid', (req, res) => {
+    const currUserName = req.session.userName
+});
+
+/* admin routes */
+app.post('/index/onload', (req, res) => {
+    const newAdmin = new Account({
+        userName: req.body.userName,
+        password: req.body.password,
+        type: req.body.type
+    });
+    newAdmin.save().then((result) => {
+        res.send(result);
+    }, (error) => {
+        res.status(400).send(error);
+    })
+});
 
 /*get profile*/
 app.get('/getProfile',(req,res) =>{
@@ -226,12 +380,11 @@ app.put('/editProfile', (req, res) => {
     });
 });
 
-
 app.post('/admin/login/:userName/:password', (req, res) => {
     const userName = req.params.userName;
     const password = req.params.password;
 
-    Account.findByUserNamePassword(userName, password).then((account) => {
+    Account.findByAdminNamePassword(userName, password).then((account) => {
         if (!account) {
             res.status(404).send()
         } else {
@@ -282,9 +435,10 @@ app.delete('/admin/deleteUser/:userName', (req, res) => {
     })
 });
 
+
 /*************************************************/
 // Express server listening...
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
-	log(`Listening on port ${port}...`)
+    log(`Listening on port ${port}...`)
 });
