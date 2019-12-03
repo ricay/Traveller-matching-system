@@ -256,7 +256,7 @@ app.get('/plan', (req, res) => {
 /* add a new plan */
 app.post('/plan', (req, res) => {
     const plan = new Plan({
-        name: req.body.name,
+
         creator: req.session.userName,
 
         places:req.body.places,
@@ -311,9 +311,59 @@ app.get('/allPlace', (req, res) => {
 });
 
 /* a user want to join other user's plan */
-app.patch('/plan/:pid', (req, res) => {
-    const currUserName = req.session.userName
+app.put('/addToPlan/:pid', (req, res) => {
+    console.log(req.params.pid)
+    Plan.findById(req.params.pid).then(plan => {
+
+
+        if (!plan) {
+            res.status(404).send()
+        } else {
+            const targetPlan = plan;
+            console.log(req.session.user)
+            Profile.findOne({userName: req.session.userName}).then(addUser => {
+                if (!addUser) {
+                    log('Oh shit');
+                    res.status(404).send()
+                } else {
+                    if(plan.poolMember.find(addUser) !== undefined){
+                        log('Hello');
+                        res.status(500).send()
+                    }
+                    plan.poolMember.push(addUser);
+                    plan.save().then((result) => {
+                        res.send({result});
+                    }, (error) => {
+                        res.status(404).send(error)
+                    });
+                }
+            }).catch((error) => {
+                log(3);
+                res.status(500).send()
+            });
+        }
+
+
+    })
 })
+
+
+
+
+
+
+            //plan.save().then((result) => {
+                //res.send({result});
+            //}, (error) => {
+                //res.status(404).send(error)
+            //});
+        //}
+    //}).catch((error) => {
+        //log(2);
+        //res.status(500).send()
+    //});
+
+//})
 
 /* admin routes */
 app.post('/index/onload', (req, res) => {

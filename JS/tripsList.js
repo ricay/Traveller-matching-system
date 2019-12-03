@@ -148,12 +148,13 @@ function addNewPlanToView(Plan,index){
 
     cell.appendChild(plan);
 
-    document.getElementById(JoinButton.id).onclick = function(){changeNumPeople(JoinButton.id,Plan._id)};
-
+    //document.getElementById(JoinButton.id).onclick = function(){changeNumPeople(JoinButton.id,Plan._id)};
+    JoinButton.onclick = function(){changeNumPeople(JoinButton.id,Plan._id)};
 }
 
 function changeNumPeople(buttonID,ID){// add current person to the plan
     const url =  '/addToPlan/'+ID;
+
     const request = new Request(url, {
         method: 'put',
         headers: {
@@ -163,9 +164,13 @@ function changeNumPeople(buttonID,ID){// add current person to the plan
     fetch(request)
         .then(function(res) {
             if (res.status === 200) {
-                window.location.href = 'tripList.html';
-            } else {
-                alert('should not happened!')
+                //window.location.href = 'tripList.html';
+            }
+            else if(res.status === 500){
+                alert('You have already join this trip');
+            }
+            else {
+                alert('should not happened!');
             }
         }).catch((error) => {
         log(error);
