@@ -7,6 +7,7 @@
 	font-weight: bold;
 	font-family: cursive;
 	text-align: center;
+	color: white;
 }
 #insert-form-container {
 	background: rgba(255, 255, 255, 0.75);
@@ -29,7 +30,7 @@
 	word-wrap: break-word;
 }
 
-#Destination {
+#Name {
 	margin-top: 4vh;
 }
 

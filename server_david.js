@@ -406,6 +406,26 @@ app.get('/admin/getUsers', (req, res) => {
     })
 });
 
+
+/* add a new plan */
+app.post('/admin/insertRecommendation', (req, res) => {
+    const plan = new Plan({
+        name: req.body.name,
+        creator: req.body.creator,
+        places: req.body.places,
+        transportation: req.body.transportation,
+        cost: req.body.cost,
+        startTime: req.body.startTime,
+        endTime: req.body.endTime,
+        poolMember: req.body.poolMember,
+    });
+    plan.save().then((result) => {
+        res.send(result)
+    }, (error) => {
+        res.status(400).send(error)
+    });
+});
+
 app.delete('/admin/deleteUser/:userName', (req, res) => {
     const userName = req.params.userName;
     // Delete account

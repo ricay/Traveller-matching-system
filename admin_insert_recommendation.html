@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="CSS/general_navbar.css">
     <link rel="stylesheet" type="text/css" href="CSS/admin_insert_recommendation.css">
     <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="JS/admin_insert_recommendation.js"></script>
 </head>
 <body>
@@ -38,6 +39,9 @@
 
     <div id="insert-form-container">
         <form id='insert-form'>
+            <label for='planName'></label>
+            <input class="input" id='planName' type="text" placeholder="Name">
+            <br>
             <label for='Destination'></label>
             <input class="input" id='Destination' type="text" placeholder="Destination">
             <br>
@@ -56,7 +60,7 @@
                 <button type="submit">Upload</button>
             </form>
         </form>
-        <button id='InsertRecommendation' type="submit" onclick="jumpTo('view_plan.html')">Insert</button>
+        <button id='InsertRecommendation' type="submit" onclick="insertRecommendation()">Insert</button>
     </div>
 
 </body>
