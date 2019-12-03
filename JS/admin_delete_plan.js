@@ -1,89 +1,98 @@
-console.log("get here");
-const deletePlanTable = document.getElementById('hello')
+const log = console.log;
 
-console.log("get here");
-var numberOfPlans = 1;
-var planList = [];
-var num_row = 0;
-var row;
+let activePlans = 0;
 
-class Plan {
-    constructor(description,Img,Author) {
-        this.description = description;
-        this.Author = Author;
-        this.Img = Img;
-        this.PlanID = numberOfPlans-1;
-        numberOfPlans++;
-        console.log(numberOfPlans)
-        planList.push(this)
-        addNewPlanToView(this)
-        console.log(this)
-    }
-}
-const plan1= new Plan("Hello",'PIC/anita.png',"Tony");
-const plan2= new Plan("Boring Plan",'PIC/anita.png',"Bony");
-const plan3= new Plan("Hello",'PIC/anita.png',"Tony");
-const plan4 =new Plan("Hello",'PIC/anita.png',"Tony");
-const plan5= new Plan("Hello",'PIC/anita.png',"Tony");
-const plan6= new Plan("Hello",'PIC/anita.png',"Tony");
-const plan7= new Plan("Hello",'PIC/anita.png',"Tony");
-const plan8= new Plan("Hello",'PIC/anita.png',"Tony");
-const plan9= new Plan("Hello",'PIC/anita.png',"Tony");
-const plan10= new Plan("Hello",'PIC/anita.png',"Tony");
+onload = function() {
+    url = '/allPlan';
 
+    fetch(url).then((res) => {
+        if (res.status === 200) {
+            return res.json();
+        } else {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+            })
+        }
+    }).then((json) => {
+        const allPlans = json.plans;
+        log(allPlans);
+        for (let i = 0; i < allPlans.length; i++) {
+            const deletePlanTable = document.getElementById('planTable');
+            const newRow = deletePlanTable.insertRow(0);
+            newRow.id = '' + i;
+            const cell = newRow.insertCell(0);
+            //const content = document.getElementById('pinBoot');
+            const plan = document.createElement('div');
+            plan.className = "white-panel";
+            plan.id = allPlans[i]._id;
+            // const img = document.createElement('IMG');
+            const Author = document.createElement('p');
+            Author.innerHTML = 'Author:  ' + allPlans[i].Author;
+            const DeleteButton = document.createElement('button');
+            DeleteButton.textContent = 'DeleteThisPlan';
+            DeleteButton.className = "delete-button";
+            const Description = document.createElement('p');
+            Description.innerHTML = allPlans[i].description;
 
+            // img.src = Plan.Img;
+            // img.alt = "";
+            // img.className = "icon";
+            // plan.appendChild(img);
 
+            plan.appendChild(Author);
+            plan.appendChild(Description);
+            plan.appendChild(DeleteButton);
 
+            cell.appendChild(plan);
 
-function addNewPlanToView(Plan){
-    console.log(deletePlanTable)
-    row = deletePlanTable.insertRow(planList.length-1);
+            DeleteButton.onclick = function(){deletePlan(newRow.id)};
+            activePlans++;
+        }
+    }).catch((error) => {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+        });
+        log(error);
+    })
+};
 
-    const cell = row.insertCell(0);
-    //const content = document.getElementById('pinBoot');
-    const plan = document.createElement('div');
-    plan.className = "white-panel";
-    plan.id = Plan.PlanID;
-    plan.style.background = 'white';
-    plan.style.height = 'max-content';
-    plan.style.width =  "50vw";
-    plan.style.borderRadius = '5%';
-    plan.style.padding = '10px';
-    const img = document.createElement('IMG');
-    const Author = document.createElement('p');
-    Author.innerHTML = 'Author:  ' + Plan.Author;
-    const DeleteButton = document.createElement('button');
-    DeleteButton.textContent = 'DeleteThisPlan';
-    DeleteButton.id = Plan.PlanID;
-    DeleteButton.style.borderRadius = "20px";
-    const Description = document.createElement('p');
-    Description.innerHTML = Plan.description;
-
-    img.src = Plan.Img;
-    img.alt = "";
-    img.className = "icon";
-
-    plan.appendChild(img);
-
-    plan.appendChild(Author);
-    plan.appendChild(Description);
-    plan.appendChild(DeleteButton);
-
-
-    cell.appendChild(plan);
-
-    document.getElementById(DeleteButton.id).onclick = function(){deletePlan(DeleteButton.id,planList)};
-    num_row++;
-}
-
-
-function deletePlan(id,planList){
-    console.log(id);
-   for (let i=0; i<planList.length; i++){
-       if (planList[i].PlanID == id){
-           planList.splice(i,1);
-           deletePlanTable.deleteRow(i)
-       }
-   }
+function deletePlan(id){
+    const plan = document.getElementById(id);
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.value) {
+            Swal.fire(
+                'Deleted!',
+                'This plan has been deleted.',
+                'success'
+            );
+            plan.hidden = true;
+            activePlans--;
+            if (activePlans === 0) {
+                Swal.fire({
+                    title: 'There are no more plans to delete.',
+                    showClass: {
+                        popup: 'animated fadeInDown faster'
+                    },
+                    hideClass: {
+                        popup: 'animated fadeOutUp faster'
+                    }
+                })
+            }
+        }
+    });
 }
 

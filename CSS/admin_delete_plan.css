@@ -16,9 +16,18 @@
 }
 
 .table-fixed tbody {
-    height: 700px;
+    height: max-content;
+    max-height: 700px;
     overflow-y: auto;
     width: 100%;
+}
+
+.white-panel {
+    background: white;
+    height: max-content;
+    width: 50vw;
+    border-radius: 5%;
+    padding: 10px;
 }
 
 .table-fixed thead,
@@ -35,12 +44,14 @@
     float: left;
     position: relative;
 }
-button {
+
+.delete-button {
     box-shadow: 0 0 5px 0 #1c1b18;
     height: 3vh;
     width: 10vw;
     background: #eae0c2 linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
     border: 1px solid #333029;
+    border-radius: 20px;
     cursor: pointer;
     color:#505739;
     font-family: Trebuchet MS, serif;

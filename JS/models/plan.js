@@ -29,6 +29,9 @@ const Plan = mongoose.model('Plan', {
     },
     poolMember: {
         type: Array
+    },
+    description: {
+        type: String
     }
 });
 

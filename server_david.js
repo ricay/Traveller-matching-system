@@ -406,7 +406,6 @@ app.get('/admin/getUsers', (req, res) => {
     })
 });
 
-
 /* add a new plan */
 app.post('/admin/insertRecommendation', (req, res) => {
     const plan = new Plan({
