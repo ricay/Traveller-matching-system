@@ -102,11 +102,9 @@ function jumpTo(url) {
         fetch(request)
         .then(function(res) {
             if (res.status === 200) {
-                // log(res);
                 alert('Congratulations, you have successfully signed up.\nPlease log in.')
                 window.location.href = 'index.html';
             } else {
-                // alert("Failed to signup, userName has been used");
                 document.getElementById("uname_msg").innerHTML="Failed to signup, userName has been used";
             }
         }).catch((error) => {
