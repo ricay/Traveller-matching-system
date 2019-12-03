@@ -1,0 +1,39 @@
+{
+  "name": "team37",
+  "version": "1.0.0",
+  "description": "CSC309 Project",
+  "main": "server.js",
+  "dependencies": {
+    "express-session": "^1.17.0",
+    "sweetalert2": "^9.4.1"
+  },
+  "devDependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "crypto-js": "^3.1.9-1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.1.13",
+    "mongoose": "^5.4.19",
+    "validator": "^10.11.0",
+    "sweetalert2": "^9.4.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csc309-fall-2019/team37.git"
+  },
+  "keywords": [
+    "team37"
+  ],
+  "author": "team37",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csc309-fall-2019/team37/issues"
+  },
+  "homepage": "https://github.com/csc309-fall-2019/team37#readme"
+}
