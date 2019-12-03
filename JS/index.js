@@ -75,7 +75,7 @@ function logIn() {
     passWord.id = "passWord";
     passWord.className = "form-control";
     passWord.placeholder = "Password";
-    passWord.type = "text";
+    passWord.type = "password";
     passWord_span.appendChild(passWord_i);
     passWord_input2.appendChild(passWord_span);
     passWord_input1.appendChild(passWord_input2);

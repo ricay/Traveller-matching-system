@@ -1,37 +1,37 @@
 /* server.js nov 20 */
 'use strict';
-const log = console.log
+const log = console.log;
 
-const express = require('express')
+const express = require('express');
 // starting the express server
 const app = express();
 
 // mongoose and mongo connection
-const { mongoose } = require('./JS/db/mongoose')
+const { mongoose } = require('./JS/db/mongoose');
 
 // import the mongoose models
-const { Account } = require('./JS/models/account')
-const { Place } = require('./JS/models/place')
-const { Plan } = require('./JS/models/plan')
-const { Profile } = require('./JS/models/profile')
+const { Account } = require('./JS/models/account');
+const { Place } = require('./JS/models/place');
+const { Plan } = require('./JS/models/plan');
+const { Profile } = require('./JS/models/profile');
 
 // to validate object IDs
-const { ObjectID } = require('mongodb')
+const { ObjectID } = require('mongodb');
 
 // body-parser: middleware for parsing HTTP JSON body into a usable object
-const bodyParser = require('body-parser') 
-app.use(bodyParser.json())
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 
 // express-session for managing user sessions
-const session = require('express-session')
+const session = require('express-session');
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/PIC', express.static('PIC'))
-app.use('/JS', express.static('JS'))
-app.use('/CSS', express.static('CSS'))
-app.use('/bootstrap-4.3.1-dist', express.static('bootstrap-4.3.1-dist'))
+app.use('/PIC', express.static('PIC'));
+app.use('/JS', express.static('JS'));
+app.use('/CSS', express.static('CSS'));
+app.use('/bootstrap-4.3.1-dist', express.static('bootstrap-4.3.1-dist'));
 
-mongoose.set('useCreateIndex', true)
+mongoose.set('useCreateIndex', true);
 
 
 
@@ -68,15 +68,15 @@ const adminSessionChecker = (req, res, next) => {
 /*  route redirection  */
 app.get('/', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/index.html')
-})
+});
 
 app.get('/index.html', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/index.html')
-})
+});
 
 app.get('/admin_main.html', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/admin_main.html')
-})
+});
 
 app.get('/signup.html', (req, res) => {
     if (req.session.user === undefined) {
@@ -85,23 +85,23 @@ app.get('/signup.html', (req, res) => {
         res.sendFile(__dirname + '/plan_trip.html')  
     }
   
-})
+});
 
 app.get('/plan_trip.html', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/plan_trip.html')
-})
+});
 
 app.get('/create_plan.html', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/create_plan.html')
-})
+});
 
 app.get('/user_profile.html', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/user_profile.html')
-})
+});
 
 app.get('/my_profile.hbs', sessionChecker, (req, res) => {
   res.sendFile(__dirname + '/my_profile.html')
-})
+});
 
 app.get('/view_plan.html', sessionChecker, (req, res) => {
     res.sendFile(__dirname + '/view_plan.html')
@@ -138,7 +138,7 @@ app.post('/users/signup', (req, res) => {
         userName: req.body.userName,
         password: req.body.password,
         type: 'normal' // normal for normal users
-    })
+    });
 
     account.save().then((result) => {
         const profile = new Profile({
@@ -151,7 +151,7 @@ app.post('/users/signup', (req, res) => {
             phone: req.body.phone,
             language: '',
             description: ''
-        })
+        });
         profile.save().then((result) => {
             res.send(result)
         }, (error) => {
@@ -164,8 +164,8 @@ app.post('/users/signup', (req, res) => {
 
 /* User login */
 app.post('/users/login', (req, res) => {
-    const userName = req.body.userName
-    const password = req.body.password
+    const userName = req.body.userName;
+    const password = req.body.password;
 
     Account.findByUserNamePassword(userName, password).then((user) => {
         if (!user) {
@@ -174,9 +174,9 @@ app.post('/users/login', (req, res) => {
             // Add the user's id to the session cookie.
             // We can check later if this exists to ensure we are logged in.
             req.session.user = user._id;
-            req.session.userName = user.userName
-            log(req.session)
-            log(req.sessionID)
+            req.session.userName = user.userName;
+            log(req.session);
+            log(req.sessionID);
             res.redirect('/plan_trip.html');
         }
     }).catch((error) => {
@@ -194,7 +194,7 @@ app.get('/logout', (req, res) => {
             res.redirect('/')
         }
     })
-})
+});
 
 /* A route to get all users*/
 app.get('/users', (req, res) => {
@@ -236,16 +236,15 @@ app.get('/plan', (req, res) => {
 /* add a new plan */
 app.post('/plan', (req, res) => {
     const plan = new Plan({
-
+        name: req.body.name,
         creator: req.session.userName,
-
         places:req.body.places,
         transportation:req.body.transportation,
         cost:req.body.cost,
         startTime: req.body.startTime,
         endTime: req.body.endTime,
         poolMember: req.body.poolMember,
-        description: ""
+        description: req.body.description
     });
     plan.save().then((result) => {
         res.send(result)
@@ -272,7 +271,7 @@ app.get('/plan/search', (req, res) => {
 app.delete('/plan/:id', (req, res) => {
     const pid = req.params.id;
     Plan.findByIdAndRemove(pid).then((student) => {
-        log(student)
+        log(student);
         if (!student) {
             res.status(404).send()
         } else {
@@ -295,7 +294,7 @@ app.get('/allPlace', (req, res) => {
 
 /* a user want to join other user's plan */
 app.put('/addToPlan/:pid', (req, res) => {
-    console.log(req.params.pid)
+    console.log(req.params.pid);
     Plan.findById(req.params.pid).then(plan => {
 
 
@@ -303,7 +302,7 @@ app.put('/addToPlan/:pid', (req, res) => {
             res.status(404).send()
         } else {
             const targetPlan = plan;
-            console.log(req.session.user)
+            console.log(req.session.user);
             Profile.findOne({userName: req.session.userName}).then(addUser => {
                 if (!addUser) {
                     log('Oh shit');
@@ -328,7 +327,7 @@ app.put('/addToPlan/:pid', (req, res) => {
 
 
     })
-})
+});
 
 
 
@@ -492,7 +491,7 @@ app.delete('/admin/deleteUser/:userName', (req, res) => {
 
 /*************************************************/
 // Express server listening...
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
 	log(`Listening on port ${port}...`)
-}) 
+});

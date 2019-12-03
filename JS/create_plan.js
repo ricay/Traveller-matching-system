@@ -3,7 +3,7 @@ function jumpTo(url) {
 
     const transportation = document.getElementById("MethodOfTravel").value;
 
-
+    const planname = document.getElementById("PlanName").value;
     const cost = document.getElementById("ExceptCost").value;
     const startTime = document.getElementById("StartDate").value;
     const endTime = document.getElementById("EndDate").value;
@@ -13,16 +13,17 @@ function jumpTo(url) {
     const places = [];
     places.push(startPlace);
     places.push(endPlace);
+    const description = document.querySelector("#Description").value;
     const data = {
-
-
+        name: planname,
         places: places,
         transportation: transportation,
         cost: cost,
         startTime: startTime,
         endTime: endTime,
-        poolMember:poolMember
-    }
+        poolMember:poolMember,
+        description: description
+    };
     const request = new Request('/plan', {
         method: 'post',
         body: JSON.stringify(data),

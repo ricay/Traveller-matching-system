@@ -45,6 +45,8 @@
 
     <div id="form-container">
         <form id='PlaceInfoForm'>
+            <label for='PlanName'></label><input class="input" id='PlanName' type="text" placeholder="Your name for the plan?">
+            <br>
             <label for='StartPlace'></label><input class="input" id='StartPlace' type="text" placeholder="Your start place?">
             <br>
             <label for='EndPlace'></label><input class="input" id='EndPlace' type="text" placeholder="Your end place?">
@@ -56,6 +58,10 @@
             <label for='StartDate'></label><input class="input" id='StartDate' type="text" placeholder="Your start date?">
             <br>
             <label for='EndDate'></label><input class="input" id='EndDate' type="text" placeholder="Your end date?">
+            <br>
+            <label for='EndDate'></label>
+            <label for='Description'></label>
+            <textarea class="input" id='Description' type="text" placeholder="Description"></textarea>
             <br>
         </form>
         <button id='PlanTrip' type="submit" onclick="jumpTo('view_plan.html')">Plan it !</button>
