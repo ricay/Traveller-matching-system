@@ -139,12 +139,7 @@ onload = function () {
             const gen = document.getElementById("gen");
             const new_gen = document.createElement("p");
             new_gen.innerHTML=profile.gender;
-            gen.appendChild(new_gen)
-
-            // const bir = document.getElementById("bir");
-            // const new_bir = document.createElement("p");
-            // new_bir.innerHTML=profile.birthday;
-            // bir.appendChild(new_bir);
+            gen.appendChild(new_gen);
 
             const ema = document.getElementById("ema");
             const new_ema = document.createElement("p");
