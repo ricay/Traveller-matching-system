@@ -417,7 +417,7 @@ app.post('/admin/login/:userName/:password', (req, res) => {
     const userName = req.params.userName;
     const password = req.params.password;
 
-    Account.findByUserNamePassword(userName, password).then((account) => {
+    Account.findByAdminNamePassword(userName, password).then((account) => {
         if (!account) {
             res.status(404).send()
         } else {
@@ -437,6 +437,25 @@ app.get('/admin/getUsers', (req, res) => {
     }, (error) => {
         res.status(500).send(error) // server error
     })
+});
+
+/* add a new plan */
+app.post('/admin/insertRecommendation', (req, res) => {
+    const plan = new Plan({
+        name: req.body.name,
+        creator: req.body.creator,
+        places: req.body.places,
+        transportation: req.body.transportation,
+        cost: req.body.cost,
+        startTime: req.body.startTime,
+        endTime: req.body.endTime,
+        poolMember: req.body.poolMember,
+    });
+    plan.save().then((result) => {
+        res.send(result)
+    }, (error) => {
+        res.status(400).send(error)
+    });
 });
 
 app.delete('/admin/deleteUser/:userName', (req, res) => {
