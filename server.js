@@ -361,7 +361,7 @@ app.get('/getProfile',(req,res) =>{
 
 //a route to user_profile
 app.put('/editProfile', (req, res) => {
-    const userName = req.body.userName;
+    const userName = req.session.userName;
     const first = req.body.firstName;
     const last = req.body.lastName;
     const gender = req.body.gender;
@@ -372,7 +372,7 @@ app.put('/editProfile', (req, res) => {
     const description = req.body.description;
     const placeName = req.body.placeName;
     const data = req.body.date;
-    const fe = req.body.fe;
+    const fe = req.body.feel;
 
 
     log(req.session.userName);
@@ -394,7 +394,7 @@ app.put('/editProfile', (req, res) => {
             profile.description = description;
             profile.placeName = placeName;
             profile.data = data;
-            profile.fe = fe;
+            profile.feel = fe;
 
             profile.save().then((result) => {
                 res.send({result});
@@ -403,7 +403,6 @@ app.put('/editProfile', (req, res) => {
             });
         }
     }).catch((error) => {
-        log(2);
         res.status(500).send()
     });
 });

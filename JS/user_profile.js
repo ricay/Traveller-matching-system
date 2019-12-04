@@ -118,9 +118,8 @@ onload = function () {
             alert('Could not get profile.')
         }
         }).then((json) => { //get  profiles
-        console.log(json)
+            console.log(json);
             const profile = json.profile;
-
             const user = document.getElementById("name1");
             const new_user = document.createElement("h6");
             new_user.innerHTML=profile.userName;
