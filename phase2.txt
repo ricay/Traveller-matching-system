@@ -1,3 +1,7 @@
+Late submit:
+commit "fix profile" at 10:54pm is the late submit, which should be graded as late.
+We fix the bug since profile and plan are the main functionalities and features of our app.
+
 Friends on the way, is a website for travellers to find their ideal
 fellow travellers.
 This is our deployed URL: https://calm-cove-08678.herokuapp.com/
