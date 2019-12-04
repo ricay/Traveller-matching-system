@@ -49,9 +49,9 @@ function editProfile(){
         email: document.querySelector('#Email').value,
         phone:document.querySelector('#Phone').value,
         description:document.querySelector('#Detail').value,
-        placeName:document.querySelector('#place').value,
-        date:document.querySelector('#date').value,
-        feel:document.querySelector('#fe').value,
+        placeName:document.querySelector('#placeName').value,
+        date:document.querySelector('#Date').value,
+        feel:document.querySelector('#feel').value,
     };
     log(data);
     // Create our request constructor with all the parameters we need
