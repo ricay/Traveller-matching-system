@@ -8,6 +8,8 @@
 	border-radius: 25px;
 	border-style: outset;
 	text-align: center;
+	-webkit-animation: mymove 1s;
+	-webkit-animation-timing-function: ease;
 }
 
 #authorization-container {
@@ -16,6 +18,8 @@
 	margin-top: 2vh;
 	margin-left: 5vw;
 	margin-right: 5vw;
+	-webkit-animation: mymove 1s;
+	-webkit-animation-timing-function: ease;
 }
 
 .welcome-button {
@@ -59,3 +63,12 @@
 	font-size: 250%;
 }
 
+@-webkit-keyframes mymove {
+	from {opacity: 0}
+	to {opacity: 1}
+}
+
+@keyframes mymove {
+	from {opacity: 0}
+	to {opacity: 1}
+}
