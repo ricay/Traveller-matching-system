@@ -265,15 +265,14 @@ app.get('/plan/search', (req, res) => {
 /* delete a plan with input id */
 app.delete('/plan/:id', (req, res) => {
     const pid = req.params.id;
-    Plan.findByIdAndRemove(pid).then((student) => {
-        log(student);
-        if (!student) {
+    Plan.findByIdAndRemove(pid).then((user) => {
+        if (!user) {
             res.status(404).send()
         } else {
             res.status(200).send()
         }
     }).catch((error) => {
-        res.status(500).send() // server error, could not delete.
+        res.status(500).send(error) // server error, could not delete.
     })
 });
 
@@ -289,34 +288,34 @@ app.get('/allPlace', (req, res) => {
 
 /* a user want to join other user's plan */
 app.put('/addToPlan/:pid', (req, res) => {
-    console.log(req.params.pid);
-    Plan.findById(req.params.pid).then(plan => {
-
-
+    const pid = req.params.pid;
+    Plan.findById(pid).then(plan => {
+        log(plan);
         if (!plan) {
             res.status(404).send()
         } else {
-            const targetPlan = plan;
-            console.log(req.session.user);
             Profile.findOne({userName: req.session.userName}).then(addUser => {
+                log(addUser);
                 if (!addUser) {
-                    log('Oh shit');
                     res.status(404).send()
                 } else {
-                    if(plan.poolMember.find(addUser) !== undefined){
+                    const filter = plan.poolMember.filter(user => user.userName === addUser.userName);
+                    if (filter.length > 0) {
                         log('Hello');
                         res.status(500).send()
+                    } else {
+                        log("GOOD");
+                        plan.poolMember.push(addUser);
+                        plan.save().then((result) => {
+                            res.send({result});
+                        }, (error) => {
+                            res.status(404).send(error)
+                        });
                     }
-                    plan.poolMember.push(addUser);
-                    plan.save().then((result) => {
-                        res.send({result});
-                    }, (error) => {
-                        res.status(404).send(error)
-                    });
                 }
             }).catch((error) => {
                 log(3);
-                res.status(500).send()
+                res.status(500).send(error)
             });
         }
 

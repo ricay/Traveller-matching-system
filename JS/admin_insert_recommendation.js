@@ -13,7 +13,7 @@ function insertRecommendation() {
     const newRecommendation = {
         name: newName,
         creator: "admin",
-        places: [newDestination],
+        places: ['', newDestination],
         transportation: "By preference",
         cost: newExpectCost,
         startTime: "By preference",

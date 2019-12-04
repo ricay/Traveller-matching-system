@@ -1,9 +1,10 @@
 const log = console.log;
+
 var planList = [];
 var numberOfPlans = 1;
 const tripListTable = document.getElementById('tripsListTable');
 var num_row = 0;
-var row
+var row;
 var index = 0;
 function jumpTo(url) {
     window.location.href = url;
@@ -28,38 +29,32 @@ class Plan {
         console.log(numberOfPlans)
     }
 }
-function loadSearchResult()
-    {
-        const url = '/plan/search';
+function loadSearchResult() {
+    url = '/plan/search';
 
-        // Since this is a GET request, simply call fetch on the URL
-        fetch(url)
-            .then((res) => {
-                return res.json();
-            }).then((json) => {  // the resolved promise with the JSON body
-                const location = json;
-                log(location)
-            fetch('/allPlan')
-                .then((res) => {
-                    return res.json();
-                }).then((plans) => {
-                // log(plans.plans[0]);
-                for (let i=0;i<plans.plans.length;i++){
-                    // here!!!
-                    if(plans.plans[i].places.includes(location)){
-                        log(plans.plans[i].places);
-                        addNewPlanToView(plans.plans[i],index);
-                        index++;
-                    }
-
+    // Since this is a GET request, simply call fetch on the URL
+    fetch(url).then((res) => {
+        return res.json();
+    }).then((json) => {  // the resolved promise with the JSON body
+        const location = json;
+        fetch('/allPlan').then((res) => {
+            log(res);
+            return res.json();
+        }).then((json) => {
+            log("2 json = " + json);
+            const plans = json.plans;
+            for (let i = 0;i < plans.length; i++){
+                // here!!!
+                if(plans[i].places.filter(pos => pos === location).length !== 0) {
+                    log(plans[i].places);
+                    addNewPlanToView(plans[i], index);
+                    index++;
                 }
-            })
-
-
-        }).catch((error) => {
-            log(error)
+            }
         })
-
+    }).catch((error) => {
+        log(error)
+    })
 }
 const Trip1 = new Plan('Athens','Santorini','bike',1000,'2019.11.01','2019.12.01','PIC/Santorini1.jpg','Tony');
 Trip1.SpotList.push('Athens');
@@ -94,7 +89,7 @@ function addNewPlanToView(Plan,index){
     plan.className = "white-panel";
     plan.id = Plan.PlanID;
 
-    plan.style.background = 'white';
+    plan.style.background = 'rgba(255, 255, 255, 0.8)';
     plan.style.height = 'max-content';
     plan.style.width = '20vw';
     plan.style.borderRadius = '5%';
@@ -164,13 +159,29 @@ function changeNumPeople(buttonID,ID){// add current person to the plan
     fetch(request)
         .then(function(res) {
             if (res.status === 200) {
-                //window.location.href = 'tripList.html';
+                Swal.fire(
+                    'Done!',
+                    'You just joined the plan!',
+                    'success'
+                ).then(result => {
+                    if (result.value) {
+                        jumpTo('plan_trip.html');
+                    }
+                })
             }
             else if(res.status === 500){
-                alert('You have already join this trip');
+                Swal.fire({
+                    title: 'You have already joined this plan!',
+                    icon: 'question',
+                    iconHtml: '!'
+                })
             }
             else {
-                alert('should not happened!');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!'
+                })
             }
         }).catch((error) => {
         log(error);
