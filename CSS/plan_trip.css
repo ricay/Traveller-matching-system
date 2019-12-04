@@ -45,23 +45,17 @@ body {
     left: 1200px;
 }
 
-#HotProject p {
+strong {
+    font-size: 125%;
 }
 
-.HotButton{
-    position: relative;
-    padding: 50px;
-    left: 50px;
-    height: 100px;
-    background-color: white;
-    display: flex;
-    float: left;
-    width: 100px;
+.btn-lg {
+    margin: 3px;
+    height: max-content;
+    width: 12vw;
+    text-align: center;
 }
-#HotPlaceTable{
-    position: absolute;
-    left: 20%
-}
+
 #description_place {
     transition-timing-function: linear;
     transition: 1s;

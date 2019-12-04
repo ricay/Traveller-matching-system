@@ -1,7 +1,5 @@
 const HotTable = document.getElementById('HotPlaceTable');
-var num_row = 0;
 var disPlayList = [];
-/*const row = HotTable.insertRow(num_row);*/
 var timer = null;
 var alpha = 100;
 var speed = 0;
@@ -16,7 +14,7 @@ function jumpTo(url) {
 function jumpAndPost(url) {
     const data = {
         location: document.getElementById('searchInterestedPlaces').value
-    }
+    };
     if (data.location) {
         const request = new Request('/plan/search', {
             method: 'post',
@@ -24,7 +22,7 @@ function jumpAndPost(url) {
             headers: {
                 'Content-type': 'application/json'
             }
-        })
+        });
         fetch(request)
             .then(function(res) {
                 if (res.status === 200) {
@@ -35,7 +33,7 @@ function jumpAndPost(url) {
 
             }).catch((error) => {
             log(error);
-        })
+        });
         jumpTo(url)
     } else{
         // alert('please enter a location')
@@ -47,10 +45,8 @@ function jumpAndPost(url) {
     }
 }
 
-
-
 function searchTrip(){
-    const searchPlace = document.querySelector('#searchInterestedPlaces')
+    const searchPlace = document.querySelector('#searchInterestedPlaces');
     const url = '/plans';
     fetch(url)
         .then((res) => {
@@ -62,28 +58,18 @@ function searchTrip(){
             }
         })
 }
+
 function addNewHotTable(place,index,text) {
     const row = HotTable.insertRow(index);
     const cell = row.insertCell(0);
     const Introduction = document.createElement('div');
     const HotButton = document.createElement('button');
-    HotButton.className = 'btn btn-outline-success my-2 my-sm-0';
-    // HotButton.style.backgroundColor = 'rgba(255,255,255,0.6)';
-    // HotButton.style.color= 'black';
+    HotButton.className = 'btn btn-lg btn-primary';
     HotButton.id = place;
     HotButton.appendChild(document.createTextNode(place));
     cell.appendChild(Introduction);
-    //*const Description = document.createElement('p');
-    //*const DescriptionText = document.createTextNode(text);
-    //*Description.appendChild(DescriptionText);
-
-    //* Description.style.margin = '5%';
-
     Introduction.appendChild(HotButton);
-    //*Introduction.appendChild(Description);
     document.getElementById(place).onclick = function(){changeBackground(place,text);}
-    //document.getElementById(place).onmouseover = function(){changeBackgroundstart();}
-    //document.getElementById(place).onmouseout = function(){changeBackgroundover();}
 }
 addNewHotTable('Santorini',0,"Santorini, officially Thira and classic Greek Thera, is an island in the southern Aegean Sea, about 200 km (120 mi) southeast of Greece's mainland. It is the largest island of a small, circular archipelago, which bears the same name and is the remnant of a volcanic caldera. It forms the southernmost member of the Cyclades group of islands, with an area of approximately 73 km2 (28 sq mi) and a 2011 census population of 15,550. The municipality of Santorini includes the inhabited islands of Santorini and Therasia, as well as the uninhabited islands of Nea Kameni, Palaia Kameni, Aspronisi and Christiana. The total land area is 90.623 km2 (34.990 sq mi).");
 addNewHotTable('Machu Picchu',1,"Machu Picchu is a 15th-century Inca citadel, located in the Eastern Cordillera of southern Peru, on a 2,430-metre (7,970 ft) mountain ridge. It is located in the Cusco Region, Urubamba Province, Machupicchu District, above the Sacred Valley, which is 80 kilometres (50 mi) northwest of Cuzco and through which the Urubamba River flows, cutting through the Cordillera and creating a canyon with a tropical mountain climate.\n");
@@ -92,16 +78,7 @@ function changeBackground(ID,text) {
     const description = document.getElementById('description_place');
     description.innerHTML = text;
 }
-function changeBackgroundover() {
-    startMove(0);
-}
-function changeBackgroundstart() {
 
-    startMove(100);
-
-
-
-}
 function searchATrip(e) {
     e.preventDefault();
     disPlayList = [];
@@ -142,6 +119,3 @@ function startMove(opTarget){
         }
     },50)
 }
-
-//*Machu Picchu is a 15th-century Inca citadel, located in the Eastern Cordillera of southern Peru, on a 2,430-metre (7,970 ft) mountain ridge. It is located in the Cusco Region, Urubamba Province, Machupicchu District, above the Sacred Valley, which is 80 kilometres (50 mi) northwest of Cuzco and through which the Urubamba River flows, cutting through the Cordillera and creating a canyon with a tropical mountain climate.
-//*Santorini, officially Thira and classic Greek Thera, is an island in the southern Aegean Sea, about 200 km (120 mi) southeast of Greece's mainland. It is the largest island of a small, circular archipelago, which bears the same name and is the remnant of a volcanic caldera. It forms the southernmost member of the Cyclades group of islands, with an area of approximately 73 km2 (28 sq mi) and a 2011 census population of 15,550. The municipality of Santorini includes the inhabited islands of Santorini and Therasia, as well as the uninhabited islands of Nea Kameni, Palaia Kameni, Aspronisi and Christiana. The total land area is 90.623 km2 (34.990 sq mi).

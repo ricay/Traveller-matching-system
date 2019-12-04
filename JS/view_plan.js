@@ -61,24 +61,15 @@ function loadMyPlan(){
         }).then((json) => {  // the resolved promise with the JSON body
         const plans = json.plans;
         log(plans);
-        for (let i=0;i<plans.length;i++){
-
-
-                addNewPlanToView(plans[i],index);
-                index++;
-
-
+        for (let i = 0;i < plans.length; i++){
+            addNewPlanToView(plans[i],index);
+            index++;
         }
-
-
     }).catch((error) => {
         log(error)
     })
 
 }
-
-
-
 
 function addNewPlanToView(Plan,index){
     if (index % 4 == 0){
@@ -86,7 +77,6 @@ function addNewPlanToView(Plan,index){
         row = myPlanTable.insertRow(num_row);
         num_row+=1;
     }
-
 
     const cell = row.insertCell(index % 4);
     //const content = document.getElementById('pinBoot');
@@ -123,13 +113,6 @@ function addNewPlanToView(Plan,index){
     deleteButton.innerHTML = 'Delete this plan';
     deleteButton.onclick = function(){deletePlan(Plan._id)};
 
-
-
-        //img.src = Plan.Img;
-    //img.alt = "";
-    //img.className = "place";
-
-    //plan.appendChild(img);
     plan.appendChild(StartPlace);
     plan.appendChild(EndPlace);
     plan.appendChild(MethodOfTravel);
@@ -140,14 +123,9 @@ function addNewPlanToView(Plan,index){
     plan.appendChild(Id);
     plan.appendChild(deleteButton);
 
-
-
-
     cell.appendChild(plan);
-
-    //document.getElementById(JoinButton.id).onclick = function(){changeNumPeople(JoinButton.id,planList)};
-
 }
+
 function deletePlan(ID) {
     log(ID);
     const url =  '/plan/'+ID;
