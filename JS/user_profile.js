@@ -35,7 +35,6 @@ function transit_pro(){
 }
 
 
-
 function logIn() {
     const welcomeBasicInfo = document.getElementById("welcome-basic-info");
     const newUser = document.getElementById("new_user");
@@ -103,10 +102,6 @@ function logIn() {
     });
 }
 
-// function replaceInfo(){
-//     const user=document.getElementById("userName").innerHTML=;
-// }
-
 
 onload = function () {
     url = '/getProfile';
@@ -150,11 +145,6 @@ onload = function () {
             new_ph.innerHTML=profile.phone;
             ph.appendChild(new_ph);
 
-            // const lan = document.getElementById("lan");
-            // const new_lan = document.createElement("p");
-            // new_lan.innerHTML=profile.userName;
-            // lan.appendChild(new_lan)
-
             const des = document.getElementById("des");
             const new_des = document.createElement("textarea");
             new_des.className="form-control";
@@ -162,27 +152,10 @@ onload = function () {
             new_des.innerHTML=profile.description;
             des.appendChild(new_des);
 
-            // const dash = document.getElementById("dash");
-            // const new_dash = document.createElement("h6");
-            // new_dash.innerHTML = profile.userName;
-            // dash.appendChild(new_dash);
-
             const dash2 = document.getElementById("dash");
             const new_dash2 = document.createElement("h7");
             new_dash2.innerHTML=profile.description;
             dash2.appendChild(new_dash2);
-
-            const dash3 = document.getElementById("dash");
-            const new_dash3 = document.createElement("h7");
-            new_dash3.innerHTML="Review of me:";
-            const new_dash4 = document.createElement("h7");
-            new_dash4.innerHTML="Rate of me:";
-            const new_dash5 = document.createElement("h7");
-            new_dash5.innerHTML="\n";
-            dash3.appendChild(new_dash3);
-           // dash3.appendChild(blank);
-            dash3.appendChild(new_dash4);
-            dash3.appendChild(new_dash5);
 
             const foot = document.getElementById("place");
             const newf = document.createElement("h5");
@@ -198,12 +171,5 @@ onload = function () {
             const newfe = document.createElement("h5");
             feel.innerHTML=profile.feel;
             feel.appendChild(newfe);
-
-
-
-
-
-
-
     })
-}
+};
