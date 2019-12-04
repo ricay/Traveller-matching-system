@@ -5,7 +5,7 @@ const log = console.log;
 
 var planList = [];
 
-const myPlanTable = document.getElementById('myPlanList');
+var myPlanTable = document.getElementById('myPlanList');
 var num_row = 0;
 var row;
 var index = 0;
@@ -80,7 +80,7 @@ function addNewPlanToView(Plan,index){
 
     const cell = row.insertCell(index % 4);
     //const content = document.getElementById('pinBoot');
-    const plan = document.createElement('div');
+    let plan = document.createElement('div');
     plan.className = "white-panel";
     plan.id = Plan.PlanID;
 
@@ -108,6 +108,15 @@ function addNewPlanToView(Plan,index){
     const Id = document.createElement('p');
     Id.innerHTML =Plan._id;
     Id.hidden = true;
+
+
+
+    log(Plan.poolMember);
+
+
+
+
+
     const deleteButton = document.createElement('button');
     deleteButton.className = "btn btn-lg btn-outline-danger";
     deleteButton.innerHTML = 'Delete this plan';
@@ -121,6 +130,12 @@ function addNewPlanToView(Plan,index){
     plan.appendChild(EndDate);
     plan.appendChild(Author);
     plan.appendChild(Id);
+    for(let i = 0; i<Plan.poolMember.length; i++){
+        const MemberEmail = document.createElement('p');
+        log(Plan.poolMember[i]);
+        MemberEmail.innerHTML = 'Member '+i + ' name: '+ Plan.poolMember[i].userName + ' email is ' + Plan.poolMember[i].email;
+        plan.appendChild(MemberEmail);
+    }
     plan.appendChild(deleteButton);
 
     cell.appendChild(plan);
