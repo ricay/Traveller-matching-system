@@ -184,17 +184,17 @@ onload = function () {
             dash3.appendChild(new_dash4);
             dash3.appendChild(new_dash5);
 
-            const foot = document.getElementById("placeName");
+            const foot = document.getElementById("place");
             const newf = document.createElement("h5");
             newf.innerHTML=profile.placeName;
             foot.appendChild(newf);
 
-            const date = document.getElementById("Date");
+            const date = document.getElementById("date");
             const newd = document.createElement("h5");
             newd.innerHTML=profile.data;
             date.appendChild(newd);
 
-            const feel = document.getElementById("feel");
+            const feel = document.getElementById("fe");
             const newfe = document.createElement("h5");
             feel.innerHTML=profile.fe;
             feel.appendChild(newfe);
