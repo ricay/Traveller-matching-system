@@ -196,7 +196,7 @@ onload = function () {
 
             const feel = document.getElementById("fe");
             const newfe = document.createElement("h5");
-            feel.innerHTML=profile.fe;
+            feel.innerHTML=profile.feel;
             feel.appendChild(newfe);
 
 
