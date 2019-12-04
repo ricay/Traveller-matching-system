@@ -370,7 +370,7 @@ app.put('/editProfile', (req, res) => {
     // const language = req.body.language;
     const description = req.body.description;
     const placeName = req.body.placeName;
-    const data = req.body.date;
+    const date = req.body.date;
     const fe = req.body.feel;
 
 
@@ -392,7 +392,7 @@ app.put('/editProfile', (req, res) => {
             // profile.language = language;
             profile.description = description;
             profile.placeName = placeName;
-            profile.data = data;
+            profile.date = date;
             profile.feel = fe;
 
             profile.save().then((result) => {
