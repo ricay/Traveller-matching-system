@@ -119,6 +119,11 @@ function addNewPlanToView(Plan,index){
     JoinButton.innerHTML = 'Join the Trip';
     JoinButton.id = Plan.PlanID;
 
+    const CreatorEmail = document.createElement('p');
+    CreatorEmail.innerHTML = 'Creator contact email is ' + Plan.creatoremail;
+
+
+
     const warnMessage = document.createElement("p");
     warnMessage.id = "warnMessage";
     warnMessage.style.color = "red";
@@ -137,6 +142,7 @@ function addNewPlanToView(Plan,index){
     plan.appendChild(StartDate);
     plan.appendChild(EndDate);
     plan.appendChild(Author);
+    plan.appendChild(CreatorEmail);
     plan.appendChild(NumPeople);
     plan.appendChild(JoinButton);
     plan.appendChild(warnMessage);

@@ -324,7 +324,15 @@ app.put('/addToPlan/:pid', (req, res) => {
 });
 
 
-
+app.get('/creator', (req, res) => {
+    Profile.find({userName: req.session.userName}).then((creator) => {
+        log(req.session.userName);
+        res.send({ creator }) // can wrap in object if want to add more properties
+        log(creator.email)
+    }, (error) => {
+        res.status(500).send(error) // server error
+    })
+});
 
 
 
