@@ -43,7 +43,6 @@ function editProfile(){
 
     // The data we are going to send in our request
     let data = {
-        userName: document.querySelector('#userName').value,
         firstName: document.querySelector('#firstName').value,
         lastName: document.querySelector('#lastName').value,
         gender: document.querySelector('#Gender').value,
