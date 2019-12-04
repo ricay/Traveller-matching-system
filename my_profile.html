@@ -138,15 +138,23 @@
 
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab" hidden="hidden">
                         <section id="pinBoot">
-                            <article class="white-panel"><img src="PIC/icon.png" alt="">
-                                <h4>Place name</h4>
-                                <h2>Date</h2>
-                                <p> Description  </p>
+                            <article class="white-panel">
+                                <div class="foot">
+                                    <h5>Add your footprint here!</h5>
+                                </div>
+                                <label class="col-md-5 control-label" for="placeName"><h4>Place name</h4></label>
+                                <input id="placeName" name="placeName" type="text" placeholder="placeName" class="form-control input-md">
+                                <label class="col-md-5 control-label" for="placeName"><h4>Date visited</h4></label>
+                                <input id="Date" name="Date" type="text" placeholder="Date" class="form-control input-md">
+                                <label class="col-md-5 control-label" for="placeName"><h4>Your thoughts</h4></label>
+                                <textarea class="form-control" rows="4"  id="feel" name="description" placeholder="max 50 words"></textarea>
                             </article>
                         </section>
 
                         <div class="row">
-                            <a class="welcome-button"  href="user_profile.html">Add more</a>
+<!--                            <a class="welcome-button"  href="user_profile.html">Add more</a>-->
+                            <button class="welcome-button" onclick="editProfile()"> Save </button>
+
                         </div>
                     </div>
                 </div>

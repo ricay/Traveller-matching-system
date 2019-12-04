@@ -115,6 +115,14 @@ body{
     margin-top: 10%;
     font-family: cursive;
 }
+.foot h5{
+    font-size: 25px;
+    color: #818182;
+    font-weight: 600;
+    margin-top: 10%;
+    font-family: cursive;
+}
+
 
 .profile-work ul{
     list-style: none;
