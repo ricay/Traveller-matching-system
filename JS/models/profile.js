@@ -28,8 +28,16 @@ const ProfileSchema = new mongoose.Schema({
     // },
     description: {
         type: String,
+    },
+    placeName: {
+        type: String,
+    },
+    date: {
+        type: String,
+    },
+    feel:{
+        type: String,
     }
-
 });
 
 ProfileSchema.statics.deleteByUserName = function(userName) {

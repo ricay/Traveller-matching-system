@@ -178,8 +178,18 @@ onload = function () {
             new_dash3.innerHTML="Review of me:";
             const new_dash4 = document.createElement("h7");
             new_dash4.innerHTML="Rate of me:";
+            const new_dash5 = document.createElement("h7");
+            new_dash5.innerHTML="\n";
             dash3.appendChild(new_dash3);
+           // dash3.appendChild(blank);
             dash3.appendChild(new_dash4);
+            dash3.appendChild(new_dash5);
+
+            const foot = document.getElementById("placeName");
+            const date = document.getElementById("Date");
+            const feel = document.getElementById("feel");
+
+
 
 
 
