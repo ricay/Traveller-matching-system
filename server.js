@@ -365,7 +365,6 @@ app.put('/editProfile', (req, res) => {
     const first = req.body.firstName;
     const last = req.body.lastName;
     const gender = req.body.gender;
-    const dob = req.body.birthday;
     const email = req.body.email;
     const phone = req.body.phone;
     // const language = req.body.language;
@@ -381,13 +380,13 @@ app.put('/editProfile', (req, res) => {
     Profile.findOne({userName:req.session.userName}).then(profile => {
         log(profile);
         if (!profile) {
+            log(1);
             res.status(404).send()
         } else {
             profile.userName = userName;
             profile.firstName = first;
             profile.lastName = last;
             profile.gender = gender;
-            profile.birthday = dob;
             profile.email = email;
             profile.phone = phone;
             // profile.language = language;
@@ -399,6 +398,7 @@ app.put('/editProfile', (req, res) => {
             profile.save().then((result) => {
                 res.send({result});
             }, (error) => {
+                log(2);
                 res.status(404).send(error)
             });
         }
