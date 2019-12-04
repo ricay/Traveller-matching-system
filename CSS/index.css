@@ -7,7 +7,10 @@
 	width: 30vw;
 	border-radius: 5%;
 	border-style: outset;
+	-webkit-animation: mymove 1s;
+	-webkit-animation-timing-function: ease;
 }
+
 
 .title-pic {
 	width: 100%;
@@ -21,6 +24,8 @@
 	font-weight: bolder;
 	text-align: center;
 	font-family: Helvetica, sans-serif;
+	-webkit-animation: mymove 1s;
+	-webkit-animation-timing-function: ease;
 }
 
 .gender-choice {
@@ -55,6 +60,8 @@
 	text-align: center;
 	text-decoration: none;
 	text-shadow:0 1px 20px #ffffff;
+	-webkit-animation: mymove 1s;
+	-webkit-animation-timing-function: ease;
 }
 
 .authorization-container {
@@ -63,10 +70,14 @@
 	margin-top: 2vh;
 	margin-left: 5vw;
 	margin-right: 5vw;
+	-webkit-animation: mymove 1s;
+	-webkit-animation-timing-function: ease;
 }
 
 #incorrect_message {
 	color: red;
+	-webkit-animation: mymove 1s;
+	-webkit-animation-timing-function: ease;
 }
 
 .intro-container {
@@ -80,4 +91,14 @@
 	display: flex;
 	justify-content: center;
 	font-size: 10px;
+}
+
+@-webkit-keyframes mymove {
+	from {opacity: 0}
+	to {opacity: 1}
+}
+
+@keyframes mymove {
+	from {opacity: 0}
+	to {opacity: 1}
 }

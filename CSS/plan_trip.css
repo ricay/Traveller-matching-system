@@ -43,8 +43,6 @@ body {
     position: absolute;
     top: 100px;
     left: 1200px;
-    mix-blend-mode: difference;
-    justify-content: center;
 }
 
 #HotProject p {
@@ -53,23 +51,40 @@ body {
 .HotButton{
     position: relative;
     padding: 50px;
-    left:50px;
+    left: 50px;
     height: 100px;
     background-color: white;
     display: flex;
     float: left;
     width: 100px;
-    justify-content: center;
 }
 #HotPlaceTable{
     position: absolute;
-    left:50%
+    left: 20%
 }
-#description_place{
-    background-color: rgba(255,255,255,0.7);
+#description_place {
+    transition-timing-function: linear;
+    transition: 1s;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.75);
     width: 600px;
-    height: 600px;
+    height: max-content;
     position: absolute;
     left: 500px;
     top: 200px;
+    font-family: cursive;
+    font-size: 120%;
+    border-radius: 20px;
+    -webkit-animation: mymove 1s;
+    -webkit-animation-timing-function: ease;
+}
+
+@-webkit-keyframes mymove {
+    from {top: 400px; opacity: 0}
+    to {top: 200px; opacity: 1}
+}
+
+@keyframes mymove {
+    from {top: 400px; opacity: 0}
+    to {top: 200px; opacity: 1}
 }

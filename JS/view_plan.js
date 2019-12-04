@@ -53,8 +53,8 @@ function loadMyPlan(){
         .then((res) => {
             if (res.status === 200) {
                 // return a promise that resolves with the JSON body
-                //log(res.json())
-;               return res.json();
+                //log(res.json());
+                return res.json();
             } else {
                 alert('Could not get my plans')
             }
@@ -94,7 +94,7 @@ function addNewPlanToView(Plan,index){
     plan.className = "white-panel";
     plan.id = Plan.PlanID;
 
-    plan.style.background = 'white';
+    plan.style.background = 'rgba(255, 255, 255, 0.8)';
     plan.style.height = 'max-content';
     plan.style.width = '20vw';
     plan.style.borderRadius = '5%';
@@ -119,7 +119,8 @@ function addNewPlanToView(Plan,index){
     Id.innerHTML =Plan._id;
     Id.hidden = true;
     const deleteButton = document.createElement('button');
-    deleteButton.innerHTML = 'Delete this plan'
+    deleteButton.className = "btn btn-lg btn-outline-danger";
+    deleteButton.innerHTML = 'Delete this plan';
     deleteButton.onclick = function(){deletePlan(Plan._id)};
 
 
