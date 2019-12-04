@@ -79,53 +79,5 @@ function editProfile(){
     })
 }
 
-app.put('/editProfile', (req, res) => {
-    const userName = req.body.userName;
-    const first = req.body.firstName;
-    const last = req.body.lastName;
-    const gender = req.body.gender;
-    const dob = req.body.birthday;
-    const email = req.body.email;
-    const phone = req.body.phone;
-    // const language = req.body.language;
-    const description = req.body.description;
-    const placeName = req.body.placeName;
-    const data = req.body.date;
-    const fe = req.body.fe;
-
-
-    log(req.session.userName);
-
-    //save to database
-    Profile.findOne({userName:req.session.userName}).then(profile => {
-        log(profile);
-        if (!profile) {
-            res.status(404).send()
-        } else {
-            profile.userName = userName;
-            profile.firstName = first;
-            profile.lastName = last;
-            profile.gender = gender;
-            profile.birthday = dob;
-            profile.email = email;
-            profile.phone = phone;
-            // profile.language = language;
-            profile.description = description;
-            profile.placeName = placeName;
-            profile.data = data;
-            profile.fe = fe;
-
-            profile.save().then((result) => {
-                res.send({result});
-            }, (error) => {
-                res.status(404).send(error)
-            });
-        }
-    }).catch((error) => {
-        log(2);
-        res.status(500).send()
-    });
-});
-
 
 

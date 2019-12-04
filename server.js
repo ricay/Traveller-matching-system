@@ -319,7 +319,6 @@ app.put('/addToPlan/:pid', (req, res) => {
             });
         }
 
-
     })
 });
 
@@ -334,20 +333,6 @@ app.get('/creator', (req, res) => {
     })
 });
 
-
-
-            //plan.save().then((result) => {
-                //res.send({result});
-            //}, (error) => {
-                //res.status(404).send(error)
-            //});
-        //}
-    //}).catch((error) => {
-        //log(2);
-        //res.status(500).send()
-    //});
-
-//})
 
 /* admin routes */
 app.post('/index/onload', (req, res) => {
@@ -385,6 +370,11 @@ app.put('/editProfile', (req, res) => {
     const phone = req.body.phone;
     // const language = req.body.language;
     const description = req.body.description;
+    const placeName = req.body.placeName;
+    const data = req.body.date;
+    const fe = req.body.fe;
+
+
     log(req.session.userName);
 
     //save to database
@@ -402,6 +392,9 @@ app.put('/editProfile', (req, res) => {
             profile.phone = phone;
             // profile.language = language;
             profile.description = description;
+            profile.placeName = placeName;
+            profile.data = data;
+            profile.fe = fe;
 
             profile.save().then((result) => {
                 res.send({result});
@@ -415,6 +408,8 @@ app.put('/editProfile', (req, res) => {
     });
 });
 
+
+/* a route for admin login*/
 app.post('/admin/login/:userName/:password', (req, res) => {
     const userName = req.params.userName;
     const password = req.params.password;
@@ -432,7 +427,7 @@ app.post('/admin/login/:userName/:password', (req, res) => {
     })
 });
 
-
+/*a route to get all users*/
 app.get('/admin/getUsers', (req, res) => {
     Profile.find().then((profiles) => {
         res.send({ profiles }) // can wrap in object if want to add more properties
