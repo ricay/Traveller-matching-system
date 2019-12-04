@@ -191,7 +191,7 @@ onload = function () {
 
             const date = document.getElementById("date");
             const newd = document.createElement("h5");
-            newd.innerHTML=profile.data;
+            newd.innerHTML=profile.date;
             date.appendChild(newd);
 
             const feel = document.getElementById("fe");
