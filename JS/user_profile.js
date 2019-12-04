@@ -186,8 +186,19 @@ onload = function () {
             dash3.appendChild(new_dash5);
 
             const foot = document.getElementById("placeName");
+            const newf = document.createElement("h5");
+            newf.innerHTML=profile.placeName;
+            foot.appendChild(newf);
+
             const date = document.getElementById("Date");
+            const newd = document.createElement("h5");
+            newd.innerHTML=profile.data;
+            date.appendChild(newd);
+
             const feel = document.getElementById("feel");
+            const newfe = document.createElement("h5");
+            feel.innerHTML=profile.fe;
+            feel.appendChild(newfe);
 
 
 
